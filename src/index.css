@@ -271,6 +271,11 @@ h1 + p, h2 + p, h3 + p {
     padding-top: 7rem !important; /* 112px instead of 128px */
   }
   
+  /* Extra mobile spacing for specific service pages that need more space */
+  .service-page section[class*="pt-32"] {
+    padding-top: 8rem !important; /* 128px for these specific service pages on mobile */
+  }
+  
   /* Reduce spacing between headlines and subheadings */
   h1 + p, h2 + p, h3 + p {
     margin-top: 0.75rem !important; /* 12px instead of default */
