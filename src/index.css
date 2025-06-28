@@ -166,6 +166,26 @@
   }
 }
 
+/* Global spacing adjustments for headlines and subheadings */
+h1 + p, h2 + p, h3 + p {
+  margin-top: 1rem !important; /* Reduced from default */
+}
+
+/* Hero section specific spacing */
+.hero-section h1 + p {
+  margin-top: 0.75rem !important;
+}
+
+/* Service page specific spacing */
+.service-page h1 + p {
+  margin-top: 1rem !important;
+}
+
+/* Technology page specific spacing */
+.technology-page h1 + p {
+  margin-top: 1rem !important;
+}
+
 /* Enhanced keyframes for better animations */
 @keyframes float {
   0%, 100% {
@@ -249,6 +269,21 @@
   
   section[class*="pt-32"] {
     padding-top: 7rem !important; /* 112px instead of 128px */
+  }
+  
+  /* Reduce spacing between headlines and subheadings */
+  h1 + p, h2 + p, h3 + p {
+    margin-top: 0.75rem !important; /* 12px instead of default */
+  }
+  
+  /* Reduce spacing in hero sections */
+  .hero-section h1 + p {
+    margin-top: 0.5rem !important; /* 8px for hero sections */
+  }
+  
+  /* Reduce spacing in service pages */
+  .service-page h1 + p {
+    margin-top: 0.75rem !important;
   }
   
   /* Specific mobile spacing for hero sections */
