@@ -14,7 +14,7 @@ export const Logo: React.FC<LogoProps> = (props) => {
   else imgClass = "h-20 md:h-24";
   return (
     <img
-      src="/TechSynapse.png"
+      src="/logo.png"
       alt="TechSynapse Logo"
       className={imgClass + " w-auto object-contain " + className}
       draggable={false}
