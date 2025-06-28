@@ -66,7 +66,7 @@ export const HeroSection = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section"
       onMouseMove={handleMouseMove}
     >
       {/* Background Images with Slideshow */}
@@ -105,7 +105,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-black/50"></div>
       
       {/* Full-width Headline at the Top, outside max-w-7xl */}
-      <div className="absolute top-0 left-0 w-full px-2 sm:px-4 md:px-12 pt-16 md:pt-32 pb-20 md:pb-28 text-center z-30">
+      <div className="absolute top-0 left-0 w-full px-2 sm:px-4 md:px-12 pt-24 md:pt-32 pb-20 md:pb-28 text-center z-30">
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white text-center w-full">
           <span className="block transition-all duration-700 ease-in-out transform hover:scale-105">
             {headlines[currentText]}

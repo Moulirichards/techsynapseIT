@@ -242,6 +242,25 @@
 }
 
 @media (max-width: 640px) {
+  /* Add extra mobile spacing for headlines to separate from navbar */
+  section[class*="pt-20"] {
+    padding-top: 6rem !important; /* 96px instead of 80px */
+  }
+  
+  section[class*="pt-32"] {
+    padding-top: 7rem !important; /* 112px instead of 128px */
+  }
+  
+  /* Specific mobile spacing for hero sections */
+  .hero-section {
+    padding-top: 6rem !important;
+  }
+  
+  /* Mobile spacing for page headers */
+  .page-header {
+    padding-top: 6rem !important;
+  }
+  
   .service-page h1 {
     margin-top: 2.5rem !important;
     margin-bottom: 0.7rem !important;
