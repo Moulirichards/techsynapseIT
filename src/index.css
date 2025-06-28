@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 262 83% 58%; /* Purple 500 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 81% 60%; /* Pink 500 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 25 95% 53%; /* Orange 500 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 67%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 88%;
+    --input: 220 30% 88%;
+    --ring: 262 83% 58%; /* Purple 500 */
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 262 30% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 262 83% 58%; /* Purple 500 */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 262 30% 95%;
+    --sidebar-accent-foreground: 262 60% 25%;
+    --sidebar-border: 220 20% 85%;
+    --sidebar-ring: 262 83% 58%; /* Purple 500 */
+
+    /* Interactive gradient colors */
+    --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    --gradient-secondary: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+    --gradient-tertiary: linear-gradient(135deg, #A855F7 0%, #8B5CF6 100%);
+    --gradient-accent: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 68%; /* Lighter purple for dark mode */
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 25 95% 63%; /* Orange 400 */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262 83% 68%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 262 83% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 262 83% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: auto;
+    scroll-padding-top: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+  }
+  
+  .gradient-tertiary {
+    background: linear-gradient(135deg, #A855F7 0%, #8B5CF6 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+  }
+  
+  .gradient-purple-pink {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  }
+  
+  .gradient-pink-orange {
+    background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+  }
+  
+  .gradient-purple-orange {
+    background: linear-gradient(135deg, #A855F7 0%, #F97316 100%);
+  }
+  
+  .interactive-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/25;
+  }
+  
+  .interactive-button {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 active:scale-95;
+  }
+  
+  .interactive-card {
+    @apply transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2;
+  }
+  
+  .glow-effect {
+    @apply shadow-lg shadow-primary/40 hover:shadow-primary/60;
+  }
+
+  .animate-scroll-in {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .scroll-animate {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/* Enhanced keyframes for better animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3), 0 0 10px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+}
+
+@keyframes moving-bg {
+  0% {
+    background-position: center top;
+  }
+  50% {
+    background-position: center 60%;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+
+/* Custom animations */
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-moving-bg {
+  animation: moving-bg 24s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .service-page h1 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .service-page .inline-flex {
+    padding: 0.5rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    border-radius: 0.75rem !important;
+  }
+  .service-page h2,
+  .technology-page h2 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .service-page h3,
+  .technology-page h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .service-page p,
+  .technology-page p,
+  .service-page li,
+  .technology-page li,
+  .service-page span,
+  .technology-page span {
+    font-size: 0.9rem !important;
+  }
+  .service-page section,
+  .technology-page section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .service-page .max-w-4xl,
+  .technology-page .max-w-4xl,
+  .service-page .max-w-5xl,
+  .technology-page .max-w-5xl,
+  .service-page .max-w-6xl,
+  .technology-page .max-w-6xl {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+  .service-page .p-6,
+  .technology-page .p-6 {
+    padding: 0.5rem !important;
+  }
+  .service-page .text-xl,
+  .technology-page .text-xl,
+  .service-page .text-2xl,
+  .technology-page .text-2xl,
+  .service-page .text-3xl,
+  .technology-page .text-3xl {
+    font-size: 1rem !important;
+  }
+  .service-page .text-4xl,
+  .technology-page .text-4xl {
+    font-size: 2rem !important;
+  }
+  .service-page .rounded-lg,
+  .technology-page .rounded-lg {
+    border-radius: 0.5rem !important;
+  }
+  .service-page .shadow,
+  .technology-page .shadow {
+    box-shadow: none !important;
+  }
+  .service-page .gap-8,
+  .technology-page .gap-8 {
+    gap: 1rem !important;
+  }
+  .service-page .mb-4,
+  .technology-page .mb-4 {
+    margin-bottom: 0.5rem !important;
+  }
+  .service-page .mb-6,
+  .technology-page .mb-6 {
+    margin-bottom: 0.75rem !important;
+  }
+  .service-page .py-12,
+  .technology-page .py-12 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .service-page .pt-24,
+  .technology-page .pt-24 {
+    padding-top: 1.5rem !important;
+  }
+  .service-page .pb-12,
+  .technology-page .pb-12 {
+    padding-bottom: 1rem !important;
+  }
+  .service-page .space-y-2,
+  .technology-page .space-y-2 {
+    row-gap: 0.25rem !important;
+  }
+  .service-page .space-y-4,
+  .technology-page .space-y-4 {
+    row-gap: 0.5rem !important;
+  }
+  .service-page .space-y-6,
+  .technology-page .space-y-6 {
+    row-gap: 0.75rem !important;
+  }
+  .service-page .space-y-8,
+  .technology-page .space-y-8 {
+    row-gap: 1rem !important;
+  }
+}

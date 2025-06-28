@@ -1,0 +1,34 @@
+const industries = [
+  { name: 'Automotive' },
+  { name: 'Ecommerce' },
+  { name: 'Education' },
+  { name: 'Finance' },
+  { name: 'Gaming' },
+  { name: 'Healthcare' },
+  { name: 'Manufacturing' },
+  { name: 'Real Estate' },
+  { name: 'Retail' },
+];
+
+export const IndustriesSection = () => (
+  <section className="py-20 bg-[linear-gradient(to_right,_#7deff6,_#0154b4)] text-white">
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+      <div className="text-center mb-8 md:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4">Industries We Serve</h2>
+        <p className="text-base md:text-xl text-white/80 max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
+          We deliver tailored solutions for a wide range of industries, helping businesses innovate and grow.
+        </p>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-6 justify-center">
+        {industries.map((industry) => (
+          <div
+            key={industry.name}
+            className="block bg-white/10 border border-white/20 rounded-xl p-3 md:p-6 text-center shadow-sm text-xs md:text-lg font-semibold text-white"
+          >
+            {industry.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+); 
