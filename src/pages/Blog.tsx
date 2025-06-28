@@ -15,7 +15,7 @@ const Blog = () => {
       date: "17-06-2025",
       author: "Sarah Johnson",
       excerpt: "For business leaders and fleet managers, vehicle relocation is a recurring challenge that requires business intelligence and strategic planning...",
-      image: "/public/container.jpg",
+      image: "/container.jpg",
       tags: ["Logistics", "Vehicle", "Strategy"],
       slug: "logistics-leaders-vehicle-relocation",
       readTime: "6 min read"
@@ -94,7 +94,7 @@ const Blog = () => {
       <section 
         className="pt-32 pb-16 relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/public/blogsbg.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/blogsbg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

@@ -42,7 +42,7 @@ const LogisticsLeadersVehicleRelocation = () => {
           </div>
           
           <img
-            src="/public/container.jpg"
+            src="/container.jpg"
             alt="Vehicle Logistics Management"
             className="w-full h-96 object-cover rounded-2xl shadow-lg mb-8"
             loading="lazy"

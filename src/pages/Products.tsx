@@ -105,7 +105,7 @@ const Products = () => {
       <section 
         className="pt-24 md:pt-32 pb-8 md:pb-16 relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/public/productsbg.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/productsbg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

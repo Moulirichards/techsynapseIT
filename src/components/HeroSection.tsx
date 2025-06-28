@@ -18,10 +18,10 @@ export const HeroSection = () => {
   ];
 
   const backgroundImages = [
-    '/public/herobg.jpg',
-    '/public/herobg1.jpg',
-    '/public/herobg2.jpg',
-    '/public/herobg3.jpg'
+    '/herobg.jpg',
+    '/herobg1.jpg',
+    '/herobg2.jpg',
+    '/herobg3.jpg'
   ];
 
   const features = [

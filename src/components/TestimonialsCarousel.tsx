@@ -66,7 +66,7 @@ export const TestimonialsCarousel = () => {
     <section 
       className="py-20 relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/public/testmonialbg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/testmonialbg.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

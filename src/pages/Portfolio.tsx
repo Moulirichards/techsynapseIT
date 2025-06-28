@@ -76,7 +76,7 @@ const Portfolio = () => {
       <section 
         className="pt-24 md:pt-32 pb-8 md:pb-16 relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/public/portfoliobg.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/portfoliobg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
