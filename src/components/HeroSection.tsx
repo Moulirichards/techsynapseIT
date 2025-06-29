@@ -115,7 +115,7 @@ export const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 pt-4 md:pt-12 z-20">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
           {/* Enhanced Content (without headline) */}
-          <div className={`w-full flex flex-col items-center text-center space-y-6 md:space-y-8 transition-all duration-1000 pt-4 md:pt-4 mt-12 md:mt-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}> 
+          <div className={`w-full flex flex-col items-center text-center space-y-6 md:space-y-8 transition-all duration-1000 pt-8 md:pt-12 mt-16 md:mt-32 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}> 
             <div className="space-y-3 md:space-y-4 pt-2 md:pt-0">
               <div className="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-xs md:text-sm font-medium text-blue-800 hover:scale-105 transition-transform cursor-pointer">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
