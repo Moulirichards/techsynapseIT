@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const faqs = [
   { q: 'What is CRM software and why does my business need it?', a: 'CRM (Customer Relationship Management) software helps you manage customer relationships, sales, and productivity, leading to improved customer retention and business growth.' },
-  { q: 'How is TechSynapse CRM different?', a: 'TechSynapse CRM is tailored to your business needs, scalable for startups to enterprises, and focuses on automation, collaboration, and actionable insights.' },
+  { q: 'How is Infocera CRM different?', a: 'Infocera CRM is tailored to your business needs, scalable for startups to enterprises, and focuses on automation, collaboration, and actionable insights.' },
   { q: 'Can I integrate CRM with my existing tools?', a: 'Yes, our CRM solutions are designed for seamless integration with your current business tools and platforms.' },
   { q: 'Is training and support provided?', a: 'Absolutely! We offer comprehensive onboarding, training, and ongoing support for your team.' },
 ];
@@ -62,7 +62,7 @@ export default function CRMSoftwareDevelopment() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-cyan-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for CRM?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for CRM?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow">Expert Team</div>
             <div className="bg-white p-4 rounded-xl shadow">Custom Solutions</div>
@@ -120,7 +120,7 @@ export default function CRMSoftwareDevelopment() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-cyan-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Customer Relationships?</h2>
-          <p className="mb-6">Contact TechSynapse today for a free consultation and see how our CRM solutions can drive your business forward.</p>
+          <p className="mb-6">Contact Infocera today for a free consultation and see how our CRM solutions can drive your business forward.</p>
           <Button size="lg" className="bg-white text-blue-700 font-bold shadow hover:bg-blue-100">Get a Free Quote</Button>
         </div>
       </section>

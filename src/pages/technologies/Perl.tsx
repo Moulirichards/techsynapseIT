@@ -89,7 +89,7 @@ export default function Perl() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-purple-100 to-purple-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for Perl Scripting?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for Perl Scripting?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-purple-900 mb-2" />Perl Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-purple-900 mb-2" />Cross-Platform</div>

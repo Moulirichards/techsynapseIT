@@ -49,7 +49,7 @@ const HybridAppDevelopment = () => {
 
         <section className="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose TechSynapse for Hybrid App Development?</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose Infocera for Hybrid App Development?</h2>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
               <li>One codebase for multiple platforms (iOS, Android, Windows)</li>
               <li>Cost-effective and quick to market</li>
@@ -70,7 +70,7 @@ const HybridAppDevelopment = () => {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 py-8">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Hybrid Apps by TechSynapse</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Hybrid Apps by Infocera</h2>
           <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
             <li>Broader audience reach</li>
             <li>Lower development and maintenance costs</li>

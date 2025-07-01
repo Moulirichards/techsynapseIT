@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const faqs = [
   { q: 'What types of software do you develop?', a: 'We develop custom web, mobile, enterprise, and cloud-based software tailored to your business needs.' },
-  { q: 'How does TechSynapse ensure software quality?', a: 'We follow industry best practices, agile methodologies, and rigorous testing to deliver robust, scalable, and secure software.' },
+  { q: 'How does Infocera ensure software quality?', a: 'We follow industry best practices, agile methodologies, and rigorous testing to deliver robust, scalable, and secure software.' },
   { q: 'Can you modernize legacy systems?', a: 'Yes, we specialize in legacy system modernization, migration, and integration with new technologies.' },
   { q: 'What is your development process?', a: 'Our process includes consultation, design, agile development, testing, deployment, and ongoing support.' },
 ];
@@ -62,7 +62,7 @@ export default function SoftwareDevelopment() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-cyan-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow">Experienced Developers</div>
             <div className="bg-white p-4 rounded-xl shadow">Agile Methodology</div>
@@ -120,7 +120,7 @@ export default function SoftwareDevelopment() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-cyan-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build Your Next Software Solution?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and let's turn your ideas into reality.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and let's turn your ideas into reality.</p>
           <Button size="lg" className="bg-white text-blue-700 font-bold shadow hover:bg-blue-100">Get Started</Button>
         </div>
       </section>

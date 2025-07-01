@@ -36,7 +36,7 @@ const UIUXDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-pink-900 mb-4">UI/UX DESIGN SERVICES</h2>
         <h3 className="text-xl font-bold text-pink-800 mb-6">We Create Exceptional User Experiences</h3>
-        <p className="text-gray-700 mb-8">We, at TechSynapse, understand that great design is not just about aesthetics but about creating meaningful user experiences that drive business growth. Our UI/UX design team studies your users, business goals, and market requirements to create designs that are both beautiful and functional.</p>
+        <p className="text-gray-700 mb-8">We, at Infocera, understand that great design is not just about aesthetics but about creating meaningful user experiences that drive business growth. Our UI/UX design team studies your users, business goals, and market requirements to create designs that are both beautiful and functional.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-pink-50 p-6 rounded-lg">
@@ -67,7 +67,7 @@ const UIUXDesign = () => (
       </div>
     </section>
 
-    {/* Why Choose TechSynapse UI/UX */}
+    {/* Why Choose Infocera UI/UX */}
     <section className="py-12 bg-pink-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-pink-900 mb-6">WHY CHOOSE TECH SYNAPSE FOR UI/UX DESIGN</h2>
@@ -108,7 +108,7 @@ const UIUXDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-pink-900 mb-6">OUR DESIGN PROCESS</h2>
         <h3 className="text-xl font-bold text-pink-800 mb-8">Systematic Approach to Design Excellence</h3>
-        <p className="text-gray-700 mb-8">TechSynapse follows a proven design process that ensures we deliver exceptional UI/UX designs that meet your business objectives and user needs.</p>
+        <p className="text-gray-700 mb-8">Infocera follows a proven design process that ensures we deliver exceptional UI/UX designs that meet your business objectives and user needs.</p>
         
         <div className="grid md:grid-cols-4 gap-6">
           <div className="bg-pink-50 p-6 rounded-lg shadow text-center">

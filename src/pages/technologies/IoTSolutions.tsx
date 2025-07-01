@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const faqs = [
   { q: 'What is IoT?', a: 'IoT (Internet of Things) refers to the network of interconnected devices that collect and exchange data.' },
-  { q: 'What IoT solutions do you offer?', a: 'TechSynapse provides end-to-end IoT solutions including device integration, cloud connectivity, analytics, and custom dashboards.' },
+  { q: 'What IoT solutions do you offer?', a: 'Infocera provides end-to-end IoT solutions including device integration, cloud connectivity, analytics, and custom dashboards.' },
   { q: 'What industries benefit from IoT?', a: 'Manufacturing, healthcare, logistics, smart homes, and agriculture are major adopters of IoT.' },
   { q: 'Do you offer IoT consulting?', a: 'Yes, we provide strategy, architecture, and implementation consulting for IoT projects.' },
 ];

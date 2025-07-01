@@ -13,17 +13,15 @@ import { ContactCTA } from '@/components/ContactCTA';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { IndustriesSection } from '@/components/IndustriesSection';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import QuotePopup from '@/components/QuotePopup';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showQuotePopup, setShowQuotePopup] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
     // Show popup only if not previously closed
     if (!localStorage.getItem('quotePopupClosed')) {
-      setShowQuotePopup(true);
+      // setShowQuotePopup(true);
     }
 
     // Intersection Observer for scroll animations
@@ -48,16 +46,10 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleCloseQuotePopup = () => {
-    setShowQuotePopup(false);
-    localStorage.setItem('quotePopupClosed', 'true');
-  };
-
   return (
     <div className={`min-h-screen transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <Navbar />
       <main className="relative">
-        <QuotePopup open={showQuotePopup} onClose={handleCloseQuotePopup} />
         <div className="relative z-10">
           <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out">
             <HeroSection />

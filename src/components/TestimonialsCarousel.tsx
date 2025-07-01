@@ -10,7 +10,7 @@ export const TestimonialsCarousel = () => {
       position: "CTO, TechCorp",
       company: "TechCorp Solutions",
       rating: 5,
-      text: "TechSynapse transformed our entire digital infrastructure. Their expertise in cloud migration and AI implementation exceeded our expectations.",
+      text: "Infocera transformed our entire digital infrastructure. Their expertise in cloud migration and AI implementation exceeded our expectations.",
       image: "https://i.pravatar.cc/150?img=47"
     },
     {
@@ -34,7 +34,7 @@ export const TestimonialsCarousel = () => {
       position: "Head of IT, FinEdge",
       company: "FinEdge Finance",
       rating: 5,
-      text: "The cybersecurity solutions from TechSynapse gave us peace of mind and protected our sensitive data. Highly recommended!",
+      text: "The cybersecurity solutions from Infocera gave us peace of mind and protected our sensitive data. Highly recommended!",
       image: "https://i.pravatar.cc/150?img=12"
     },
     {
@@ -42,7 +42,7 @@ export const TestimonialsCarousel = () => {
       position: "Product Manager, HealthSync",
       company: "HealthSync Solutions",
       rating: 5,
-      text: "From concept to launch, TechSynapse's team was proactive, creative, and always available. Our healthcare platform is now faster and more secure than ever.",
+      text: "From concept to launch, Infocera's team was proactive, creative, and always available. Our healthcare platform is now faster and more secure than ever.",
       image: "https://i.pravatar.cc/150?img=32"
     }
   ];

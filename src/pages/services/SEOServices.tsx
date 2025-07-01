@@ -33,8 +33,8 @@ const SEOServices = () => {
       {/* Why we are the Top SEO Company */}
       <section className="py-12 bg-white border-b">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Why Choose TechSynapse for SEO?</h2>
-          <p className="text-gray-700 mb-4">If your website isn't reaching your target audience, you're missing out on valuable business opportunities. At TechSynapse, we help you get discovered online and maximize your digital potential. Our SEO experts collaborate with digital marketing specialists to elevate your brand value through strategic planning and in-depth analysis. We've empowered numerous businesses to achieve higher rankings and greater ROI with our ethical, effective on-page and off-page SEO solutions.</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Why Choose Infocera for SEO?</h2>
+          <p className="text-gray-700 mb-4">If your website isn't reaching your target audience, you're missing out on valuable business opportunities. At Infocera, we help you get discovered online and maximize your digital potential. Our SEO experts collaborate with digital marketing specialists to elevate your brand value through strategic planning and in-depth analysis. We've empowered numerous businesses to achieve higher rankings and greater ROI with our ethical, effective on-page and off-page SEO solutions.</p>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ const SEOServices = () => {
       <section className="py-12 bg-gray-50 border-b">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Guaranteed SEO Results – Trusted by Leading Brands</h2>
-          <p className="text-gray-700 mb-4">Achieving top organic rankings builds trust and drives traffic. TechSynapse is recognized for delivering measurable SEO results that inspire confidence and help businesses grow.</p>
+          <p className="text-gray-700 mb-4">Achieving top organic rankings builds trust and drives traffic. Infocera is recognized for delivering measurable SEO results that inspire confidence and help businesses grow.</p>
           <p className="text-gray-700 mb-4">Our SEO specialists understand search engine technology, analyze search patterns, and define your target audience and keywords. We offer a full suite of SEO services, including:</p>
           <ul className="list-disc list-inside space-y-2 text-gray-800">
             <li>SEO Consultation</li>
@@ -104,7 +104,7 @@ const SEOServices = () => {
       <section className="py-12 bg-white border-b">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Competitor Analysis</h2>
-          <p className="text-gray-700 mb-4">TechSynapse's reputation as a top SEO company in Bangalore is built on years of expertise. Our SEO experts monitor your competitors' strategies, strengths, and weaknesses to give you a competitive edge through:</p>
+          <p className="text-gray-700 mb-4">Infocera's reputation as a top SEO company in Bangalore is built on years of expertise. Our SEO experts monitor your competitors' strategies, strengths, and weaknesses to give you a competitive edge through:</p>
           <ul className="list-disc list-inside space-y-2 text-gray-800">
             <li>Setting clear, strategic goals</li>
             <li>Continuous competitor review and analysis</li>
@@ -122,7 +122,7 @@ const SEOServices = () => {
       <section className="py-12 bg-gray-50 border-b">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Analytics & Insights</h2>
-          <p className="text-gray-700 mb-4">Collecting data is easy—gaining actionable insights is where TechSynapse excels. We analyze past and present data to define future strategies, interpreting mission-critical information to align your website with your audience's search behavior.</p>
+          <p className="text-gray-700 mb-4">Collecting data is easy—gaining actionable insights is where Infocera excels. We analyze past and present data to define future strategies, interpreting mission-critical information to align your website with your audience's search behavior.</p>
         </div>
       </section>
 
@@ -130,7 +130,7 @@ const SEOServices = () => {
       <section className="py-12 bg-white border-b">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Local Marketing</h2>
-          <p className="text-gray-700 mb-4">Get your business on the map and connect with ready-to-buy local customers. TechSynapse helps you achieve top local rankings, making it easy for customers to find and contact you.</p>
+          <p className="text-gray-700 mb-4">Get your business on the map and connect with ready-to-buy local customers. Infocera helps you achieve top local rankings, making it easy for customers to find and contact you.</p>
         </div>
       </section>
 
@@ -141,7 +141,7 @@ const SEOServices = () => {
           <ul className="list-disc list-inside space-y-2 text-gray-800">
             <li><strong>High-Quality Traffic:</strong> Our SEO strategies attract the right visitors to your site, increasing your chances of conversion and business growth.</li>
             <li><strong>Improved Rankings:</strong> We help your website climb search engine rankings, ensuring you're visible to your target audience.</li>
-            <li><strong>Lead Generation:</strong> SEO is a powerful tool for generating leads. With TechSynapse, you'll see more inquiries and opportunities from your online presence.</li>
+            <li><strong>Lead Generation:</strong> SEO is a powerful tool for generating leads. With Infocera, you'll see more inquiries and opportunities from your online presence.</li>
           </ul>
         </div>
       </section>

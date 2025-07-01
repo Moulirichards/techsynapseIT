@@ -49,7 +49,7 @@ const XamarinAppDevelopment = () => {
 
         <section className="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose TechSynapse for Xamarin App Development?</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose Infocera for Xamarin App Development?</h2>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
               <li>Native performance with shared codebase</li>
               <li>Cost-effective and faster time-to-market</li>
@@ -70,7 +70,7 @@ const XamarinAppDevelopment = () => {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 py-8">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Xamarin Apps by TechSynapse</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Xamarin Apps by Infocera</h2>
           <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
             <li>Reduced development costs</li>
             <li>Faster deployment</li>

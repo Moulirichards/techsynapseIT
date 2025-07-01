@@ -38,7 +38,7 @@ const Culture = () => {
               Our Culture
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              At TechSynapse, we've built a culture that values innovation, collaboration, and personal growth. 
+              At Infocera, we've built a culture that values innovation, collaboration, and personal growth. 
               Join us in creating the future of technology.
             </p>
           </div>

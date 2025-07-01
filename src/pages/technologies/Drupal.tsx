@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   { q: 'What is Drupal?', a: 'Drupal is a powerful open-source content management system (CMS) for building complex, scalable, and secure websites.' },
   { q: 'Is Drupal good for enterprises?', a: 'Yes, Drupal is trusted by governments, universities, and large organizations for its flexibility and security.' },
-  { q: 'Do you offer Drupal migration?', a: 'Yes, TechSynapse provides migration, upgrade, and support services for Drupal sites.' },
+  { q: 'Do you offer Drupal migration?', a: 'Yes, Infocera provides migration, upgrade, and support services for Drupal sites.' },
   { q: 'Can you build custom Drupal modules?', a: 'Absolutely! We develop custom modules and themes tailored to your business needs.' },
 ];
 

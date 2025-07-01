@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Users, Target, Award, Globe, Rocket, Cloud, TrendingUp } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 // Iconic Moments in Our History Section
 const iconicMoments = [
@@ -9,7 +9,7 @@ const iconicMoments = [
     year: 2015,
     icon: <Rocket size={80} stroke="#22d3ee" strokeWidth={1.5} />,
     title: '2015',
-    description: 'TechSynapse is founded by a small team of passionate technologists with a vision to drive business growth through technology.'
+    description: 'Infocera is founded by a small team of passionate technologists with a vision to drive business growth through technology.'
   },
   {
     year: 2017,
@@ -39,7 +39,7 @@ const iconicMoments = [
     year: 2025,
     icon: <Globe size={80} stroke="#818cf8" strokeWidth={1.5} />,
     title: '2025',
-    description: 'Looking ahead to new horizons, TechSynapse continues to drive innovation and deliver value to clients worldwide.'
+    description: 'Looking ahead to new horizons, Infocera continues to drive innovation and deliver value to clients worldwide.'
   }
 ];
 
@@ -60,7 +60,7 @@ function IconicMomentsSection() {
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-4xl font-semibold text-center text-white mb-4">Iconic Moments in Our History</h2>
         <p className="text-xl text-center text-blue-100 mb-12 max-w-3xl mx-auto">
-        From a humble garage to a global tech partner, TechSynapse transformed vision into reality. Empowering startups and enterprises alike, we've shaped digital journeys with innovation at every step.
+        From a humble garage to a global tech partner, Infocera transformed vision into reality. Empowering startups and enterprises alike, we've shaped digital journeys with innovation at every step.
         </p>
         {/* Timeline */}
         <div className="relative flex items-center justify-center mb-16">
@@ -127,6 +127,90 @@ function IconicMomentsSection() {
   );
 }
 
+// Culture cards data
+const cultureCards = [
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#38bdf8" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    ),
+    title: 'Care',
+    text: `At Infocera, care is the foundation of a strong, unified team and exceptional outcomes. We believe true care begins with meaningful communication — from acknowledging presence in team channels to responding promptly and showing empathy. By staying present and supportive, we cultivate a culture of trust and connection that drives us forward together.`
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#facc15" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m0 0c-2.21 0-4-1.79-4-4H6a6 6 0 0012 0h-2c0 2.21-1.79 4-4 4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 6h8" />
+      </svg>
+    ),
+    title: 'Learn',
+    text: `We are committed to continuous learning, as it is essential to achieving our goals. We encourage our employees to cultivate a growth mindset, believing that we can always learn and improve. - As limiting beliefs can prevent us from reaching our full potential, we overcome them by taking risks, trying new things, and focusing on growth and development.`
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fbbf24" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 21h8M12 17v4m-4-4a4 4 0 018 0m-8 0V5a4 4 0 018 0v12" />
+      </svg>
+    ),
+    title: 'Achieve',
+    text: `Having clear goals is crucial to achieving success. At Infocera, we don't tolerate problems that stand in the way of our goals. We diagnose the root causes of these problems, design plans to overcome them, and take action to bring these plans to completion. Action leads to clarity, motivation, ideas, inspiration, and increased faith in our goals, shaping who we are.`
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#60a5fa" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 8a3 3 0 11-6 0 3 3 0 016 0zm-6 8a3 3 0 100-6 3 3 0 000 6zm12-3a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.59 13.51l6.83-3.02M8.59 10.49l6.83 3.02" />
+      </svg>
+    ),
+    title: 'Share',
+    text: `In this context, everyone's an expert in their own life experiences. At Infocera, we recognize the power of collaborating knowledge and expertise to achieve success. Our team members are encouraged to share their ideas, skills, and knowledge with colleagues and clients alike. We foster an environment of collaboration, where everyone's input is valued, and teamwork is key.`
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#a78bfa" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M1.5 12s3.75-7.5 10.5-7.5S22.5 12 22.5 12s-3.75 7.5-10.5 7.5S1.5 12 1.5 12z" />
+        <circle cx="12" cy="12" r="3" stroke="#a78bfa" strokeWidth="1.5" fill="none" />
+      </svg>
+    ),
+    title: 'Transparency',
+    text: `We believe in open communication and sharing information freely. Transparency builds trust, encourages collaboration, and ensures everyone is aligned and empowered to do their best work.`
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#34d399" className="w-12 h-12 mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3C7.03 3 3 7.03 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-4.97-4.03-9-9-9zm0 0v9m0 0l3.5 3.5M12 12l-3.5 3.5" />
+      </svg>
+    ),
+    title: 'Social Responsibility',
+    text: `At Infocera, we take social responsibility seriously. Being a responsible corporate citizen means giving back to the community and positively impacting society. We strive to integrate social responsibility into every aspect of our business and work to support charitable causes and promote sustainability. With a commitment to integrity, we aim to create a better world for all.`
+  }
+];
+
+// Custom hook for count up animation
+function useCountUp(target, duration = 1200, start = 0) {
+  const [count, setCount] = React.useState(start);
+  const ref = useRef();
+  React.useEffect(() => {
+    let frame;
+    let startTime;
+    function animate(ts) {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      setCount(Math.floor(progress * (target - start) + start));
+      if (progress < 1) {
+        frame = requestAnimationFrame(animate);
+      } else {
+        setCount(target);
+      }
+    }
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [target, duration, start]);
+  return count;
+}
+
 const About = () => {
   const stats = [
     { icon: Users, label: 'Team Members', value: '150+' },
@@ -169,6 +253,10 @@ const About = () => {
   ];
 
   const [isBrochureHovered, setIsBrochureHovered] = useState(false);
+  const [cardSet, setCardSet] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const autoPlayRef = React.useRef(autoPlay);
+  autoPlayRef.current = autoPlay;
 
   useEffect(() => {
     // Intersection Observer for scroll animations (copied from Index.tsx)
@@ -189,6 +277,24 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!autoPlay) return;
+    const interval = setInterval(() => {
+      setCardSet((prev) => (prev === 0 ? 1 : 0));
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [autoPlay]);
+
+  const handleArrow = (dir) => {
+    setCardSet((prev) => {
+      if (dir === 'left') return prev === 0 ? 1 : 0;
+      if (dir === 'right') return prev === 1 ? 0 : 1;
+      return prev;
+    });
+    setAutoPlay(false);
+    setTimeout(() => setAutoPlay(true), 6000);
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
@@ -205,7 +311,7 @@ const About = () => {
       >
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">About Techsynapse</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">About Infocera</h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 tracking-wide font-medium mb-2">We are a passionate team dedicated to delivering innovative technology solutions.</p>
           </div>
         </div>
@@ -218,6 +324,9 @@ const About = () => {
             {stats.map((stat, index) => {
               const isSecondRowMobile = index >= 2;
               const isNotFirstColDesktop = index % 4 !== 0;
+              // Extract number from stat.value (e.g., '150+' -> 150)
+              const num = parseInt(stat.value.replace(/\D/g, ''));
+              const count = useCountUp(num);
               return (
                 <div
                   key={stat.label}
@@ -230,7 +339,10 @@ const About = () => {
                   <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[linear-gradient(135deg,_#13303d_0%,_#4fd1c5_100%)] rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-4">
                     <stat.icon className="h-5 w-5 sm:h-8 sm:w-8 text-white" />
                   </div>
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">{stat.value}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
+                    {count}
+                    {stat.value.replace(/\d+/g, '')}
+                  </div>
                   <div className="text-xs sm:text-base text-gray-700">{stat.label}</div>
                 </div>
               );
@@ -240,29 +352,20 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out pt-16 md:pt-36 pb-12 md:pb-24 bg-[#13303d] relative z-10" style={{ transitionDelay: '200ms' }}>
+      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ transitionDelay: '200ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="bg-[linear-gradient(135deg,_#13303d_0%,_#4fd1c5_100%)] rounded-xl shadow-2xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100 flex flex-col items-center w-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:shadow-blue-400/50 cursor-pointer">
+          <div className="rounded-xl shadow-2xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100 flex flex-col items-center w-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:shadow-blue-400/50 cursor-pointer">
             <div className="w-full">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md mb-2 md:mb-4">Our Story</h2>
               <div className="space-y-4 text-blue-100 drop-shadow-md text-justify text-base md:text-lg leading-relaxed">
                 <p>
-                  TechSynapse began in a small garage with a big dream in 2015: to empower businesses through technology. Our founders, a group of passionate technologists, believed that innovation and dedication could transform the way companies operate and grow. From the very beginning, our mission has been to deliver solutions that not only solve problems but also create new opportunities for our clients.
+                  At INFOCERA, our journey began with a simple yet powerful mission: to deliver intelligent technology solutions that make a real difference. Driven by a passionate team of engineers, developers, and domain experts, we've grown into a trusted partner for startups, small businesses, government agencies, and large enterprises alike. From custom mobile apps and web development to data visualization, IoT, and full-scale IT consulting, we craft solutions that are innovative, impactful, and people-centered.
                 </p>
                 <p>
-                  Over the years, we have evolved from a startup into a global technology partner, serving clients across industries and continents. Our journey has been marked by a relentless pursuit of excellence, a commitment to our core values, and a culture that celebrates creativity, collaboration, and continuous learning.
+                  Our story is built on core values of dedication, integrity, and collaboration. We don't just solve problems — we listen, understand, and align our work with your vision. Every project we take on is an opportunity to create lasting value and build long-term partnerships. By staying ahead of the curve and delivering consistent excellence, we've earned a reputation for overcoming even the most complex challenges with empathy and expertise. At INFOCERA, we're not just building technology — we're building the future, together.
                 </p>
                 <p>
-                  <strong>Our Mission:</strong> To drive digital transformation for businesses of all sizes by providing innovative, reliable, and scalable technology solutions.
-                </p>
-                <p>
-                  <strong>Our Vision:</strong> To be a global leader in technology services, recognized for our expertise, integrity, and impact on the success of our clients.
-                </p>
-                <p>
-                  <strong>Our Values:</strong> Innovation, Integrity, Excellence, Collaboration, and Customer Success.
-                </p>
-                <p>
-                  Today, TechSynapse is proud to have a diverse team of experts, a portfolio of successful projects, and a reputation for delivering results. We continue to embrace new challenges, invest in emerging technologies, and build lasting partnerships with our clients. Our story is one of growth, resilience, and a shared passion for making a difference through technology.
+                  With every new challenge, we evolve — exploring emerging technologies and embracing continuous learning. Our cross-functional teams work seamlessly to transform ideas into robust, scalable solutions. We take pride in designing experiences that are not only functional but also intuitive and engaging. Client success is our true benchmark, and we measure ours by the impact we help create. As we move forward, our story continues to grow — fueled by innovation, guided by purpose, and grounded in trust.
                 </p>
               </div>
             </div>
@@ -353,53 +456,48 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 bg-[#13303d]" style={{ transitionDelay: '600ms' }}>
+      {/* culture Section */}
+      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Leadership Team</h2>
-            <p className="text-xl text-blue-100">Meet the visionaries behind TechSynapse's success</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Culture: Class, Care, Learn, Achieve, Share, Social Responsibility and Transparency</h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <div key={member.name} className="text-center animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top"
-                />
-                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                <p className="text-cyan-200 font-medium mb-3">{member.position}</p>
-                <p className="text-blue-100">{member.bio}</p>
+          <div className="relative flex justify-center gap-6 flex-wrap items-center">
+            <button
+              aria-label="Previous"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-gray-900 rounded-full p-2 shadow transition z-10"
+              onClick={() => handleArrow('left')}
+              style={{left: '-40px'}}
+            >
+              <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            {cultureCards.slice(cardSet * 3, cardSet * 3 + 3).map((card, idx) => (
+              <div key={card.title} className="bg-white/10 border border-white/60 rounded-xl p-2 md:p-3 max-w-xs w-full min-h-[420px] text-center shadow-lg flex flex-col items-center transition-all duration-200 hover:border-white hover:bg-white/20 hover:shadow-xl">
+                {card.icon}
+                <h3 className="text-xl font-bold text-white mb-2">{card.title}</h3>
+                <p className="text-blue-100 text-sm md:text-base">{card.text}</p>
               </div>
+            ))}
+            <button
+              aria-label="Next"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-gray-900 rounded-full p-2 shadow transition z-10"
+              onClick={() => handleArrow('right')}
+              style={{right: '-40px'}}
+            >
+              <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+          <div className="flex justify-center mt-6">
+            {[0, 1].map((i) => (
+              <span
+                key={i}
+                className={`mx-2 transition-all duration-500 rounded-full ${cardSet === i ? 'w-6 h-3 bg-white/90 opacity-100' : 'w-3 h-3 bg-white/50 opacity-60'} inline-block`}
+                style={{ boxShadow: cardSet === i ? '0 0 8px 2px #fff' : 'none' }}
+              />
             ))}
           </div>
         </div>
       </section>
-
-      {/* Leadership Highlight Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out w-full bg-gray-100 pt-12 pb-2 px-4 flex flex-col md:flex-row items-center gap-8 mb-0" style={{ transitionDelay: '700ms' }}>
-        <div className="relative flex-shrink-0">
-          <span className="absolute left-0 top-1/2 -translate-y-1/2 w-56 h-56 bg-[#6ee7b7] rounded-full -z-10"></span>
-          <img
-            src="https://images.pexels.com/photos/1138903/pexels-photo-1138903.jpeg?auto=compress&w=400&h=400&fit=crop"
-            alt="Founder & CEO"
-            className="w-56 h-56 rounded-full object-cover border-4 border-white relative z-10"
-          />
-        </div>
-        <div className="flex-1 text-gray-900">
-          <div className="text-5xl leading-none mb-4 text-gray-400">"</div>
-          <p className="text-2xl font-medium mb-4">
-          "For us, true innovation means delivering solutions that don't just meet today's needs, but also anticipate tomorrow's opportunities for our clients."
-          </p>
-          <div className="mt-6">
-            <div className="font-bold text-lg">Ben Smith</div>
-            <div className="text-blue-900 text-base">Founder & CEO</div>
-          </div>
-        </div>
-      </section>
-      <section className="w-full bg-[#13303d] h-2 m-0 p-0"></section>
 
       <Footer />
     </div>

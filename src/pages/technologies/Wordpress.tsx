@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   { q: 'What is WordPress?', a: 'WordPress is the world\'s most popular open-source content management system (CMS) for building websites and blogs.' },
   { q: 'Is WordPress good for businesses?', a: 'Yes, WordPress is ideal for businesses of all sizes, from startups to enterprises, due to its flexibility and scalability.' },
-  { q: 'Do you build custom WordPress themes?', a: 'Absolutely! TechSynapse creates custom themes and plugins tailored to your brand and business needs.' },
+  { q: 'Do you build custom WordPress themes?', a: 'Absolutely! Infocera creates custom themes and plugins tailored to your brand and business needs.' },
   { q: 'Do you offer WordPress maintenance?', a: 'Yes, we provide ongoing support, updates, and security for WordPress sites.' },
 ];
 
@@ -33,7 +33,7 @@ export default function Wordpress() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-blue-900 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">WordPress Development</h1>
-          <p className="text-xl mb-6">Flexible, scalable, and user-friendly websites with WordPress by TechSynapse.</p>
+          <p className="text-xl mb-6">Flexible, scalable, and user-friendly websites with WordPress by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-blue-900 font-bold shadow hover:bg-blue-100">Start Your WordPress Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function Wordpress() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-blue-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for WordPress?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for WordPress?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-blue-900 mb-2" />WordPress Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-blue-900 mb-2" />Mobile-First</div>
@@ -117,7 +117,7 @@ export default function Wordpress() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build with WordPress?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how WordPress can power your next project.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how WordPress can power your next project.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-blue-900 font-bold shadow hover:bg-blue-100">Get Started</Button>
           </Link>

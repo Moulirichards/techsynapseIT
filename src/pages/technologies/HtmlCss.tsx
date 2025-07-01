@@ -10,7 +10,7 @@ const faqs = [
   { q: 'What is HTML5?', a: 'HTML5 is the latest version of the HyperText Markup Language, used for structuring and presenting content on the web.' },
   { q: 'What is CSS3?', a: 'CSS3 is the latest evolution of Cascading Style Sheets, used for designing and visually enhancing web pages.' },
   { q: 'Are HTML5 and CSS3 mobile-friendly?', a: 'Yes, they enable responsive, mobile-first web design for all devices.' },
-  { q: 'Do you offer custom web design?', a: 'Absolutely! TechSynapse creates custom, interactive, and visually stunning websites using HTML5 and CSS3.' },
+  { q: 'Do you offer custom web design?', a: 'Absolutely! Infocera creates custom, interactive, and visually stunning websites using HTML5 and CSS3.' },
 ];
 
 const industries = [

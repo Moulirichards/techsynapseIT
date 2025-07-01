@@ -276,8 +276,8 @@ export const Footer = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
           {/* Logo & Company Info */}
           <div className="flex flex-col space-y-4 lg:col-span-3">
-            <div className="flex items-center">
-              <div className="text-9xl font-extrabold text-white drop-shadow-lg"><Logo size='xl' className="h-32 md:h-40" /></div>
+            <div className="w-full h-full flex justify-center items-center" style={{maxWidth: 'none', maxHeight: 'none', gridColumn: 'auto', gridRow: 'auto', overflow: 'visible'}}>
+              <Logo size='xl' className="h-[60rem] w-[60rem] object-contain" />
             </div>
             <p className="text-gray-100 text-base md:text-lg font-medium leading-snug max-w-2xl drop-shadow mt-2">
               Leading IT services provider delivering <span className="text-brand-primary font-bold">innovative technology solutions</span> that drive business growth and digital transformation.
@@ -285,21 +285,21 @@ export const Footer = () => {
             <div className="space-y-2 mt-2">
               <div className="flex items-center space-x-3">
                 <Phone className="h-6 w-6 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">+1 (555) 123-4567</span>
+                <span className="text-gray-200 text-lg font-medium">+91 8815587953</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">hello@techflow.com</span>
+                <span className="text-gray-200 text-lg font-medium">info@infocera.com</span>
               </div>
               <div className="flex items-center space-x-3 mb-1">
-                <MapPin className="h-6 w-6 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">Times Square, New York, NY, USA</span>
+                <MapPin className="h-12 w-12 text-brand-primary" />
+                <span className="text-gray-200 text-lg font-medium">8th Floor , HB TWIN TOWER Netaji subhash place, PITAMPURA DELHI, 110034</span>
               </div>
               {/* Google Maps Embed */}
               <div className="w-full max-w-xs aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-1">
                 <iframe
-                  title="TechSynapse Location"
-                  src="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA&output=embed"
+                  title="Infocera Location"
+                  src="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -310,7 +310,7 @@ export const Footer = () => {
               </div>
               <div className="flex justify-center mt-0">
                 <a
-                  href="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA"
+                  href="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-0 px-3 py-1.5 bg-brand-primary text-white rounded-lg font-semibold shadow hover:bg-brand-primary/90 transition text-sm"
@@ -471,7 +471,7 @@ export const Footer = () => {
         <hr className="border-t border-gray-700 w-full mt-20 mb-2" />
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <p className="text-gray-400 text-sm">
-            © {currentYear} TechSynapse. All rights reserved.
+            © {currentYear} Infocera. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
@@ -503,21 +503,21 @@ export const Footer = () => {
             <div className="space-y-2 mt-2">
               <div className="flex items-center space-x-2 justify-center">
                 <Phone className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-200 text-xs font-medium">+1 (555) 123-4567</span>
+                <span className="text-gray-200 text-xs font-medium">+91 8815587953</span>
               </div>
               <div className="flex items-center space-x-2 justify-center">
                 <Mail className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-200 text-xs font-medium">hello@techflow.com</span>
+                <span className="text-gray-200 text-xs font-medium">info@infocera.com</span>
               </div>
               <div className="flex items-center space-x-2 mb-2 justify-center">
-                <MapPin className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-200 text-xs font-medium">Times Square, New York, NY, USA</span>
+                <MapPin className="h-10 w-10 text-brand-primary" />
+                <span className="text-gray-200 text-xs font-medium">8th Floor , HB TWIN TOWER Netaji subhash place, PITAMPURA DELHI, 110034</span>
               </div>
               {/* Google Maps Embed */}
               <div className="w-full max-w-[120px] aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-2">
                 <iframe
                   title="TechSynapse Location"
-                  src="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA&output=embed"
+                  src="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -528,7 +528,7 @@ export const Footer = () => {
               </div>
               <div className="flex justify-center">
                 <a
-                  href="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA"
+                  href="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-1 px-3 py-2 bg-brand-primary text-white rounded-lg font-semibold shadow hover:bg-brand-primary/90 transition text-xs"
@@ -685,7 +685,7 @@ export const Footer = () => {
         <hr className="border-t border-gray-700 w-full mt-10 mb-2" />
         <div className="flex flex-col items-center w-full gap-y-4">
           <p className="text-gray-400 text-xs text-center">
-            © {currentYear} TechSynapse. All rights reserved.
+            © {currentYear} Infocera. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-2">
             <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">

@@ -33,7 +33,7 @@ export default function Java() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-green-900 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Java (J2EE, J2SE, Swing, Servlet) Development</h1>
-          <p className="text-xl mb-6">Build scalable enterprise and desktop applications with TechSynapse's Java expertise.</p>
+          <p className="text-xl mb-6">Build scalable enterprise and desktop applications with Infocera's Java expertise.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-green-900 font-bold shadow hover:bg-blue-100">Start Your Java Project</Button>
           </Link>

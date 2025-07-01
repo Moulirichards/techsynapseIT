@@ -36,7 +36,7 @@ const BrochureDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-teal-900 mb-4">BROCHURE DESIGN SERVICES</h2>
         <h3 className="text-xl font-bold text-teal-800 mb-6">We Create Compelling Marketing Materials</h3>
-        <p className="text-gray-700 mb-8">We, at TechSynapse, understand that brochures are powerful marketing tools that can make or break your business impression. Our brochure design team combines creative design with strategic marketing principles to create brochures that not only look great but also drive results.</p>
+        <p className="text-gray-700 mb-8">We, at Infocera, understand that brochures are powerful marketing tools that can make or break your business impression. Our brochure design team combines creative design with strategic marketing principles to create brochures that not only look great but also drive results.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-teal-50 p-6 rounded-lg">
@@ -67,12 +67,12 @@ const BrochureDesign = () => (
       </div>
     </section>
 
-    {/* Why Choose TechSynapse Brochure Design */}
+    {/* Why Choose Infocera Brochure Design */}
     <section className="py-12 bg-teal-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-teal-900 mb-6">WHY CHOOSE TECH SYNAPSE FOR BROCHURE DESIGN</h2>
         <h3 className="text-xl font-bold text-teal-800 mb-8">Creative Excellence & Strategic Design</h3>
-        <p className="text-gray-700 mb-8">Leading businesses trust TechSynapse for their brochure design needs as we combine artistic creativity with strategic marketing thinking to deliver brochures that drive results.</p>
+        <p className="text-gray-700 mb-8">Leading businesses trust Infocera for their brochure design needs as we combine artistic creativity with strategic marketing thinking to deliver brochures that drive results.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="text-center p-6">
@@ -108,7 +108,7 @@ const BrochureDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-teal-900 mb-6">OUR BROCHURE DESIGN PROCESS</h2>
         <h3 className="text-xl font-bold text-teal-800 mb-8">Systematic Approach to Design Excellence</h3>
-        <p className="text-gray-700 mb-8">TechSynapse follows a proven brochure design process that ensures we deliver exceptional brochures that effectively communicate your message and achieve your marketing goals.</p>
+        <p className="text-gray-700 mb-8">Infocera follows a proven brochure design process that ensures we deliver exceptional brochures that effectively communicate your message and achieve your marketing goals.</p>
         
         <div className="grid md:grid-cols-4 gap-6">
           <div className="bg-teal-50 p-6 rounded-lg shadow text-center">

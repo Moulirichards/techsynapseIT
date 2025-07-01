@@ -9,7 +9,7 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What services does TechSynapse offer?",
+      question: "What services does Infocera offer?",
       answer: "TechSynapse offers a comprehensive range of technology services including web development, mobile app development, cloud solutions, AI/ML implementation, cybersecurity, and data analytics."
     },
     {

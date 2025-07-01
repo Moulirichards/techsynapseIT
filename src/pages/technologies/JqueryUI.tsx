@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   { q: 'What is jQuery UI?', a: 'jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of jQuery.' },
   { q: 'Is jQuery UI still relevant?', a: 'jQuery UI is still used for legacy projects and quick UI enhancements, though modern frameworks are preferred for new apps.' },
-  { q: 'Do you support jQuery UI migration?', a: 'Yes, TechSynapse offers migration and modernization services for jQuery UI-based projects.' },
+  { q: 'Do you support jQuery UI migration?', a: 'Yes, Infocera offers migration and modernization services for jQuery UI-based projects.' },
   { q: 'Can you build custom widgets with jQuery UI?', a: 'Absolutely! We create custom, interactive UI widgets using jQuery UI and modern JavaScript.' },
 ];
 
@@ -33,7 +33,7 @@ export default function JqueryUI() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-gray-800 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">jQuery UI Development</h1>
-          <p className="text-xl mb-6">Enhance your web projects with interactive, cross-browser UI widgets using jQuery UI by TechSynapse.</p>
+          <p className="text-xl mb-6">Enhance your web projects with interactive, cross-browser UI widgets using jQuery UI by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-gray-800 font-bold shadow hover:bg-blue-100">Start Your Web Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function JqueryUI() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-blue-100 to-gray-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for jQuery UI?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for jQuery UI?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-gray-800 mb-2" />jQuery UI Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-gray-800 mb-2" />Mobile-First</div>
@@ -117,7 +117,7 @@ export default function JqueryUI() {
       <section className="py-16 bg-gradient-to-r from-gray-800 to-blue-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Enhance Your Web Project?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how jQuery UI can add interactivity to your website.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how jQuery UI can add interactivity to your website.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-gray-800 font-bold shadow hover:bg-blue-100">Get Started</Button>
           </Link>

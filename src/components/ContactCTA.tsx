@@ -26,15 +26,15 @@ export const ContactCTA = () => {
             <div className="space-y-2 md:space-y-4">
               <div className="flex items-center space-x-2 md:space-x-3">
                 <Phone className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">+1 (555) 123-4567</span>
+                <span className="text-xs md:text-base text-white">+91 8815587953</span>
               </div>
               <div className="flex items-center space-x-2 md:space-x-3">
                 <Mail className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">hello@techflow.com</span>
+                <span className="text-xs md:text-base text-white">info@infocera.com</span>
               </div>
               <div className="flex items-center space-x-2 md:space-x-3">
                 <MapPin className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">123 Tech Street, Innovation City, TC 12345</span>
+                <span className="text-xs md:text-base text-white">8th Floor , HB TWIN TOWER Netaji subhash place, PITAMPURA DELHI, 110034</span>
               </div>
             </div>
           </div>

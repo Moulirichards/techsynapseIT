@@ -8,6 +8,7 @@ const industries = [
   { name: 'Manufacturing' },
   { name: 'Real Estate' },
   { name: 'Retail' },
+  { name: 'Logistics' },
 ];
 
 export const IndustriesSection = () => (
@@ -23,7 +24,7 @@ export const IndustriesSection = () => (
         {industries.map((industry) => (
           <div
             key={industry.name}
-            className="block bg-white/10 border border-white/20 rounded-xl p-3 md:p-6 text-center shadow-sm text-xs md:text-lg font-semibold text-white"
+            className="block bg-white/10 border border-white/60 rounded-xl p-3 md:p-6 text-center shadow-sm text-xs md:text-lg font-semibold text-white transition-all duration-200 hover:border-white hover:bg-white/20 hover:shadow-lg"
           >
             {industry.name}
           </div>

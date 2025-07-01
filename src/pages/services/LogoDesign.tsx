@@ -36,7 +36,7 @@ const LogoDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-4">LOGO DESIGN SERVICES</h2>
         <h3 className="text-xl font-bold text-yellow-800 mb-6">We Create Memorable Brand Identities</h3>
-        <p className="text-gray-700 mb-8">We, at TechSynapse, understand that a logo is the visual foundation of your brand identity. Our logo design team combines creativity with strategic thinking to create logos that not only look great but also communicate your brand values and resonate with your target audience.</p>
+        <p className="text-gray-700 mb-8">We, at Infocera, understand that a logo is the visual foundation of your brand identity. Our logo design team combines creativity with strategic thinking to create logos that not only look great but also communicate your brand values and resonate with your target audience.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-yellow-50 p-6 rounded-lg">
@@ -67,12 +67,12 @@ const LogoDesign = () => (
       </div>
     </section>
 
-    {/* Why Choose TechSynapse Logo Design */}
+    {/* Why Choose Infocera Logo Design */}
     <section className="py-12 bg-yellow-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-6">WHY CHOOSE TECH SYNAPSE FOR LOGO DESIGN</h2>
         <h3 className="text-xl font-bold text-yellow-800 mb-8">Creative Excellence & Strategic Design</h3>
-        <p className="text-gray-700 mb-8">Leading businesses trust TechSynapse for their logo design needs as we combine artistic creativity with strategic brand thinking to deliver logos that make lasting impressions.</p>
+        <p className="text-gray-700 mb-8">Leading businesses trust Infocera for their logo design needs as we combine artistic creativity with strategic brand thinking to deliver logos that make lasting impressions.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="text-center p-6">
@@ -108,7 +108,7 @@ const LogoDesign = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-6">OUR LOGO DESIGN PROCESS</h2>
         <h3 className="text-xl font-bold text-yellow-800 mb-8">Systematic Approach to Creative Excellence</h3>
-        <p className="text-gray-700 mb-8">TechSynapse follows a proven logo design process that ensures we deliver exceptional logos that perfectly represent your brand identity.</p>
+        <p className="text-gray-700 mb-8">Infocera follows a proven logo design process that ensures we deliver exceptional logos that perfectly represent your brand identity.</p>
         
         <div className="grid md:grid-cols-4 gap-6">
           <div className="bg-yellow-50 p-6 rounded-lg shadow text-center">

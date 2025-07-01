@@ -33,14 +33,14 @@ const LeadManagementSystem = () => (
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-cyan-900 mb-4">What is Lead Management?</h2>
-        <p className="text-gray-700 mb-4">Lead Management is the process of capturing, tracking, distributing, and nurturing leads throughout the sales cycle. TechSynapse's Lead Management System automates and streamlines every step, from lead capture to assignment to closure, ensuring no opportunity is missed.</p>
+        <p className="text-gray-700 mb-4">Lead Management is the process of capturing, tracking, distributing, and nurturing leads throughout the sales cycle. Infocera's Lead Management System automates and streamlines every step, from lead capture to assignment to closure, ensuring no opportunity is missed.</p>
       </div>
     </section>
 
     {/* Why Lead Management? */}
     <section className="py-12 bg-cyan-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-cyan-900 mb-4">Why Choose TechSynapse Lead Management?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-cyan-900 mb-4">Why Choose Infocera Lead Management?</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-800">
           <li>Capture leads automatically from multiple sources</li>
           <li>Distribute and assign leads to the right team members</li>
@@ -78,10 +78,10 @@ const LeadManagementSystem = () => (
       </div>
     </section>
 
-    {/* Benefits of TechSynapse Lead Management */}
+    {/* Benefits of Infocera Lead Management */}
     <section className="py-12 bg-cyan-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-cyan-900 mb-4">Benefits of TechSynapse Lead Management</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-cyan-900 mb-4">Benefits of Infocera Lead Management</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-800">
           <li>Convert more leads into paying customers</li>
           <li>Automate and streamline your sales process</li>

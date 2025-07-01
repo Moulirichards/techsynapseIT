@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   { q: 'What is Joomla?', a: 'Joomla is a flexible, open-source content management system (CMS) for building websites and online applications.' },
   { q: 'Is Joomla good for small businesses?', a: 'Yes, Joomla is ideal for small businesses, non-profits, and enterprises seeking a robust CMS.' },
-  { q: 'Do you offer Joomla migration?', a: 'Yes, TechSynapse provides migration, upgrade, and support services for Joomla sites.' },
+  { q: 'Do you offer Joomla migration?', a: 'Yes, Infocera provides migration, upgrade, and support services for Joomla sites.' },
   { q: 'Can you build custom Joomla extensions?', a: 'Absolutely! We develop custom extensions and templates tailored to your needs.' },
 ];
 

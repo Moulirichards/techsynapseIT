@@ -178,7 +178,7 @@ export const Navbar = () => {
   // Add main navigation links to search
   const mainNavLinks = [
     { type: 'Page', name: 'Home', path: '/' },
-    { type: 'Page', name: 'About', path: '/about' },
+    { type: 'Page', name: 'About Us', path: '/about' },
     { type: 'Page', name: 'Products', path: '/products' },
     { type: 'Page', name: 'Portfolio', path: '/portfolio' },
     { type: 'Page', name: 'Careers', path: '/careers' },
@@ -267,20 +267,20 @@ export const Navbar = () => {
   }, [languageOpen]);
 
   return (
-    <nav className="fixed top-0 w-full bg-black shadow-lg z-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+    <nav className="fixed top-0 w-full bg-black shadow-lg z-50 relative">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 md:pl-0">
+        <div className="flex items-center h-16 md:h-20 md:justify-between">
           {/* Mobile Menu Button - left aligned */}
-          <div className="flex items-center w-full md:w-auto">
+          <div className="flex items-center w-full md:w-auto md:-ml-8">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 mr-2"
             >
               {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
             </button>
-            <Link to="/" className="flex items-center space-x-2 py-2 max-h-full">
-              <span className="block md:hidden"><Logo size="md" /></span>
-              <span className="hidden md:block"><Logo size="lg" /></span>
+            <Link to="/" className="flex items-center space-x-2 py-2 max-h-full md:pl-0 md:ml-0">
+              <span className="block md:hidden"><Logo size="xl" className="h-9 w-9" /></span>
+              <span className="hidden md:block"><Logo size="xl" className="h-36 w-36" /></span>
             </Link>
           </div>
 
@@ -355,12 +355,12 @@ export const Navbar = () => {
 
           {/* Desktop Menu (with search beside Contact Us) */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            <Link to="/" className="text-white hover:text-blue-300 transition-colors">Home</Link>
-            <Link to="/about" className="text-white hover:text-blue-300 transition-colors">About</Link>
+            <Link to="/" className="text-white hover:text-blue-300 transition-colors font-semibold">Home</Link>
+            <Link to="/about" className="text-white hover:text-blue-300 transition-colors font-semibold">About Us</Link>
             
             <div className="relative" ref={servicesRef}>
               <button
-                className={`flex items-center text-white hover:text-blue-300 transition-colors ${activeDropdown === 'services' ? 'text-blue-300' : ''}`}
+                className={`flex items-center text-white hover:text-blue-300 transition-colors font-semibold ${activeDropdown === 'services' ? 'text-blue-300' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'services'}
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
@@ -400,7 +400,7 @@ export const Navbar = () => {
 
             <div className="relative" ref={technologiesRef}>
               <button
-                className={`flex items-center text-white hover:text-blue-300 transition-colors ${activeDropdown === 'technologies' ? 'text-blue-300' : ''}`}
+                className={`flex items-center text-white hover:text-blue-300 transition-colors font-semibold ${activeDropdown === 'technologies' ? 'text-blue-300' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'technologies'}
                 onClick={() => setActiveDropdown(activeDropdown === 'technologies' ? null : 'technologies')}
@@ -443,7 +443,7 @@ export const Navbar = () => {
               onMouseEnter={() => setActiveDropdown('industries')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center text-white hover:text-blue-300 transition-colors">
+              <button className="flex items-center text-white hover:text-blue-300 transition-colors font-semibold">
                 Industries <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {activeDropdown === 'industries' && (
@@ -460,11 +460,10 @@ export const Navbar = () => {
               )}
             </div>
 
-            <Link to="/products" className="text-white hover:text-blue-300 transition-colors">Products</Link>
-            <Link to="/portfolio" className="text-white hover:text-blue-300 transition-colors">Portfolio</Link>
-            <Link to="/careers" className="text-white hover:text-blue-300 transition-colors">Careers</Link>
+            <Link to="/portfolio" className="text-white hover:text-blue-300 transition-colors font-semibold">Portfolio</Link>
+            <Link to="/careers" className="text-white hover:text-blue-300 transition-colors font-semibold">Careers</Link>
             <div className="flex items-center space-x-2">
-              <Link to="/contact" className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300">Contact Us</Link>
+              <Link to="/contact" className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold">Contact Us</Link>
               {/* Desktop: Search Icon */}
               <div className="hidden md:block relative">
                 <button
@@ -473,25 +472,55 @@ export const Navbar = () => {
                 >
                   <Search className="h-5 w-5" />
                 </button>
-                {/* Languages Icon (Desktop) with Dropdown */}
-                <div className="inline-block relative" ref={languageRef}>
-                  <button className="p-2 text-white hover:text-blue-300 focus:outline-none ml-1" onClick={() => setLanguageOpen((v) => !v)}>
-                    <Languages className="h-5 w-5" />
-                  </button>
-                  {languageOpen && (
-                    <div className="absolute right-0 mt-2 w-36 bg-black rounded-xl shadow-2xl z-50 p-2 border border-gray-800 animate-fade-in">
-                      {languages.map(lang => (
-                        <button
-                          key={lang.code}
-                          className="block w-full text-left px-4 py-2 text-white hover:bg-blue-900/30 rounded-lg transition-colors"
-                          onClick={() => setLanguageOpen(false)}
-                        >
-                          {lang.label}
-                        </button>
-                      ))}
+                {searchOpen && (
+                  <div ref={searchRef} className="absolute right-0 mt-2 w-64 bg-black rounded-xl shadow-2xl z-50 p-3 border border-gray-800 animate-fade-in">
+                    <div className="relative mb-2">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                        <Search className="h-4 w-4" />
+                      </span>
+                      <input
+                        autoFocus
+                        type="text"
+                        className="w-full pl-9 pr-3 py-2 border border-gray-700 rounded-lg text-white bg-black focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all duration-200 shadow-sm placeholder-gray-400"
+                        placeholder="Search..."
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                      />
                     </div>
-                  )}
-                </div>
+                    {searchResults.length > 0 ? (
+                      <ul className="divide-y divide-gray-800">
+                        {searchResults.map((item, idx) => (
+                          <li key={idx} className="py-2 px-3 hover:bg-blue-900/30 rounded-lg transition-colors cursor-pointer">
+                            <Link to={item.path} className="text-blue-300 font-medium flex items-center gap-2" onClick={() => { setSearchOpen(false); setSearchTerm(''); }}>
+                              <span className="truncate">{item.name}</span> <span className="text-xs text-gray-400">({item.type})</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : searchTerm.trim() !== '' ? (
+                      <div className="text-gray-400 text-sm px-2 py-2">No results found.</div>
+                    ) : null}
+                  </div>
+                )}
+              </div>
+              {/* Languages Icon (Desktop) with Dropdown */}
+              <div className="inline-block relative" ref={languageRef}>
+                <button className="p-2 text-white hover:text-blue-300 focus:outline-none ml-1" onClick={() => setLanguageOpen((v) => !v)}>
+                  <Languages className="h-5 w-5" />
+                </button>
+                {languageOpen && (
+                  <div className="absolute right-0 mt-2 w-36 bg-black rounded-xl shadow-2xl z-50 p-2 border border-gray-800 animate-fade-in">
+                    {languages.map(lang => (
+                      <button
+                        key={lang.code}
+                        className="block w-full text-left px-4 py-2 text-white hover:bg-blue-900/30 rounded-lg transition-colors"
+                        onClick={() => setLanguageOpen(false)}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -501,7 +530,7 @@ export const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-2 animate-fade-in w-full bg-black rounded-b-lg shadow-lg z-50">
             <Link to="/" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">Home</Link>
-            <Link to="/about" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">About</Link>
+            <Link to="/about" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">About Us</Link>
             <Accordion type="multiple" className="mb-2">
               <AccordionItem value="services">
                 <AccordionTrigger className="text-white">Services</AccordionTrigger>
@@ -554,7 +583,6 @@ export const Navbar = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-            <Link to="/products" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">Products</Link>
             <Link to="/portfolio" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">Portfolio</Link>
             <Link to="/careers" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">Careers</Link>
             <Link to="/contact" className="block py-2 px-2 text-white hover:text-blue-300 text-base transition-colors">Contact</Link>

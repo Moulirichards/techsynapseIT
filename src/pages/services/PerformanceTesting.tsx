@@ -48,7 +48,7 @@ const PerformanceTesting = () => {
                 Performance testing is a type of software testing that evaluates how a system performs in terms of responsiveness and stability under a particular workload. It helps identify bottlenecks, scalability issues, and performance degradation points in your applications.
               </p>
               <p className="text-lg text-gray-700 mb-6">
-                At TechSynapse, we provide comprehensive performance testing services that ensure your applications can handle expected user loads, maintain optimal performance, and scale efficiently as your business grows.
+                At Infocera, we provide comprehensive performance testing services that ensure your applications can handle expected user loads, maintain optimal performance, and scale efficiently as your business grows.
               </p>
               <div className="flex items-center gap-4">
                 <CheckCircle className="text-green-500 h-6 w-6" />

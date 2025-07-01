@@ -9,7 +9,7 @@ const DigitalMarketing = () => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
         <div className="w-full">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Digital Marketing</h1>
-          <p className="text-xl mb-8">TechSynapse empowers brands to connect with their audiences through complete digital transformation. We elevate your online presence with a blend of performance-driven strategies, creative campaigns, and the latest digital marketing methodologies.</p>
+          <p className="text-xl mb-8">Infocera empowers brands to connect with their audiences through complete digital transformation. We elevate your online presence with a blend of performance-driven strategies, creative campaigns, and the latest digital marketing methodologies.</p>
           <div className="flex flex-row items-center gap-4 md:block">
             <button className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl shadow hover:bg-blue-100 transition-all duration-300">Get a Free Consultation</button>
             <span className="inline-block md:hidden">
@@ -35,7 +35,7 @@ const DigitalMarketing = () => (
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">What is Digital Marketing?</h2>
-        <p className="text-gray-700 mb-4">Digital Marketing is the process of promoting brands and businesses using digital channels and technologies. It includes SEO, SEM, content marketing, campaign promotions, e-commerce advertising, and extends to social media, email, and other digital media. TechSynapse leverages these channels to help you reach, engage, and convert your target audience.</p>
+        <p className="text-gray-700 mb-4">Digital Marketing is the process of promoting brands and businesses using digital channels and technologies. It includes SEO, SEM, content marketing, campaign promotions, e-commerce advertising, and extends to social media, email, and other digital media. Infocera leverages these channels to help you reach, engage, and convert your target audience.</p>
       </div>
     </section>
 
@@ -84,10 +84,10 @@ const DigitalMarketing = () => (
       </div>
     </section>
 
-    {/* Benefits of TechSynapse Digital Marketing */}
+    {/* Benefits of Infocera Digital Marketing */}
     <section className="py-12 bg-gray-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Benefits of TechSynapse Digital Marketing</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Benefits of Infocera Digital Marketing</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-800">
           <li>Acquire new visitors and customers</li>
           <li>Expand your reach to a global audience</li>

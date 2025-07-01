@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   { q: 'What is Node.js?', a: 'Node.js is a runtime environment that allows you to run JavaScript on the server, enabling fast and scalable backend development.' },
   { q: 'Is Node.js good for APIs?', a: 'Yes, Node.js is ideal for building RESTful APIs, real-time applications, and microservices.' },
-  { q: 'Do you build full-stack apps with Node.js?', a: 'Absolutely! TechSynapse delivers full-stack solutions using Node.js, React, and other modern technologies.' },
+  { q: 'Do you build full-stack apps with Node.js?', a: 'Absolutely! Infocera delivers full-stack solutions using Node.js, React, and other modern technologies.' },
   { q: 'Do you offer Node.js support?', a: 'Yes, we provide ongoing support, maintenance, and optimization for Node.js applications.' },
 ];
 
@@ -33,7 +33,7 @@ export default function NodeJSDevelopment() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-green-900 to-green-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Node.js Development</h1>
-          <p className="text-xl mb-6">Fast, scalable, and modern backend solutions with Node.js by TechSynapse.</p>
+          <p className="text-xl mb-6">Fast, scalable, and modern backend solutions with Node.js by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-green-900 font-bold shadow hover:bg-green-100">Start Your Node.js Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function NodeJSDevelopment() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-green-100 to-green-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for Node.js?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for Node.js?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-green-900 mb-2" />Node.js Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-green-900 mb-2" />Mobile-Ready</div>
@@ -117,7 +117,7 @@ export default function NodeJSDevelopment() {
       <section className="py-16 bg-gradient-to-r from-green-900 to-green-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build with Node.js?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how Node.js can power your next project.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how Node.js can power your next project.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-green-900 font-bold shadow hover:bg-green-100">Get Started</Button>
           </Link>

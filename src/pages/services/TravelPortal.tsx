@@ -60,7 +60,7 @@ export default function TravelPortal() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-cyan-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow">Timely Delivery</div>
             <div className="bg-white p-4 rounded-xl shadow">Custom Solutions</div>
@@ -117,7 +117,7 @@ export default function TravelPortal() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-cyan-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Travel Business?</h2>
-          <p className="mb-6">Contact TechSynapse for a free demo and discover how our travel portals can boost your business.</p>
+          <p className="mb-6">Contact Infocera for a free demo and discover how our travel portals can boost your business.</p>
           <Button size="lg" className="bg-white text-blue-700 font-bold shadow hover:bg-blue-100">Get a Free Demo</Button>
         </div>
       </section>

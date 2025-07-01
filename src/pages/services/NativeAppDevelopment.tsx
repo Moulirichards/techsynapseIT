@@ -49,7 +49,7 @@ const NativeAppDevelopment = () => {
 
         <section className="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose TechSynapse for Native App Development?</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose Infocera for Native App Development?</h2>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
               <li>Timely delivery of projects and fast performance</li>
               <li>High degree of reliability and flexibility</li>
@@ -72,7 +72,7 @@ const NativeAppDevelopment = () => {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 py-8">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Native Apps by TechSynapse</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-800">Benefits of Native Apps by Infocera</h2>
           <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
             <li>Unmatched performance and speed</li>
             <li>Access to all device hardware and features</li>

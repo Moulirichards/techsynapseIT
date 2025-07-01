@@ -33,7 +33,7 @@ const SEOCopywriting = () => (
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-4">What is SEO Copywriting?</h2>
-        <p className="text-gray-700 mb-4">SEO Copywriting is the art and science of creating content that is both valuable to your audience and optimized for search engines. It involves strategic keyword placement, engaging storytelling, and a focus on driving organic visibility for your website. With TechSynapse, your content will not only rank higher but also convert more visitors into customers.</p>
+        <p className="text-gray-700 mb-4">SEO Copywriting is the art and science of creating content that is both valuable to your audience and optimized for search engines. It involves strategic keyword placement, engaging storytelling, and a focus on driving organic visibility for your website. With Infocera, your content will not only rank higher but also convert more visitors into customers.</p>
       </div>
     </section>
 
@@ -76,10 +76,10 @@ const SEOCopywriting = () => (
       </div>
     </section>
 
-    {/* Benefits of TechSynapse SEO Copywriting */}
+    {/* Benefits of Infocera SEO Copywriting */}
     <section className="py-12 bg-gray-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-4">Benefits of TechSynapse SEO Copywriting</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-4">Benefits of Infocera SEO Copywriting</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-800">
           <li>Boost your website's search engine rankings</li>
           <li>Attract and retain more visitors with valuable content</li>

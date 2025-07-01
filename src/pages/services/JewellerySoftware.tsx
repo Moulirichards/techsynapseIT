@@ -47,7 +47,7 @@ const JewellerySoftware = () => {
 
         <section className="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose TechSynapse?</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-800">Why Choose Infocera?</h2>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
               <li>Custom solutions for jewellery businesses</li>
               <li>Experienced team with deep industry knowledge</li>

@@ -8,7 +8,7 @@ const faqs = [
   { q: 'What is a restaurant web portal?', a: 'A restaurant web portal is an online platform for managing reservations, menus, orders, and customer engagement.' },
   { q: 'Can you integrate online ordering and delivery?', a: 'Yes, we offer seamless integration with online ordering, delivery, and payment gateways.' },
   { q: 'Is the portal mobile-friendly?', a: 'All our restaurant portals are fully responsive and optimized for mobile devices.' },
-  { q: 'Do you provide ongoing support?', a: 'Yes, TechSynapse offers continuous support, updates, and training for your staff.' },
+  { q: 'Do you provide ongoing support?', a: 'Yes, Infocera offers continuous support, updates, and training for your staff.' },
 ];
 
 export default function RestaurantWebPortal() {
@@ -60,7 +60,7 @@ export default function RestaurantWebPortal() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-cyan-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow">Industry Experience</div>
             <div className="bg-white p-4 rounded-xl shadow">Custom Integrations</div>
@@ -117,7 +117,7 @@ export default function RestaurantWebPortal() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-cyan-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Elevate Your Restaurant Experience?</h2>
-          <p className="mb-6">Contact TechSynapse for a free demo and see how our portals can transform your business.</p>
+          <p className="mb-6">Contact Infocera for a free demo and see how our portals can transform your business.</p>
           <Button size="lg" className="bg-white text-blue-700 font-bold shadow hover:bg-blue-100">Get a Free Demo</Button>
         </div>
       </section>

@@ -1,1 +1,1 @@
-# TechSynapse Project
+# Infocera Project

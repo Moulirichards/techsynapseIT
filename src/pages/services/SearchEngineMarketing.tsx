@@ -73,7 +73,7 @@ const SearchEngineMarketing = () => {
             </div>
             <div className="bg-orange-50 p-6 rounded-lg shadow">
               <h3 className="text-xl font-bold text-orange-800 mb-2">PPC Services</h3>
-              <p className="text-gray-700 mb-2">TechSynapse delivers high-performance Pay-Per-Click (PPC) campaigns that maximize your ROI by targeting qualified leads and optimizing every click.</p>
+              <p className="text-gray-700 mb-2">Infocera delivers high-performance Pay-Per-Click (PPC) campaigns that maximize your ROI by targeting qualified leads and optimizing every click.</p>
             </div>
           </div>
         </div>

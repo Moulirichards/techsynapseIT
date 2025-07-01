@@ -33,7 +33,7 @@ export default function AngularJsJs() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-red-700 to-yellow-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">AngularJS & JavaScript Development</h1>
-          <p className="text-xl mb-6">Build dynamic, interactive, and scalable web apps with AngularJS and JavaScript by TechSynapse.</p>
+          <p className="text-xl mb-6">Build dynamic, interactive, and scalable web apps with AngularJS and JavaScript by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-red-700 font-bold shadow hover:bg-yellow-100">Start Your Web App</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function AngularJsJs() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-yellow-100 to-red-100">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for AngularJS & JS?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for AngularJS & JS?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-red-700 mb-2" />JS Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-red-700 mb-2" />Mobile-First</div>
@@ -117,7 +117,7 @@ export default function AngularJsJs() {
       <section className="py-16 bg-gradient-to-r from-red-700 to-yellow-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build a Dynamic Web App?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how AngularJS & JavaScript can power your next project.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how AngularJS & JavaScript can power your next project.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-red-700 font-bold shadow hover:bg-yellow-100">Get Started</Button>
           </Link>

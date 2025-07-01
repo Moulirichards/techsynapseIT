@@ -55,7 +55,7 @@ const Contact = () => {
                   <input
                     type="email"
                     className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-black text-white placeholder-gray-400 text-xs md:text-base"
-                    placeholder="john@company.com"
+                    placeholder="xyz@email.com"
                   />
                 </div>
                 
@@ -64,7 +64,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-black text-white placeholder-gray-400 text-xs md:text-base"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="Your Phone Number"
                   />
                 </div>
                 
@@ -108,7 +108,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-xs md:text-base">Phone</h4>
-                      <p className="text-white text-xs md:text-base">+1 (555) 123-4567</p>
+                      <p className="text-white text-xs md:text-base">+91 8815587953</p>
                     </div>
                   </div>
                   
@@ -118,7 +118,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-xs md:text-base">Email</h4>
-                      <p className="text-white text-xs md:text-base">hello@techflow.com</p>
+                      <p className="text-white text-xs md:text-base">info@infocera.com</p>
                     </div>
                   </div>
                   
@@ -128,7 +128,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-xs md:text-base">Address</h4>
-                      <p className="text-white text-xs md:text-base">123 Tech Street<br />Innovation City, TC 12345</p>
+                      <p className="text-white text-xs md:text-base">8th Floor , HB TWIN TOWER<br />Netaji subhash place, PITAMPURA<br />DELHI, 110034</p>
                     </div>
                   </div>
                   
@@ -149,8 +149,8 @@ const Contact = () => {
                 <h3 className="text-base md:text-xl font-bold text-white mb-3 md:mb-6">Find Us</h3>
                 <div className="w-full max-w-xs aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-2 md:mb-4">
                   <iframe
-                    title="TechSynapse Location"
-                    src="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA&output=embed"
+                    title="Infocera Location"
+                    src="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -161,7 +161,7 @@ const Contact = () => {
                 </div>
                 <div className="flex justify-center">
                   <a
-                    href="https://www.google.com/maps?q=Times+Square,+New+York,+NY,+USA"
+                    href="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-1 px-3 md:px-4 py-1.5 md:py-2 bg-brand-primary text-white rounded-lg font-semibold shadow hover:bg-brand-primary/90 transition text-xs md:text-base"

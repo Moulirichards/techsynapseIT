@@ -111,15 +111,25 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-neutral-900">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="pt-20 pb-16 relative min-h-[400px] md:min-h-[500px] flex flex-col justify-center"
+        style={{ 
+          backgroundImage: 'url(/servicesbg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">Our Services</h1>
+            <p className="text-xl text-white max-w-3xl mx-auto drop-shadow">
               We offer comprehensive IT solutions tailored to meet your business needs and drive digital transformation across all industries.
             </p>
           </div>
@@ -127,7 +137,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
             {serviceCategories.map((category, index) => (
@@ -164,7 +174,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-8 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">

@@ -36,7 +36,7 @@ const SoftwareConsultant = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-purple-900 mb-4">IT CONSULTING SERVICES</h2>
         <h3 className="text-xl font-bold text-purple-800 mb-6">We Handle All Your IT Challenges</h3>
-        <p className="text-gray-700 mb-8">We, at TechSynapse, understand that every client who decides to implement a new Software Solution essentially wants to enhance their business performance & overall progress. Our IT Consulting team studies your business requirements & processes carefully. We then help you trace your exact software requirements and business problem areas that can be effectively managed by innovative software solutions.</p>
+        <p className="text-gray-700 mb-8">We, at Infocera, understand that every client who decides to implement a new Software Solution essentially wants to enhance their business performance & overall progress. Our IT Consulting team studies your business requirements & processes carefully. We then help you trace your exact software requirements and business problem areas that can be effectively managed by innovative software solutions.</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-purple-50 p-6 rounded-lg">
@@ -102,7 +102,7 @@ const SoftwareConsultant = () => (
       </div>
     </section>
 
-    {/* Why TechSynapse */}
+    {/* Why Infocera */}
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-purple-900 mb-6">WHY TECH SYNAPSE</h2>
@@ -143,7 +143,7 @@ const SoftwareConsultant = () => (
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-purple-900 mb-6">HIRING MODELS</h2>
         <h3 className="text-xl font-bold text-purple-800 mb-8">Customized To Meet Diverse Needs Of Our Clients</h3>
-        <p className="text-gray-700 mb-8">TechSynapse offers IT consulting services to help you accomplish your next project with less stress and less cost. We offer the flexibility to select the most suitable hiring model for all our clients.</p>
+        <p className="text-gray-700 mb-8">Infocera offers IT consulting services to help you accomplish your next project with less stress and less cost. We offer the flexibility to select the most suitable hiring model for all our clients.</p>
         
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow">
@@ -189,7 +189,7 @@ const SoftwareConsultant = () => (
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-purple-50 p-6 rounded-lg">
             <h4 className="font-bold text-purple-800 mb-2">Election Management System</h4>
-            <p className="text-gray-700 mb-4">TechSynapse builds Election Management Software that has MVI programs and provides Bulk SMS options, Political Consulting and several Political Campaigning.</p>
+            <p className="text-gray-700 mb-4">Infocera builds Election Management Software that has MVI programs and provides Bulk SMS options, Political Consulting and several Political Campaigning.</p>
             <div className="bg-white p-3 rounded">
               <h5 className="font-bold text-purple-800 mb-2">TECHNOLOGIES USED</h5>
               <p className="text-gray-700">.Net MVC 5 | MS SQL Server | HTML5/CSS3 | Bootstrap JavaScript</p>
@@ -227,7 +227,7 @@ const SoftwareConsultant = () => (
             </div>
             <h4 className="font-bold text-purple-800 mb-2">Nishant Kumar</h4>
             <p className="text-gray-600 mb-2">Bravo Pharma</p>
-            <p className="text-gray-700">TechSynapse delivers services on time with no compromise in quality. Analytical skills and responsiveness are the quality that i like the most.</p>
+            <p className="text-gray-700">Infocera delivers services on time with no compromise in quality. Analytical skills and responsiveness are the quality that i like the most.</p>
           </div>
           <div className="bg-purple-50 p-6 rounded-lg">
             <div className="w-12 h-12 bg-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -235,7 +235,7 @@ const SoftwareConsultant = () => (
             </div>
             <h4 className="font-bold text-purple-800 mb-2">Bhuvan Patil</h4>
             <p className="text-gray-600 mb-2">Entrepreneur</p>
-            <p className="text-gray-700">We are very satisfied and happy to have found TechSynapse as our development partner. They are true professionals.</p>
+            <p className="text-gray-700">We are very satisfied and happy to have found Infocera as our development partner. They are true professionals.</p>
           </div>
           <div className="bg-purple-50 p-6 rounded-lg">
             <div className="w-12 h-12 bg-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">

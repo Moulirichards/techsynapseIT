@@ -8,7 +8,7 @@ const faqs = [
   { q: 'What is a healthcare portal?', a: 'A healthcare portal is a secure online platform for managing patient records, appointments, billing, and communication between patients and providers.' },
   { q: 'Is the portal HIPAA compliant?', a: 'Yes, our healthcare portals are designed with security and compliance in mind, including HIPAA and other regulations.' },
   { q: 'Can you integrate telemedicine features?', a: 'Absolutely! We offer telemedicine, e-prescriptions, and other digital health integrations.' },
-  { q: 'Do you provide ongoing support?', a: 'Yes, TechSynapse provides continuous support, updates, and training for your staff.' },
+  { q: 'Do you provide ongoing support?', a: 'Yes, Infocera provides continuous support, updates, and training for your staff.' },
 ];
 
 export default function HealthCarePortal() {
@@ -62,7 +62,7 @@ export default function HealthCarePortal() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-cyan-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow">Healthcare Expertise</div>
             <div className="bg-white p-4 rounded-xl shadow">Compliance & Security</div>
@@ -119,7 +119,7 @@ export default function HealthCarePortal() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-cyan-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Transform Healthcare?</h2>
-          <p className="mb-6">Contact TechSynapse for a free demo and discover how our portals can empower your healthcare organization.</p>
+          <p className="mb-6">Contact Infocera for a free demo and discover how our portals can empower your healthcare organization.</p>
           <Button size="lg" className="bg-white text-blue-700 font-bold shadow hover:bg-blue-100">Get a Free Demo</Button>
         </div>
       </section>

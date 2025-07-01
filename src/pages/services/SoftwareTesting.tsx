@@ -47,7 +47,7 @@ const SoftwareTesting = () => {
                 What is Software Testing?
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Software Testing is an approach to detect differences between given input and expected output. At TechSynapse, we provide comprehensive support for software testing at any point in the software development lifecycle.
+                Software Testing is an approach to detect differences between given input and expected output. At Infocera, we provide comprehensive support for software testing at any point in the software development lifecycle.
               </p>
               <p className="text-lg text-gray-700 mb-6">
                 We provide both Black Box and White Box testing support on demand. In White Box testing, we offer various types of Unit and Integration testing such as API level testing, Code coverage, and Fault Injection testing. Under Black Box testing, we provide support for System testing and Acceptance testing.

@@ -33,7 +33,7 @@ const BrandConsulting = () => (
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-4">What is Brand Consulting?</h2>
-        <p className="text-gray-700 mb-4">Brand consulting is the process of developing, positioning, and managing your brand to ensure it resonates with your target audience. At TechSynapse, we combine market research, creative strategy, and business insights to help you build a brand that stands out and drives growth.</p>
+        <p className="text-gray-700 mb-4">Brand consulting is the process of developing, positioning, and managing your brand to ensure it resonates with your target audience. At Infocera, we combine market research, creative strategy, and business insights to help you build a brand that stands out and drives growth.</p>
       </div>
     </section>
 
@@ -76,10 +76,10 @@ const BrandConsulting = () => (
       </div>
     </section>
 
-    {/* Benefits of TechSynapse Brand Consulting */}
+    {/* Benefits of Infocera Brand Consulting */}
     <section className="py-12 bg-yellow-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-4">Benefits of TechSynapse Brand Consulting</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-4">Benefits of Infocera Brand Consulting</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-800">
           <li>Build a strong, differentiated brand</li>
           <li>Increase brand awareness and market share</li>

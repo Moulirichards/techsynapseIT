@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const faqs = [
   { q: 'What is blockchain development?', a: 'Blockchain development involves building decentralized applications (dApps), smart contracts, and secure digital ledgers.' },
-  { q: 'Do you build smart contracts?', a: 'Yes, TechSynapse develops secure, custom smart contracts for various blockchain platforms.' },
+  { q: 'Do you build smart contracts?', a: 'Yes, Infocera develops secure, custom smart contracts for various blockchain platforms.' },
   { q: 'What industries use blockchain?', a: 'Finance, supply chain, healthcare, real estate, and more benefit from blockchain solutions.' },
   { q: 'Do you offer blockchain consulting?', a: 'Absolutely! We provide strategy, architecture, and implementation consulting for blockchain projects.' },
 ];

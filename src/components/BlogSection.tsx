@@ -192,6 +192,19 @@ export const BlogSection = () => {
                 <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
               </button>
             </div>
+            {/* View all blogs button */}
+            <div className="flex justify-center mt-6">
+              <Link
+                to="/blog"
+                className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-base md:text-lg"
+                style={{ background: 'linear-gradient(to right, #0154b4, #7deff6)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'linear-gradient(to right, #7deff6, #0154b4)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'linear-gradient(to right, #0154b4, #7deff6)'}
+              >
+                View all our blogs
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

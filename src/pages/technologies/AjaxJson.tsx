@@ -10,7 +10,7 @@ const faqs = [
   { q: 'What is AJAX?', a: 'AJAX (Asynchronous JavaScript and XML) enables web pages to update asynchronously by exchanging data with a web server behind the scenes.' },
   { q: 'What is JSON?', a: 'JSON (JavaScript Object Notation) is a lightweight data-interchange format, easy for humans to read and write, and easy for machines to parse and generate.' },
   { q: 'Why use AJAX and JSON?', a: 'They enable dynamic, fast, and interactive web applications with seamless data exchange.' },
-  { q: 'Do you build real-time web apps?', a: 'Yes, TechSynapse creates real-time, interactive web apps using AJAX, JSON, and modern frameworks.' },
+  { q: 'Do you build real-time web apps?', a: 'Yes, Infocera creates real-time, interactive web apps using AJAX, JSON, and modern frameworks.' },
 ];
 
 const industries = [

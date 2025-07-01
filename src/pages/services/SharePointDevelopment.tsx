@@ -39,10 +39,10 @@ const SharePointDevelopment = () => (
       </div>
     </section>
 
-    {/* Why Choose TechSynapse SharePoint */}
+    {/* Why Choose Infocera SharePoint */}
     <section className="py-12 bg-orange-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-orange-900 mb-6">Why Choose TechSynapse for SharePoint Development?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-orange-900 mb-6">Why Choose Infocera for SharePoint Development?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow">
             <h3 className="text-xl font-bold text-orange-800 mb-2">Expert SharePoint Developers</h3>

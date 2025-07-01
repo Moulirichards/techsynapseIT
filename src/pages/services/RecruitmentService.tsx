@@ -35,14 +35,14 @@ const RecruitmentService = () => (
     <section className="py-12 bg-white border-b">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-4">What is Recruitment Service?</h2>
-        <p className="text-gray-700 mb-4">Recruitment service is a comprehensive solution that helps organizations identify, attract, and hire the best talent for their specific needs. At TechSynapse, we understand that finding the right people is crucial for business success. Our recruitment services cover the entire hiring process, from job posting to candidate placement, ensuring a seamless experience for both employers and job seekers.</p>
+        <p className="text-gray-700 mb-4">Recruitment service is a comprehensive solution that helps organizations identify, attract, and hire the best talent for their specific needs. At Infocera, we understand that finding the right people is crucial for business success. Our recruitment services cover the entire hiring process, from job posting to candidate placement, ensuring a seamless experience for both employers and job seekers.</p>
       </div>
     </section>
 
-    {/* Why Choose TechSynapse Recruitment */}
+    {/* Why Choose Infocera Recruitment */}
     <section className="py-12 bg-green-50 border-b">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-6">Why Choose TechSynapse Recruitment?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-6">Why Choose Infocera Recruitment?</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow">
             <h3 className="text-xl font-bold text-green-800 mb-2">Industry Expertise</h3>
