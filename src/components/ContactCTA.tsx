@@ -34,7 +34,7 @@ export const ContactCTA = () => {
               </div>
               <div className="flex items-center space-x-2 md:space-x-3">
                 <MapPin className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">8th Floor , HB TWIN TOWER Netaji subhash place, PITAMPURA DELHI, 110034</span>
+                <span className="text-xs md:text-base text-white">8th Floor , HB Twin Tower, Netaji Subhash Place, Pitampura, DELHI, 110034</span>
               </div>
             </div>
           </div>

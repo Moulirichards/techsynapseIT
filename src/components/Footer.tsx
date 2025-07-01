@@ -293,7 +293,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 mb-1">
                 <MapPin className="h-12 w-12 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">8th Floor , HB TWIN TOWER Netaji subhash place, PITAMPURA DELHI, 110034</span>
+                <span className="text-gray-200 text-lg font-medium">8th Floor , HB Twin Tower, Netaji Subhash Place, Pitampura, DELHI, 110034</span>
               </div>
               {/* Google Maps Embed */}
               <div className="w-full max-w-xs aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-1">
@@ -516,7 +516,7 @@ export const Footer = () => {
               {/* Google Maps Embed */}
               <div className="w-full max-w-[120px] aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-2">
                 <iframe
-                  title="TechSynapse Location"
+                  title="Infocera Location"
                   src="https://www.google.com/maps?q=8th+Floor+HB+TWIN+TOWER+Netaji+subhash+place+PITAMPURA+DELHI+110034&output=embed"
                   width="100%"
                   height="100%"

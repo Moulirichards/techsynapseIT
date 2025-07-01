@@ -10,7 +10,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What services does Infocera offer?",
-      answer: "TechSynapse offers a comprehensive range of technology services including web development, mobile app development, cloud solutions, AI/ML implementation, cybersecurity, and data analytics."
+      answer: "Infocera offers a comprehensive range of technology services including web development, mobile app development, cloud solutions, AI/ML implementation, cybersecurity, and data analytics."
     },
     {
       question: "How long does a typical project take?",

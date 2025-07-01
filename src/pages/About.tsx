@@ -378,7 +378,7 @@ const About = () => {
         <IconicMomentsSection />
         </div>
 
-      {/* What makes us different? / Why us? / Why TechSynapse? Section */}
+      {/* What makes us different? / Why us? / Why Infocera? Section */}
       <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 bg-[linear-gradient(135deg,_#80d9ee_0%,_#1a50b2_100%)]" style={{ transitionDelay: '400ms' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
@@ -442,16 +442,16 @@ const About = () => {
         {/* Bottom Row: Stats */}
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 w-full px-8 lg:px-32">
           <div className="flex-1 bg-transparent border border-blue-200 rounded-2xl p-10 text-center flex flex-col justify-center items-center">
-            <div className="text-5xl font-extrabold text-white mb-2">50+</div>
-            <div className="text-white text-xl font-medium">Countries where local providers are listed</div>
+            <div className="text-5xl font-extrabold text-white mb-2">20+</div>
+            <div className="text-white text-xl font-medium">Countries where we are providing the services</div>
               </div>
           <div className="flex-1 bg-transparent border border-blue-200 rounded-2xl p-10 text-center flex flex-col justify-center items-center">
-            <div className="text-5xl font-extrabold text-white mb-2">1000+</div>
-            <div className="text-white text-xl font-medium">Service providers across the globe</div>
+            <div className="text-5xl font-extrabold text-white mb-2">200+</div>
+            <div className="text-white text-xl font-medium">Service clients across the globe</div>
             </div>
           <div className="flex-1 bg-transparent border border-blue-200 rounded-2xl p-10 text-center flex flex-col justify-center items-center">
             <div className="text-5xl font-extrabold text-white mb-2">30+</div>
-            <div className="text-white text-xl font-medium">Specialized business service categories</div>
+            <div className="text-white text-xl font-medium">Specialized IT service categories</div>
           </div>
         </div>
       </section>

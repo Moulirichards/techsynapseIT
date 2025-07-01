@@ -33,7 +33,7 @@ export default function IoTSolutions() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-blue-900 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">IoT Solutions</h1>
-          <p className="text-xl mb-6">Connect, monitor, and automate with smart IoT solutions by TechSynapse.</p>
+          <p className="text-xl mb-6">Connect, monitor, and automate with smart IoT solutions by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-blue-900 font-bold shadow hover:bg-blue-100">Start Your IoT Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function IoTSolutions() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-blue-100 to-blue-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for IoT?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for IoT?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-blue-900 mb-2" />IoT Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-blue-900 mb-2" />Mobile-Ready</div>
@@ -117,7 +117,7 @@ export default function IoTSolutions() {
       <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build with IoT?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how IoT can power your next project.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how IoT can power your next project.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-blue-900 font-bold shadow hover:bg-blue-100">Get Started</Button>
           </Link>

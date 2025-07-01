@@ -33,7 +33,7 @@ export default function BlockchainDevelopment() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-gray-900 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blockchain Development</h1>
-          <p className="text-xl mb-6">Build secure, transparent, and decentralized solutions with TechSynapse's blockchain expertise.</p>
+          <p className="text-xl mb-6">Build secure, transparent, and decentralized solutions with Infocera's blockchain expertise.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-gray-900 font-bold shadow hover:bg-blue-100">Start Your Blockchain Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function BlockchainDevelopment() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-blue-100 to-gray-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for Blockchain?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for Blockchain?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-gray-900 mb-2" />Blockchain Experts</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-gray-900 mb-2" />Mobile-Ready</div>
@@ -117,7 +117,7 @@ export default function BlockchainDevelopment() {
       <section className="py-16 bg-gradient-to-r from-gray-900 to-blue-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build with Blockchain?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how blockchain can power your next project.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how blockchain can power your next project.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-gray-900 font-bold shadow hover:bg-blue-100">Get Started</Button>
           </Link>

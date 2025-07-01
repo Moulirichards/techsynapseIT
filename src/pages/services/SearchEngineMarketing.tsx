@@ -79,10 +79,10 @@ const SearchEngineMarketing = () => {
         </div>
       </section>
 
-      {/* Benefits of TechSynapse SEM */}
+      {/* Benefits of Infocera SEM */}
       <section className="py-12 bg-gray-50 border-b">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-orange-900 mb-4">Benefits of TechSynapse SEM Services</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-900 mb-4">Benefits of Infocera SEM Services</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-800">
             <li>Acquire new visitors and customers</li>
             <li>Expand your reach to a global audience</li>

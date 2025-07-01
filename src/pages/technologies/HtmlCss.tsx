@@ -33,7 +33,7 @@ export default function HtmlCss() {
       <section className="pt-32 pb-16 bg-gradient-to-r from-pink-600 to-blue-400 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">HTML5 & CSS3 Web Design</h1>
-          <p className="text-xl mb-6">Modern, responsive, and visually stunning websites with HTML5 & CSS3 by TechSynapse.</p>
+          <p className="text-xl mb-6">Modern, responsive, and visually stunning websites with HTML5 & CSS3 by Infocera.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-pink-600 font-bold shadow hover:bg-blue-100">Start Your Web Project</Button>
           </Link>
@@ -62,7 +62,7 @@ export default function HtmlCss() {
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-r from-blue-100 to-pink-100">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Why Choose TechSynapse for Web Design?</h2>
+          <h2 className="text-3xl font-bold mb-6">Why Choose Infocera for Web Design?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><TrendingUp className="h-8 w-8 text-pink-600 mb-2" />Modern Aesthetics</div>
             <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center"><MonitorSmartphone className="h-8 w-8 text-pink-600 mb-2" />Mobile-First</div>
@@ -117,7 +117,7 @@ export default function HtmlCss() {
       <section className="py-16 bg-gradient-to-r from-pink-600 to-blue-400 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Build a Modern Website?</h2>
-          <p className="mb-6">Contact TechSynapse for a free consultation and see how HTML5 & CSS3 can elevate your web presence.</p>
+          <p className="mb-6">Contact Infocera for a free consultation and see how HTML5 & CSS3 can elevate your web presence.</p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-pink-600 font-bold shadow hover:bg-blue-100">Get Started</Button>
           </Link>
