@@ -269,7 +269,7 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-black shadow-lg z-50 relative">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 md:pl-0">
-        <div className="flex items-center h-16 md:h-20 md:justify-between">
+        <div className="flex items-center h-16 md:h-[85px] md:justify-between">
           {/* Mobile Menu Button - left aligned */}
           <div className="flex items-center w-full md:w-auto md:-ml-8">
             <button
@@ -279,8 +279,8 @@ export const Navbar = () => {
               {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
             </button>
             <Link to="/" className="flex items-center space-x-2 py-2 max-h-full md:pl-0 md:ml-0">
-              <span className="block md:hidden"><Logo size="xl" className="h-9 w-9" /></span>
-              <span className="hidden md:block"><Logo size="xl" className="h-36 w-36" /></span>
+              <span className="block md:hidden"><Logo size="md" className="h-6 w-6" /></span>
+              <span className="hidden md:block"><Logo size="lg" className="h-10 w-10" /></span>
             </Link>
           </div>
 
@@ -336,12 +336,18 @@ export const Navbar = () => {
 
           {/* Desktop Menu (with search beside Contact Us) */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            <Link to="/" className="text-white hover:text-blue-300 transition-colors font-semibold">Home</Link>
-            <Link to="/about" className="text-white hover:text-blue-300 transition-colors font-semibold">About Us</Link>
+            <Link to="/" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+              <span className="relative z-10">Home</span>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            </Link>
+            <Link to="/about" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+              <span className="relative z-10">About Us</span>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            </Link>
             
             <div className="relative" ref={servicesRef}>
               <button
-                className={`flex items-center text-white hover:text-blue-300 transition-colors font-semibold ${activeDropdown === 'services' ? 'text-blue-300' : ''}`}
+                className={`flex items-center text-white hover:text-blue-400 transition-all duration-300 font-medium relative group ${activeDropdown === 'services' ? 'text-blue-400' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'services'}
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
@@ -349,22 +355,25 @@ export const Navbar = () => {
                   if (e.key === 'Escape') setActiveDropdown(null);
                 }}
               >
-                Services <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="relative z-10">Services</span>
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
               </button>
               {activeDropdown === 'services' && (
-                <div className="absolute top-full left-0 mt-1 bg-black rounded-lg shadow-lg border animate-fade-in z-50 p-6 min-w-[700px] max-h-[60vh] overflow-y-auto">
+                <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-xl shadow-2xl border border-gray-700/50 animate-fade-in z-50 p-6 min-w-[700px] max-h-[60vh] overflow-y-auto">
                   <div className="flex flex-wrap gap-12">
                     {Object.entries(serviceCategories).map(([categoryKey, categoryName]) => (
                       <div key={categoryKey} className="min-w-[220px]">
-                        <h4 className="font-bold text-white text-base mb-2 uppercase">{categoryName}</h4>
-                        <ul className="list-disc list-inside space-y-1 text-white marker:text-white">
+                        <h4 className="font-bold text-base mb-3 uppercase bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">{categoryName}</h4>
+                        <ul className="space-y-2">
                           {services
                             .filter(service => service.category === categoryKey)
                             .map((service) => (
-                              <li key={service.path}>
+                              <li key={service.path} className="flex items-center">
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 flex-shrink-0"></span>
                                 <Link
                                   to={service.path}
-                                  className="text-white hover:text-blue-300 hover:underline hover:decoration-white text-sm font-medium transition-colors"
+                                  className="text-gray-300 hover:text-blue-400 hover:bg-white/5 px-2 py-1 rounded-lg text-sm font-medium transition-all duration-300 block flex-1"
                                   onClick={() => setActiveDropdown(null)}
                                 >
                                   {service.name}
@@ -381,7 +390,7 @@ export const Navbar = () => {
 
             <div className="relative" ref={technologiesRef}>
               <button
-                className={`flex items-center text-white hover:text-blue-300 transition-colors font-semibold ${activeDropdown === 'technologies' ? 'text-blue-300' : ''}`}
+                className={`flex items-center text-white hover:text-blue-400 transition-all duration-300 font-medium relative group ${activeDropdown === 'technologies' ? 'text-blue-400' : ''}`}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'technologies'}
                 onClick={() => setActiveDropdown(activeDropdown === 'technologies' ? null : 'technologies')}
@@ -389,22 +398,25 @@ export const Navbar = () => {
                   if (e.key === 'Escape') setActiveDropdown(null);
                 }}
               >
-                Technologies <ChevronDown className="ml-1 h-4 w-4" />
+                <span className="relative z-10">Technologies</span>
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${activeDropdown === 'technologies' ? 'rotate-180' : ''}`} />
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
               </button>
               {activeDropdown === 'technologies' && (
-                <div className="absolute top-full left-0 mt-1 bg-black rounded-lg shadow-lg border animate-fade-in z-50 p-6 min-w-[700px] max-h-[60vh] overflow-y-auto">
+                <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-xl shadow-2xl border border-gray-700/50 animate-fade-in z-50 p-6 min-w-[700px] max-h-[60vh] overflow-y-auto">
                   <div className="flex flex-wrap gap-12">
                     {Object.entries(technologyCategories).map(([categoryKey, categoryName]) => (
                       <div key={categoryKey} className="min-w-[220px]">
-                        <h4 className="font-bold text-white text-base mb-2 uppercase">{categoryName}</h4>
-                        <ul className="list-disc list-inside space-y-1 text-white marker:text-white">
+                        <h4 className="font-bold text-base mb-3 uppercase bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">{categoryName}</h4>
+                        <ul className="space-y-2">
                           {technologies
                             .filter(tech => tech.category === categoryKey)
                             .map((tech) => (
-                              <li key={tech.path}>
+                              <li key={tech.path} className="flex items-center">
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 flex-shrink-0"></span>
                                 <Link
                                   to={tech.path}
-                                  className="text-white hover:text-blue-300 hover:underline hover:decoration-white text-sm font-medium transition-colors"
+                                  className="text-gray-300 hover:text-blue-400 hover:bg-white/5 px-2 py-1 rounded-lg text-sm font-medium transition-all duration-300 block flex-1"
                                   onClick={() => setActiveDropdown(null)}
                                 >
                                   {tech.name}
@@ -420,31 +432,43 @@ export const Navbar = () => {
             </div>
 
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setActiveDropdown('industries')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center text-white hover:text-blue-300 transition-colors font-semibold">
-                Industries <ChevronDown className="ml-1 h-4 w-4" />
+              <button className="flex items-center text-white hover:text-blue-400 transition-all duration-300 font-medium relative">
+                <span className="relative z-10">Industries</span>
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300" />
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
               </button>
               {activeDropdown === 'industries' && (
-                <div className="absolute top-full left-0 mt-1 w-48 bg-black rounded-lg shadow-lg border animate-fade-in">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md rounded-xl shadow-2xl border border-gray-700/50 animate-fade-in">
                   {industries.map((industry) => (
                     <div
                       key={industry.name}
-                      className="block px-4 py-2 text-white first:rounded-t-lg last:rounded-b-lg"
+                      className="flex items-center px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/5 first:rounded-t-lg last:rounded-b-lg transition-all duration-300"
                     >
-                      {industry.name}
+                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 flex-shrink-0"></span>
+                      <span className="flex-1">{industry.name}</span>
                     </div>
                   ))}
                 </div>
               )}
             </div>
 
-            <Link to="/portfolio" className="text-white hover:text-blue-300 transition-colors font-semibold">Portfolio</Link>
-            <Link to="/careers" className="text-white hover:text-blue-300 transition-colors font-semibold">Careers</Link>
-            <div className="flex items-center space-x-2">
-              <Link to="/contact" className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold">Contact Us</Link>
+            <Link to="/portfolio" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+              <span className="relative z-10">Portfolio</span>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            </Link>
+            <Link to="/careers" className="text-white hover:text-blue-400 transition-all duration-300 font-medium relative group">
+              <span className="relative z-10">Careers</span>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            </Link>
+                          <div className="flex items-center space-x-3">
+                <Link to="/contact" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-xl hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 font-medium hover:scale-105 relative overflow-hidden group">
+                  <span className="relative z-10">Contact Us</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
               {/* Desktop: Search Icon */}
               <div className="hidden md:block relative">
                 <button

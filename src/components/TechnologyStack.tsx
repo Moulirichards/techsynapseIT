@@ -72,89 +72,58 @@ const technologyCategories = [
 
 // Styled Switch component
 const StyledWrapper = styled.div`
-  .switch-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    height: 55px;
-  }
-  .switch-button .switch-outer {
-    height: 100%;
-    background: #252532;
-    width: 115px;
-    border-radius: 165px;
-    box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
-    border: 1px solid #32303e;
-    padding: 6px;
-    box-sizing: border-box;
+  /* The switch - the box around the slider */
+  .switch {
+    --a: 0.5s ease-out;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: inline-flex;
+    height: 1.5em;
+    border-radius: 1.5em;
+    box-shadow: 0 0 0 0.5em #aaa;
+    aspect-ratio: 212.4992/84.4688;
+    background-color: #aaa;
   }
-  .switch-button .switch-outer input[type="checkbox"] {
+
+  /* Hide default HTML checkbox */
+  #check {
     opacity: 0;
-    appearance: none;
-    position: absolute;
+    width: 0;
+    height: 0;
   }
-  .switch-button .switch-outer .button-toggle {
-    height: 42px;
-    width: 42px;
-    background: linear-gradient(#3b3a4e, #272733);
-    border-radius: 100%;
-    box-shadow: inset 0px 5px 4px 0px #424151, 0px 4px 15px 0px #0f0e17;
-    position: relative;
-    z-index: 2;
-    transition: left 0.3s ease-in;
-    left: 0;
-  }
-  .switch-button .switch-outer input[type="checkbox"]:checked + .button .button-toggle {
-    left: 58%;
-  }
-  .switch-button .switch-outer input[type="checkbox"]:checked + .button .button-indicator {
-    animation: indicator 1s forwards;
-  }
-  .switch-button .switch-outer .button {
-    width: 100%;
+
+  .switch svg {
     height: 100%;
-    display: flex;
-    position: relative;
-    justify-content: space-between;
   }
-  .switch-button .switch-outer .button-indicator {
-    height: 25px;
-    width: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    border: 3px solid #54a8fc;
-    box-sizing: border-box;
-    right: 10px;
-    position: relative;
+
+  .switch svg path {
+    color: #fff;
+    stroke-width: 16;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 136 224;
+    transition:
+      all var(--a),
+      0s transform;
+    transform-origin: center;
   }
-  @keyframes indicator {
-    30% { opacity: 0; }
-    0% { opacity: 1; }
-    100% { opacity: 1; left: -68%; }
+
+  #check:checked ~ .switch svg path {
+    stroke-dashoffset: 180;
+    transform: scaleY(-1);
   }
 `;
 
 const Switch = ({ checked, onChange }) => (
   <StyledWrapper>
-    <label className="switch-button" htmlFor="switch">
-      <div className="switch-outer">
-        <input id="switch" type="checkbox" checked={checked} onChange={onChange} />
-        <div className="button">
-          <span className="button-toggle flex items-center justify-center">
-            {checked ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
-            )}
-          </span>
-          <span className="button-indicator" />
-        </div>
-      </div>
-    </label>
+    <div>
+      <input id="check" type="checkbox" checked={checked} onChange={onChange} />
+      <label className="switch" htmlFor="check">
+        <svg viewBox="0 0 212.4992 84.4688" overflow="visible">
+          <path pathLength={360} fill="none" stroke="currentColor" d="M 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 A 42.24 42.24 90 0 0 84.4992 42.2496 A 42.24 42.24 90 0 0 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 L 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 A 42.24 42.24 90 0 0 128 42.2496 A 42.24 42.24 90 0 0 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 L 42.2496 0" />
+        </svg>
+      </label>
+    </div>
   </StyledWrapper>
 );
 
@@ -164,16 +133,24 @@ export const TechnologyStack = () => {
   const requestRef = useRef();
 
   useEffect(() => {
-    let lastTime = performance.now();
+    let animationId: number;
+    let startTime = performance.now();
     const speed = 360 / 10; // degrees per second (10s for full rotation)
-    const animate = (now) => {
-      const delta = now - lastTime;
-      lastTime = now;
-      setOrbitAngle((prev) => (prev + (speed * delta) / 1000) % 360);
-      requestRef.current = requestAnimationFrame(animate);
+    
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const newAngle = (speed * elapsed / 1000) % 360;
+      setOrbitAngle(newAngle);
+      animationId = requestAnimationFrame(animate);
     };
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
+    
+    animationId = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
   }, []);
 
   // Increased size for orbits and icons
@@ -191,7 +168,9 @@ export const TechnologyStack = () => {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/techstackbg.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        willChange: 'auto',
+        transform: 'translateZ(0)'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
@@ -235,7 +214,10 @@ export const TechnologyStack = () => {
                       style={{
                         left: x,
                         top: y,
-                        transform: 'translate(-50%, -50%)'
+                        transform: 'translate(-50%, -50%)',
+                        willChange: 'transform',
+                        backfaceVisibility: 'hidden',
+                        perspective: '1000px'
                       }}
                     >
                       <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200">
@@ -258,7 +240,7 @@ export const TechnologyStack = () => {
           ))}
         </div>
         {/* Switch for navigation */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-12">
           <Switch checked={page === 1} onChange={() => setPage(page === 0 ? 1 : 0)} />
         </div>
       </div>

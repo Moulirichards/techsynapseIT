@@ -2,6 +2,65 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Users, Target, Award, Globe, Rocket, Cloud, TrendingUp } from 'lucide-react';
 import React, { useEffect, useState, useRef } from 'react';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  .button {
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--clr);
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+  }
+
+  .button__icon-wrapper {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: var(--clr);
+    background-color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .button:hover {
+    background-color: #000;
+  }
+
+  .button:hover .button__icon-wrapper {
+    color: #000;
+  }
+
+  .button__icon-svg--copy {
+    position: absolute;
+    transform: translate(-150%, 150%);
+  }
+
+  .button:hover .button__icon-svg:first-child {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%);
+  }
+
+  .button:hover .button__icon-svg--copy {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0);
+  }
+`;
 
 // Iconic Moments in Our History Section
 const iconicMoments = [
@@ -37,7 +96,7 @@ const iconicMoments = [
   },
   {
     year: 2025,
-    icon: <Globe size={80} stroke="#818cf8" strokeWidth={1.5} />,
+    icon: <Globe size={80} stroke="#ffffff" strokeWidth={2} />,
     title: '2025',
     description: 'Looking ahead to new horizons, Infocera continues to drive innovation and deliver value to clients worldwide.'
   }
@@ -49,32 +108,38 @@ function IconicMomentsSection() {
 
   return (
     <section 
-      className="w-full py-20 relative"
+      className="w-full py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/iconicbg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/iconicbg.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center text-white mb-4">Iconic Moments in Our History</h2>
-        <p className="text-xl text-center text-blue-100 mb-12 max-w-3xl mx-auto">
+      {/* Enhanced background elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5 animate-pulse"></div>
+      <div className="absolute top-20 left-20 w-40 h-40 bg-blue-400/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '0s', animationDuration: '6s'}}></div>
+      <div className="absolute bottom-20 right-20 w-60 h-60 bg-purple-400/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '2s', animationDuration: '8s'}}></div>
+      <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+      
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Iconic Moments in Our History</h2>
+        <p className="text-xl text-center text-blue-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
         From a humble garage to a global tech partner, Infocera transformed vision into reality. Empowering startups and enterprises alike, we've shaped digital journeys with innovation at every step.
         </p>
-        {/* Timeline */}
+        {/* Enhanced Timeline */}
         <div className="relative flex items-center justify-center mb-16">
-          <div className="absolute left-0 right-0 top-1/2 border-t border-blue-300" style={{ zIndex: 0 }} />
+          <div className="absolute left-0 right-0 top-1/2 border-t-2 border-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400" style={{ zIndex: 0, background: 'linear-gradient(to right, #60a5fa, #a78bfa, #06b6d4)' }} />
           {/* Mobile: scrollable timeline */}
           <div className="relative z-10 flex items-center gap-4 overflow-x-auto whitespace-nowrap px-2 w-full scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50 sm:hidden">
             {iconicMoments.map((m, idx) => (
               <button
                 key={m.year}
-                className={`flex flex-col items-center focus:outline-none ${idx === current ? 'text-blue-300 font-bold' : 'text-blue-200'}`}
+                className={`flex flex-col items-center focus:outline-none transition-all duration-300 transform hover:scale-110 ${idx === current ? 'text-blue-300 font-bold' : 'text-blue-200'}`}
                 onClick={() => setCurrent(idx)}
               >
-                <span className="text-2xl mb-2">{m.year}</span>
-                <span className={`w-3 h-3 rounded-full ${idx === current ? 'bg-blue-300' : 'bg-blue-200'}`}></span>
+                <span className="text-2xl mb-2 drop-shadow-lg">{m.year}</span>
+                <span className={`w-4 h-4 rounded-full transition-all duration-300 ${idx === current ? 'bg-gradient-to-r from-blue-400 to-cyan-400 shadow-lg shadow-blue-400/50 scale-125' : 'bg-blue-200 hover:bg-blue-300'}`}></span>
               </button>
             ))}
           </div>
@@ -83,42 +148,53 @@ function IconicMomentsSection() {
             {iconicMoments.map((m, idx) => (
               <button
                 key={m.year}
-                className={`flex flex-col items-center focus:outline-none ${idx === current ? 'text-blue-300 font-bold' : 'text-blue-200'}`}
+                className={`flex flex-col items-center focus:outline-none transition-all duration-300 transform hover:scale-110 ${idx === current ? 'text-blue-300 font-bold' : 'text-blue-200'}`}
                 onClick={() => setCurrent(idx)}
               >
-                <span className="text-2xl mb-2">{m.year}</span>
-                <span className={`w-3 h-3 rounded-full ${idx === current ? 'bg-blue-300' : 'bg-blue-200'}`}></span>
+                <span className="text-2xl mb-2 drop-shadow-lg">{m.year}</span>
+                <span className={`w-4 h-4 rounded-full transition-all duration-300 ${idx === current ? 'bg-gradient-to-r from-blue-400 to-cyan-400 shadow-lg shadow-blue-400/50 scale-125' : 'bg-blue-200 hover:bg-blue-300'}`}></span>
               </button>
             ))}
           </div>
         </div>
-        {/* Card */}
+        {/* Enhanced Card */}
         <div className="flex justify-center">
-          <div className="relative rounded-2xl shadow-2xl p-10 pl-20 flex items-center gap-8 max-w-3xl w-full min-h-[200px] bg-white/90 backdrop-blur-sm">
+          <div className="relative rounded-2xl shadow-2xl p-10 pl-20 pr-20 flex items-center gap-8 max-w-4xl w-full min-h-[200px] bg-gradient-to-br from-white/95 via-blue-50/90 to-cyan-50/95 backdrop-blur-md border border-white/50 hover:shadow-blue-500/20 hover:shadow-purple-500/20 hover:shadow-cyan-500/20 transition-all duration-500 transform hover:scale-105 group">
+            {/* Enhanced background glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:via-purple-500/5 group-hover:to-cyan-500/5 transition-all duration-500 rounded-2xl"></div>
+            
             {/* Left arrow */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow disabled:opacity-30"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 disabled:opacity-30 disabled:hover:scale-100 transition-all duration-300"
               onClick={() => setCurrent((c) => Math.max(0, c - 1))}
               disabled={current === 0}
               aria-label="Previous"
             >
-              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
-            {/* Icon */}
-            <div className="flex-shrink-0">{moment.icon}</div>
-            {/* Content */}
-            <div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{moment.title}</div>
-              <div className="text-lg text-gray-900">{moment.description}</div>
+            
+            {/* Enhanced Icon */}
+            <div className="flex-shrink-0 relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
+              <div className="relative bg-gradient-to-br from-blue-500 to-cyan-500 p-4 rounded-2xl shadow-lg">
+                {moment.icon}
+              </div>
             </div>
+            
+            {/* Enhanced Content */}
+            <div className="relative z-10">
+              <div className="text-3xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{moment.title}</div>
+              <div className="text-lg text-gray-700 leading-relaxed">{moment.description}</div>
+            </div>
+            
             {/* Right arrow */}
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow disabled:opacity-30"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 disabled:opacity-30 disabled:hover:scale-100 transition-all duration-300"
               onClick={() => setCurrent((c) => Math.min(iconicMoments.length - 1, c + 1))}
               disabled={current === iconicMoments.length - 1}
               aria-label="Next"
             >
-              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
         </div>
@@ -252,7 +328,6 @@ const About = () => {
     }
   ];
 
-  const [isBrochureHovered, setIsBrochureHovered] = useState(false);
   const [cardSet, setCardSet] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const autoPlayRef = React.useRef(autoPlay);
@@ -310,8 +385,18 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-10 md:py-16">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+      <section className="py-10 md:py-16 relative overflow-hidden" style={{
+        backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,58,138,0.9) 50%, rgba(6,182,212,0.85) 100%)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 animate-pulse"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cyan-400/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 w-full">
             {stats.map((stat, index) => {
               const isSecondRowMobile = index >= 2;
@@ -324,18 +409,18 @@ const About = () => {
                   key={stat.label}
                   className={[
                     "flex flex-col justify-center items-center text-center py-4 md:py-0",
-                    isSecondRowMobile ? "border-t border-gray-300 md:border-t-0" : "",
-                    isNotFirstColDesktop ? "md:border-l md:border-gray-300" : ""
+                    isSecondRowMobile ? "border-t border-blue-300/30 md:border-t-0" : "",
+                    isNotFirstColDesktop ? "md:border-l md:border-blue-300/30" : ""
                   ].join(" ")}
                 >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[linear-gradient(135deg,_#13303d_0%,_#4fd1c5_100%)] rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-4">
-                    <stat.icon className="h-5 w-5 sm:h-8 sm:w-8 text-white" />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-slate-800 via-blue-600 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-2xl shadow-blue-500/30 border border-blue-400/20 hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 transform hover:-translate-y-1">
+                    <stat.icon className="h-5 w-5 sm:h-8 sm:w-8 text-white drop-shadow-lg" />
                   </div>
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2 drop-shadow-lg">
                     {count}
                     {stat.value.replace(/\d+/g, '')}
                   </div>
-                  <div className="text-xs sm:text-base text-gray-700">{stat.label}</div>
+                  <div className="text-xs sm:text-base text-blue-100 font-medium">{stat.label}</div>
                 </div>
               );
             })}
@@ -347,9 +432,14 @@ const About = () => {
       <section className="pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         {/* Suggestion: Optimize /public/culture1.png for best performance (compress, use WebP, reduce resolution) */}
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="rounded-xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100 flex flex-col items-center w-full cursor-pointer hover:scale-105 hover:shadow-2xl transition-transform transition-shadow duration-300">
-            <div className="w-full">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-4">Our Story</h2>
+          <div className="rounded-xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100/50 backdrop-blur-sm bg-white/5 flex flex-col items-center w-full cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 hover:shadow-purple-500/30 hover:shadow-cyan-500/30 hover:shadow-pink-500/20 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
+            {/* Magic glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-cyan-500/10 transition-all duration-500 rounded-xl"></div>
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 via-cyan-500 to-pink-500 opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-sm"></div>
+            <div className="absolute inset-[1px] rounded-xl bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm"></div>
+            <div className="w-full relative z-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-cyan-400 transition-all duration-500">Our Story</h2>
               <div className="space-y-4 text-blue-100 text-justify text-base md:text-lg leading-relaxed">
                 <p>
                   At INFOCERA, our journey began with a simple yet powerful mission: to deliver intelligent technology solutions that make a real difference. Driven by a passionate team of engineers, developers, and domain experts, we've grown into a trusted partner for startups, small businesses, government agencies, and large enterprises alike. From custom mobile apps and web development to data visualization, IoT, and full-scale IT consulting, we craft solutions that are innovative, impactful, and people-centered.
@@ -371,57 +461,85 @@ const About = () => {
         <IconicMomentsSection />
       </div>
 
-      {/* What makes us different? / Why us? / Why Infocera? Section */}
-      <section className="scroll-animate py-16 relative" style={{ background: 'linear-gradient(45deg, #9358f7, #6197ee, #10d7e2)', transitionDelay: '400ms' }}>
-        {/* Single decorative SVG curve line */}
-        <svg className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1600 600" fill="none" xmlns="http://www.w3.org/2000/svg" style={{opacity: 0.3}}>
-          <path d="M 0 350 Q 50 350 400 100 Q 900 500 1300 700 Q 1600 180 1600 180" stroke="#1e40af" stroke-width="5" fill="none" />
+      {/* Enhanced What makes us different? Section */}
+      <section className="scroll-animate py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)', transitionDelay: '400ms' }}>
+        {/* Enhanced decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 animate-pulse"></div>
+        <div className="absolute top-10 left-10 w-40 h-40 bg-blue-400/20 rounded-full blur-3xl animate-bounce" style={{animationDelay: '0s', animationDuration: '6s'}}></div>
+        <div className="absolute bottom-10 right-10 w-60 h-60 bg-purple-400/20 rounded-full blur-3xl animate-bounce" style={{animationDelay: '2s', animationDuration: '8s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan-400/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        {/* Enhanced SVG curve */}
+        <svg className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1600 600" fill="none" xmlns="http://www.w3.org/2000/svg" style={{opacity: 0.4}}>
+          <path d="M 0 350 Q 50 350 400 100 Q 900 500 1300 700 Q 1600 180 1600 180" stroke="#ffffff" stroke-width="3" fill="none" />
         </svg>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="relative">
-            {/* Card background attached to right edge */}
-            <div className="absolute top-0 left-0 h-full w-[100vw] bg-[#2a2b38] rounded-2xl rounded-r-none z-0" style={{right: '0', minWidth: '100%', maxWidth: 'none'}}></div>
-            <div className="relative bg-transparent rounded-2xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold text-white mb-4">What Makes Us Different</h2>
-                <p className="text-xl text-blue-50 max-w-2xl mx-auto">We focus on client-first approach, innovation, and long-term partnerships.</p>
+            {/* Enhanced card background */}
+            <div className="absolute top-0 left-0 h-full w-[100vw] bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm rounded-2xl rounded-r-none z-0 border border-gray-700/50" style={{right: '0', minWidth: '100%', maxWidth: 'none'}}></div>
+            <div className="relative bg-transparent rounded-2xl p-8 md:p-12 shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:shadow-blue-500/20 hover:shadow-purple-500/20 hover:shadow-cyan-500/20 group">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">What Makes Us Different</h2>
+                <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">We focus on client-first approach, innovation, and long-term partnerships that drive success.</p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-0">
-                <div className="bg-blue-200 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-100">
-                  <h3 className="text-xl font-semibold text-blue-900 mb-3">Client-First Approach</h3>
-                  <p className="text-blue-900">We put our clients at the center of everything we do.</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-0">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 md:p-8 shadow-xl text-center mb-0 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-2 group/card border border-blue-400/30">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Client-First Approach</h3>
+                  <p className="text-blue-100 leading-relaxed">We put our clients at the center of everything we do, ensuring their success is our priority.</p>
                 </div>
-                <div className="bg-blue-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-300">
-                  <h3 className="text-xl font-semibold text-blue-900 mb-3">Innovation at Heart</h3>
-                  <p className="text-blue-900">Innovation drives our solutions and services.</p>
+                <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 md:p-8 shadow-xl text-center mb-0 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/30 hover:-translate-y-2 group/card border border-purple-400/30">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Innovation at Heart</h3>
+                  <p className="text-purple-100 leading-relaxed">Innovation drives our solutions and services, keeping us ahead of the curve.</p>
                 </div>
-                <div className="bg-teal-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-teal-300">
-                  <h3 className="text-xl font-semibold text-teal-900 mb-3">Proven Expertise</h3>
-                  <p className="text-teal-900">Our team brings years of experience and technical know-how.</p>
+                <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-6 md:p-8 shadow-xl text-center mb-0 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/30 hover:-translate-y-2 group/card border border-cyan-400/30">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Proven Expertise</h3>
+                  <p className="text-cyan-100 leading-relaxed">Our team brings years of experience and technical know-how to every project.</p>
                 </div>
-                <div className="bg-cyan-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-cyan-300">
-                  <h3 className="text-xl font-semibold text-cyan-900 mb-3">Long-Term Partnerships</h3>
-                  <p className="text-cyan-900">We build lasting relationships with our clients.</p>
+                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl p-6 md:p-8 shadow-xl text-center mb-0 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-emerald-500/30 hover:-translate-y-2 group/card border border-emerald-400/30">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Long-term Partnerships</h3>
+                  <p className="text-emerald-100 leading-relaxed">We build lasting relationships with our clients based on trust and mutual success.</p>
                 </div>
               </div>
               <div className="flex justify-center mt-8 mb-4">
-                <a
-                  href="/brochure.pdf"
-                  download
-                  className="inline-flex items-center px-8 py-4 text-white text-lg font-semibold rounded-xl shadow-lg transition-all duration-300"
-                  style={{
-                    background: isBrochureHovered
-                      ? 'linear-gradient(to right, #7deff6, #0154b4)'
-                      : 'linear-gradient(to right, #0154b4, #7deff6)'
-                  }}
-                  onMouseEnter={() => setIsBrochureHovered(true)}
-                  onMouseLeave={() => setIsBrochureHovered(false)}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 mr-3">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6" />
-                  </svg>
-                  Download Brochure
-                </a>
+                <StyledWrapper>
+                  <a
+                    href="/brochure.pdf"
+                    download
+                    className="button"
+                    style={{'--clr': '#7808d0'}}
+                  >
+                    <span className="button__icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="button__icon-svg" width={10}>
+                        <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <svg viewBox="0 0 24 24" fill="none" width={10} xmlns="http://www.w3.org/2000/svg" className="button__icon-svg button__icon-svg--copy">
+                        <path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    Download Brochure
+                  </a>
+                </StyledWrapper>
               </div>
             </div>
           </div>
@@ -463,7 +581,8 @@ const About = () => {
       <section className="scroll-animate py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Culture: Class, Care, Learn, Achieve, Share, Social Responsibility and Transparency</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">Our Culture</h2>
+            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto font-light leading-relaxed">Class, Care, Learn, Achieve, Share, Social Responsibility and Transparency - The pillars that define who we are.</p>
           </div>
           <div className="relative flex justify-center gap-6 flex-wrap items-center">
             <button

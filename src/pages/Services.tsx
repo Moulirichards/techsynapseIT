@@ -1,5 +1,76 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+
+// Styled Button Component
+const StyledWrapper = styled.div`
+  button {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
+
+  button svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+
+  button .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+
+  button:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  button:hover svg {
+    transform: rotate(45deg);
+  }
+`;
+
+// Add custom CSS animations
+const customStyles = `
+  @keyframes lightRay {
+    0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+`;
 import { 
   Search, Code, Smartphone, Monitor, Palette, Users, Brain, Bug, 
   ArrowRight, TrendingUp, Share2, ShoppingCart, FileText, 
@@ -119,12 +190,37 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+      <style>{customStyles}</style>
+      {/* Enhanced background elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5 animate-pulse"></div>
+      
+      {/* Primary floating orbs */}
+      <div className="absolute top-20 left-20 w-40 h-40 bg-blue-400/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '0s', animationDuration: '6s'}}></div>
+      <div className="absolute bottom-20 right-20 w-60 h-60 bg-purple-400/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '2s', animationDuration: '8s'}}></div>
+      <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-indigo-400/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '3s', animationDuration: '7s'}}></div>
+      
+      {/* Additional floating elements */}
+      <div className="absolute top-1/4 right-1/3 w-24 h-24 bg-emerald-400/8 rounded-full blur-xl animate-pulse" style={{animationDelay: '0.5s', animationDuration: '4s'}}></div>
+      <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-pink-400/8 rounded-full blur-2xl animate-bounce" style={{animationDelay: '1.5s', animationDuration: '9s'}}></div>
+      <div className="absolute top-2/3 left-1/2 w-28 h-28 bg-yellow-400/8 rounded-full blur-xl animate-pulse" style={{animationDelay: '2.5s', animationDuration: '5s'}}></div>
+      
+      {/* Animated gradient mesh */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/3 via-transparent to-purple-600/3 animate-pulse" style={{animationDuration: '10s'}}></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-cyan-600/3 via-transparent to-pink-600/3 animate-pulse" style={{animationDuration: '8s', animationDelay: '2s'}}></div>
+      
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+        backgroundSize: '50px 50px'
+      }}></div>
+      
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <section 
-        className="pt-20 pb-16 relative min-h-[400px] md:min-h-[500px] flex flex-col justify-center"
+        className="pt-20 pb-16 relative min-h-[400px] md:min-h-[500px] flex flex-col justify-center overflow-hidden"
         style={{ 
           backgroundImage: 'url(/servicesbg.jpg)',
           backgroundSize: 'cover',
@@ -132,21 +228,66 @@ const Services = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        {/* Enhanced Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 pointer-events-none" />
+        
+        {/* Hero section specific background elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 animate-pulse" style={{animationDuration: '6s'}}></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-400/15 rounded-full blur-2xl animate-bounce" style={{animationDelay: '0s', animationDuration: '4s'}}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-400/15 rounded-full blur-2xl animate-bounce" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+        
+        {/* Animated light rays */}
+        <div className="absolute inset-0 opacity-20" style={{
+          background: `linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%)`,
+          animation: 'lightRay 8s ease-in-out infinite'
+        }}></div>
+        <div className="absolute inset-0 opacity-15" style={{
+          background: `linear-gradient(-45deg, transparent 30%, rgba(147, 51, 234, 0.1) 50%, transparent 70%)`,
+          animation: 'lightRay 10s ease-in-out infinite reverse'
+        }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">Our Services</h1>
-            <p className="text-xl text-white max-w-3xl mx-auto drop-shadow">
-              We offer comprehensive IT solutions tailored to meet your business needs and drive digital transformation across all industries.
+            <div className="mb-4">
+              <span className="inline-block text-sm md:text-base font-semibold text-blue-300 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-400/30 backdrop-blur-sm">
+                ✨ Premium Solutions
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse" style={{animationDuration: '3s'}}>
+                Our Services
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto drop-shadow-lg leading-relaxed">
+              We offer <span className="text-blue-300 font-semibold">comprehensive IT solutions</span> tailored to meet your business needs and drive <span className="text-purple-300 font-semibold">digital transformation</span> across all industries.
             </p>
+            <div className="mt-8 flex justify-center space-x-4">
+              <div className="flex items-center text-blue-300 text-sm">
+                <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                Web Development
+              </div>
+              <div className="flex items-center text-purple-300 text-sm">
+                <div className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                Mobile Apps
+              </div>
+              <div className="flex items-center text-cyan-300 text-sm">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse" style={{animationDelay: '1s'}}></div>
+                AI & ML
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Enhanced Services Grid */}
+      <section className="py-16 relative">
+        {/* Services grid background enhancements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-400/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '7s'}}></div>
+        <div className="absolute bottom-1/2 right-1/4 w-80 h-80 bg-purple-400/8 rounded-full blur-3xl animate-bounce" style={{animationDelay: '1s', animationDuration: '9s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-emerald-400/6 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s', animationDuration: '6s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-56 h-56 bg-pink-400/6 rounded-full blur-2xl animate-bounce" style={{animationDelay: '3s', animationDuration: '8s'}}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8">
             {serviceCategories.map((category, index) => (
               <div
@@ -181,20 +322,42 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-8 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Enhanced CTA Section */}
+      <section className="py-12 relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600">
+        {/* CTA section background elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 animate-pulse"></div>
+        <div className="absolute top-10 left-20 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '0s', animationDuration: '5s'}}></div>
+        <div className="absolute bottom-10 right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl animate-bounce" style={{animationDelay: '1s', animationDuration: '6s'}}></div>
+        
+        {/* Additional CTA background elements */}
+        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-cyan-400/15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s', animationDuration: '4s'}}></div>
+        <div className="absolute bottom-1/2 right-1/3 w-48 h-48 bg-emerald-400/15 rounded-full blur-2xl animate-bounce" style={{animationDelay: '3s', animationDuration: '7s'}}></div>
+        
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/5 to-transparent animate-pulse" style={{animationDuration: '8s'}}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how our services can help transform your business and drive growth.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Contact Us Today
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+          <div className="flex justify-center">
+            <StyledWrapper>
+            <Link to="/contact" style={{ textDecoration: 'none' }}>
+              <button>
+                <div className="svg-wrapper-1">
+                  <div className="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24}>
+                      <path fill="none" d="M0 0h24v24H0z" />
+                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
+                    </svg>
+                  </div>
+                </div>
+                <span>Contact Us Today</span>
+              </button>
+            </Link>
+          </StyledWrapper>
+          </div>
         </div>
       </section>
 

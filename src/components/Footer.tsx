@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
-  Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ChevronDown, ChevronRight,
+  Mail, Phone, MapPin, ChevronDown, ChevronRight,
   TrendingUp, Code, Smartphone, Monitor, Palette, Users, Brain, Bug, Layers, Wrench, Database, Cloud, Shield
 } from 'lucide-react';
 import { Logo } from './Logo';
@@ -268,7 +268,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-[#10131a] text-white relative overflow-hidden w-full">
+    <footer className="bg-black text-white relative overflow-hidden w-full">
       {/* Desktop Layout */}
       <div className="hidden lg:block max-w-7xl mx-auto px-4 py-20 relative z-10 w-full">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
@@ -471,20 +471,6 @@ export const Footer = () => {
           <p className="text-gray-400 text-sm">
             © {currentYear} Infocera. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Facebook className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
         </div>
       </div>
       {/* Mobile Layout */}
@@ -685,20 +671,6 @@ export const Footer = () => {
           <p className="text-gray-400 text-xs text-center">
             © {currentYear} Infocera. All rights reserved.
           </p>
-          <div className="flex space-x-4 mt-2">
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Facebook className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-brand-primary transition-colors">
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
         </div>
       </div>
 

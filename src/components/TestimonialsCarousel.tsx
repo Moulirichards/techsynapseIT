@@ -122,11 +122,6 @@ export const TestimonialsCarousel = () => {
 
         <div className="relative max-w-xl md:max-w-3xl mx-auto">
           <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-slate-800 rounded-3xl shadow-2xl p-4 md:p-6 lg:p-8 border border-gray-700 overflow-hidden backdrop-blur-sm">
-            {/* Futuristic background elements */}
-            <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-6 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
-            
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-xl"></div>
             
