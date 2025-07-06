@@ -1,6 +1,89 @@
 import { Calendar, User, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  button {
+   width: 150px;
+   height: 50px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   background: none;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+   background: linear-gradient(to right, #8b5cf6, #ec4899);
+   position: relative;
+   overflow: hidden;
+  }
+
+  button, button span {
+   transition: 200ms;
+  }
+
+  button .text {
+   transform: translateX(35px);
+   color: white;
+   font-weight: bold;
+   font-size: 16px;
+  }
+
+  button .icon {
+   position: absolute;
+   border-left: 1px solid rgba(255,255,255,0.3);
+   transform: translateX(110px);
+   height: 40px;
+   width: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+
+  button svg {
+   width: 15px;
+   fill: #eee;
+  }
+
+  button:hover {
+   background: linear-gradient(to right, #ec4899, #8b5cf6);
+  }
+
+  button:hover .text {
+   color: transparent;
+  }
+
+  button:hover .icon {
+   width: 150px;
+   border-left: none;
+   transform: translateX(0);
+  }
+
+  button:focus {
+   outline: none;
+  }
+
+  button:active .icon svg {
+   transform: scale(0.8);
+  }
+`;
+
+const StyledButton = () => {
+  return (
+    <StyledWrapper>
+      <button className="noselect">
+        <span className="text">View All</span>
+        <span className="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </span>
+      </button>
+    </StyledWrapper>
+  );
+}
 
 export const BlogSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,69 +141,36 @@ export const BlogSection = () => {
   ];
 
   return (
-    <section className="py-20 text-white relative overflow-hidden bg-black">
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-20 right-20 w-40 h-40 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-      </div>
-
-      {/* Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
-
-      {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-20 h-20 border-2 border-blue-400/40 rotate-45 animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/3 w-16 h-16 border-2 border-purple-400/40 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-24 h-24 border-2 border-cyan-400/40 rotate-12 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full animate-spin" style={{ animationDuration: '8s' }}></div>
-      </div>
-
-      {/* Gradient Lines */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
-        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-cyan-500 to-transparent"></div>
-        <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-pink-500 to-transparent"></div>
-      </div>
-
-      {/* Animated Dots Pattern */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-1/3 left-1/6 w-4 h-4 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-2/3 right-1/6 w-4 h-4 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/6 right-1/3 w-4 h-4 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-      </div>
-
-      {/* Additional Large Shapes */}
-      <div className="absolute inset-0 opacity-25">
-        <div className="absolute top-10 left-10 w-32 h-32 border border-blue-300/50 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 border border-purple-300/50 rotate-45 animate-bounce" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-lg animate-spin" style={{ animationDuration: '10s' }}></div>
+    <section className="py-20 text-black relative overflow-hidden" style={{ backgroundColor: '#111' }}>
+      {/* Large Outlined Triangle in the background */}
+      <div className="absolute left-0 top-0 w-full h-full pointer-events-none z-0">
+        <svg width="100%" height="100%" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', left: 0, top: 0 }}>
+          <defs>
+            <linearGradient id="triangleGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#0154b4" />
+              <stop offset="100%" stopColor="#7deff6" />
+            </linearGradient>
+          </defs>
+          <polygon points="-270,0 -270,800 650,400" stroke="#111" strokeWidth="24" fill="url(#triangleGradient)" />
+        </svg>
       </div>
 
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-stretch justify-between">
           {/* Blog Logo and Heading */}
           <div className="w-full md:w-1/3 flex flex-col justify-center md:justify-center md:pt-8 md:pb-16">
-            <div className="text-center md:text-left md:pl-4">
-              <div className="w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center mb-4 md:mb-8 mx-auto md:mx-0 shadow-2xl animate-pulse-glow" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}>
-                <svg className="w-8 h-8 md:w-12 md:h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            <div className="text-left md:pl-4">
+              <div className="w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center mb-4 md:mb-8 mx-0 shadow-2xl animate-pulse-glow" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}>
+                <svg className="w-8 h-8 md:w-12 md:h-12 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
                 </svg>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-                OUR BLOGS
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-6" style={{ fontFamily: 'Orbitron, Arial, sans-serif' }}>
+                Our Insights
               </h2>
-              <div className="w-16 md:w-24 h-1 mx-auto md:mx-0 rounded-full" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}></div>
+              <div className="w-16 md:w-24 h-1 mx-0 rounded-full" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}></div>
             </div>
           </div>
 
@@ -194,15 +244,8 @@ export const BlogSection = () => {
             </div>
             {/* View all blogs button */}
             <div className="flex justify-center mt-6">
-              <Link
-                to="/blog"
-                className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-base md:text-lg"
-                style={{ background: 'linear-gradient(to right, #0154b4, #7deff6)' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'linear-gradient(to right, #7deff6, #0154b4)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'linear-gradient(to right, #0154b4, #7deff6)'}
-              >
-                View all our blogs
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/blog">
+                <StyledButton />
               </Link>
             </div>
           </div>

@@ -1,11 +1,32 @@
 import { TrendingUp, Users, Award, Globe } from 'lucide-react';
 import React, { useRef } from 'react';
 
-// Custom hook for count up animation
+// Custom hook for count up animation with intersection observer
 function useCountUp(target, duration = 1200, start = 0) {
   const [count, setCount] = React.useState(start);
+  const [isVisible, setIsVisible] = React.useState(false);
   const ref = useRef();
+  
   React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+  
+  React.useEffect(() => {
+    if (!isVisible) return;
+    
     let frame;
     let startTime;
     function animate(ts) {
@@ -20,8 +41,9 @@ function useCountUp(target, duration = 1200, start = 0) {
     }
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
-  }, [target, duration, start]);
-  return count;
+  }, [target, duration, start, isVisible]);
+  
+  return { count, ref };
 }
 
 export const MilestoneSection = () => {
@@ -53,7 +75,7 @@ export const MilestoneSection = () => {
   ];
 
   return (
-    <section className="pt-8 pb-20 md:py-20 bg-[linear-gradient(to_right,_#7deff6,_#0154b4)] text-white relative overflow-hidden" style={{ height: '300px' }}>
+    <section className="pt-8 pb-20 md:py-20 text-white relative overflow-hidden" style={{ height: '300px', background: 'linear-gradient(45deg, #9358f7, #6197ee, #10d7e2)' }}>
       {/* Animated background elements - only on desktop */}
       <div className="hidden md:block absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
@@ -69,10 +91,11 @@ export const MilestoneSection = () => {
           {milestones.map((milestone, index) => {
             // Extract number from milestone.number (e.g., '500+' -> 500, '98%' -> 98)
             const num = parseInt(milestone.number.replace(/\D/g, ''));
-            const count = useCountUp(num);
+            const { count, ref } = useCountUp(num);
             return (
               <div
                 key={milestone.label}
+                ref={ref}
                 className="text-center animate-fade-in group"
                 style={{ animationDelay: `${index * 200}ms` }}
               >

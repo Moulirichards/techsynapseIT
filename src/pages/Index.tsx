@@ -51,42 +51,42 @@ const Index = () => {
       <Navbar />
       <main className="relative">
         <div className="relative z-10">
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out">
+          <div className="scroll-animate">
             <HeroSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '100ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '100ms' }}>
             <ServicesOverview />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '200ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '200ms' }}>
             <TechnologyStack />
           </div>
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '250ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '250ms' }}>
             <IndustriesSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '300ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '300ms' }}>
             <ClientsSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '400ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '400ms' }}>
             <TestimonialsCarousel />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '500ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '500ms' }}>
             <PortfolioSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '600ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '600ms' }}>
             <MilestoneSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '700ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '700ms' }}>
             <BlogSection />
           </div>
           
-          <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '800ms' }}>
+          <div className="scroll-animate" style={{ transitionDelay: '800ms' }}>
             <ContactCTA />
           </div>
         </div>

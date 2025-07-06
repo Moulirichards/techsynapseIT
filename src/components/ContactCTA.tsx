@@ -1,6 +1,253 @@
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  .login-box {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background: rgba(0,0,0,.9);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+
+  .login-box p:first-child {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .login-box .user-box {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .login-box .user-box input[name="phone"] ~ label {
+    /* no change to label */
+  }
+  .login-box .user-box input[name="phone"] {
+    /* no change to input */
+  }
+  /* Reduce gap after phone number only */
+  .login-box .user-box:last-of-type {
+    margin-bottom: 0;
+  }
+  .login-box .user-box:nth-child(5) {
+    margin-bottom: 8px;
+  }
+
+  .login-box .user-box input,
+  .login-box .user-box textarea {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    resize: none;
+    min-height: 40px;
+    box-sizing: border-box;
+  }
+
+  .login-box .user-box textarea {
+    min-height: 120px;
+    display: block;
+  }
+
+  .login-box .user-box label {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+    padding: 0;
+  }
+
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label,
+  .login-box .user-box textarea:focus ~ label,
+  .login-box .user-box textarea:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+    bottom: auto;
+  }
+
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 3px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .login-box a:hover {
+    background: #fff;
+    color: #272727;
+    border-radius: 5px;
+  }
+
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff);
+    animation: btn-anim1 1.5s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+
+    50%,100% {
+      left: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fff);
+    animation: btn-anim2 1.5s linear infinite;
+    animation-delay: .375s
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+
+    50%,100% {
+      top: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #fff);
+    animation: btn-anim3 1.5s linear infinite;
+    animation-delay: .75s
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+
+    50%,100% {
+      right: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #fff);
+    animation: btn-anim4 1.5s linear infinite;
+    animation-delay: 1.125s
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  .login-box p:last-child {
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .login-box a.a2 {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .login-box a.a2:hover {
+    background: transparent;
+    color: #aaa;
+    border-radius: 5px;
+  }
+`;
+
+const StyledForm = () => {
+  return (
+    <StyledWrapper>
+      <div className="login-box">
+        <p style={{ color: '#2563eb' }}>Get Started Today</p>
+        <form>
+          <div className="user-box">
+            <input required name="firstName" type="text" />
+            <label>First Name</label>
+          </div>
+          <div className="user-box">
+            <input required name="lastName" type="text" />
+            <label>Last Name</label>
+          </div>
+          <div className="user-box">
+            <input required name="email" type="email" />
+            <label>Email</label>
+          </div>
+          <div className="user-box">
+            <input required name="phone" type="tel" />
+            <label>Phone Number</label>
+          </div>
+          <div className="user-box">
+            <textarea required name="message" rows={4} />
+            <label>Tell us about your project</label>
+          </div>
+          <a href="#" onClick={(e) => e.preventDefault()}>
+            <span />
+            <span />
+            <span />
+            <span />
+            Send Message
+          </a>
+        </form>
+      </div>
+    </StyledWrapper>
+  );
+}
 
 export const ContactCTA = () => {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
@@ -17,79 +264,47 @@ export const ContactCTA = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
           <div className="text-white">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-6 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent">Ready to Transform Your Business?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-6" style={{ fontFamily: 'Exo, Arial, sans-serif', color: '#fff' }}>Ready to Transform Your Business?</h2>
             <p className="text-base md:text-xl text-blue-100 mb-4 md:mb-8">
               Let's discuss how our innovative IT solutions can drive your business forward. 
               Get in touch with our experts today.
             </p>
             
-            <div className="space-y-2 md:space-y-4">
-              <div className="flex items-center space-x-2 md:space-x-3">
-                <Phone className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">+91 8815587953</span>
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm md:text-base font-semibold">Call Us</p>
+                  <p className="text-xs md:text-sm text-blue-200">+91 8815587953</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-2 md:space-x-3">
-                <Mail className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">info@infocera.com</span>
+              
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm md:text-base font-semibold">Email Us</p>
+                  <p className="text-xs md:text-sm text-blue-200">info@infocera.in</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-2 md:space-x-3">
-                <MapPin className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                <span className="text-xs md:text-base text-white">8th Floor , HB Twin Tower, Netaji Subhash Place, Pitampura, DELHI, 110034</span>
+              
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <MapPin className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm md:text-base font-semibold">Visit Us</p>
+                  <p className="text-xs md:text-sm text-blue-200">8th Floor, HB Twin Tower<br />Netaji Subhash Place, Pitampura<br />NEW DELHI - 110034</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 md:p-8 shadow-2xl mt-6 md:mt-0">
-            <h3 className="text-lg md:text-2xl font-bold text-blue-900 mb-3 md:mb-6">Get Started Today</h3>
-            
-            <form className="space-y-2 md:space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-200 rounded-lg text-blue-700 placeholder-blue-500 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all bg-blue-50 text-xs md:text-base"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-200 rounded-lg text-blue-700 placeholder-blue-500 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all bg-blue-50 text-xs md:text-base"
-                />
-              </div>
-              
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-200 rounded-lg text-blue-700 placeholder-blue-500 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all bg-blue-50 text-xs md:text-base"
-              />
-              
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-200 rounded-lg text-blue-700 placeholder-blue-500 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all bg-blue-50 text-xs md:text-base"
-              />
-              
-              <textarea
-                placeholder="Tell us about your project"
-                rows={4}
-                className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-200 rounded-lg text-blue-700 placeholder-blue-500 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all resize-none bg-blue-50 text-xs md:text-base"
-              ></textarea>
-              
-              <button
-                type="submit"
-                className="w-full text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center border border-white text-sm md:text-base"
-                style={{
-                  background: isButtonHovered
-                    ? 'linear-gradient(to right, #0154b4, #7deff6)'
-                    : 'linear-gradient(to right, #7deff6, #0154b4)',
-                  transition: 'background 0.3s',
-                }}
-                onMouseEnter={() => setIsButtonHovered(true)}
-                onMouseLeave={() => setIsButtonHovered(false)}
-              >
-                Send Message
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </button>
-            </form>
+          <div className="mt-6 md:mt-0">
+            <StyledForm />
           </div>
         </div>
       </div>

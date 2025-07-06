@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Search, Globe, Languages } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Globe } from 'lucide-react';
 import { Logo } from './Logo';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
 
@@ -331,25 +331,6 @@ export const Navbar = () => {
               <Link to="/contact" className="p-2 text-white hover:text-blue-300 focus:outline-none">
                 <Globe className="h-5 w-5" />
               </Link>
-              {/* Languages Icon with Dropdown */}
-              <div className="relative" ref={languageRef}>
-                <button className="p-2 text-white hover:text-blue-300 focus:outline-none" onClick={() => setLanguageOpen((v) => !v)}>
-                  <Languages className="h-5 w-5" />
-                </button>
-                {languageOpen && (
-                  <div className="absolute right-0 mt-2 w-36 bg-black rounded-xl shadow-2xl z-50 p-2 border border-gray-800 animate-fade-in">
-                    {languages.map(lang => (
-                      <button
-                        key={lang.code}
-                        className="block w-full text-left px-4 py-2 text-white hover:bg-blue-900/30 rounded-lg transition-colors"
-                        onClick={() => setLanguageOpen(false)}
-                      >
-                        {lang.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
@@ -500,25 +481,6 @@ export const Navbar = () => {
                     ) : searchTerm.trim() !== '' ? (
                       <div className="text-gray-400 text-sm px-2 py-2">No results found.</div>
                     ) : null}
-                  </div>
-                )}
-              </div>
-              {/* Languages Icon (Desktop) with Dropdown */}
-              <div className="inline-block relative" ref={languageRef}>
-                <button className="p-2 text-white hover:text-blue-300 focus:outline-none ml-1" onClick={() => setLanguageOpen((v) => !v)}>
-                  <Languages className="h-5 w-5" />
-                </button>
-                {languageOpen && (
-                  <div className="absolute right-0 mt-2 w-36 bg-black rounded-xl shadow-2xl z-50 p-2 border border-gray-800 animate-fade-in">
-                    {languages.map(lang => (
-                      <button
-                        key={lang.code}
-                        className="block w-full text-left px-4 py-2 text-white hover:bg-blue-900/30 rounded-lg transition-colors"
-                        onClick={() => setLanguageOpen(false)}
-                      >
-                        {lang.label}
-                      </button>
-                    ))}
                   </div>
                 )}
               </div>

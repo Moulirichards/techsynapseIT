@@ -1,84 +1,219 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const ClientsSection = () => {
+  const [currentSet, setCurrentSet] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
+
   const clients = [
-    { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-    { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-    { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-    { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" },
-    { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
-    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
-    { name: "Tesla", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" },
-    { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" },
-    { name: "Uber", logo: "https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" },
-    { name: "Airbnb", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" },
-    { name: "PayPal", logo: "https://upload.wikimedia.org/wikipedia/commons/3/39/PayPal_logo.svg" },
-    { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg" },
-    { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
-    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
-    { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
-    { name: "Shopify", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" },
-    { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" },
-    { name: "Zoom", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zoom.svg" },
-    { name: "Discord", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" },
-    { name: "Twitch", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg" },
-    { name: "LinkedIn", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
-    { name: "Twitter", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" },
-    { name: "Instagram", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" },
-    { name: "TikTok", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" },
-    { name: "YouTube", logo: "https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" },
-    { name: "Dropbox", logo: "https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg" },
-    { name: "GitHub", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" },
-    { name: "SAP", logo: "https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" },
-    { name: "Stripe", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg" },
-    { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1200px-Infosys_logo.svg.png" },
-    { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" },
-    { name: "Intel", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/intel.svg" },
-    { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" },
-    { name: "Siemens", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/siemens.svg" },
-    { name: "Cisco", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/cisco.svg" },
-    { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" }
+    { name: "LendingKart", logo: "https://logo.clearbit.com/lendingkart.com" },
+    { name: "Wipro", logo: "https://logo.clearbit.com/wipro.com" },
+    { name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
+    { name: "Bosch", logo: "https://logo.clearbit.com/bosch.com" },
+    { name: "TCS", logo: "https://logo.clearbit.com/tcs.com" },
+    { name: "ClearDekho", logo: "https://logo.clearbit.com/cleardekho.com" },
+    { name: "Park+", logo: "https://logo.clearbit.com/parkplus.io" },
+    { name: "Trell", logo: "https://logo.clearbit.com/trell.co" },
+    { name: "TrueMeds", logo: "https://logo.clearbit.com/truemeds.in" },
+    { name: "Capgemini", logo: "https://logo.clearbit.com/capgemini.com" },
+    { name: "DotPe", logo: "https://logo.clearbit.com/dotpe.in" },
+    { name: "Khatabook", logo: "https://logo.clearbit.com/khatabook.com" },
+    { name: "Shiprocket", logo: "https://logo.clearbit.com/shiprocket.in" },
+    { name: "Ericsson", logo: "https://logo.clearbit.com/ericsson.com" },
+    { name: "MindInventory", logo: "https://logo.clearbit.com/mindinventory.com" },
+    { name: "Velotio", logo: "https://logo.clearbit.com/velotio.com" },
+    { name: "Ziffity", logo: "https://logo.clearbit.com/ziffity.com" },
+    { name: "Accenture", logo: "https://logo.clearbit.com/accenture.com" },
+    { name: "Tata", logo: "https://logo.clearbit.com/tata.com" },
+    { name: "MakeMyTrip", logo: "https://logo.clearbit.com/makemytrip.com" },
+    { name: "Infosys", logo: "https://logo.clearbit.com/infosys.com" },
+    { name: "Codewave", logo: "https://logo.clearbit.com/codewave.com" },
+    { name: "Tvisha Technologies", logo: "https://logo.clearbit.com/tvishatech.com" },
+    { name: "Prompt Softech", logo: "https://logo.clearbit.com/promptsoftech.com" },
+    { name: "HCL", logo: "https://logo.clearbit.com/hcl.com" },
+    { name: "Octal IT Solution", logo: "https://logo.clearbit.com/octalsoftware.com" },
+    { name: "Techuz", logo: "https://logo.clearbit.com/techuz.com" },
+    { name: "AasaanJobs", logo: "https://logo.clearbit.com/aasaanjobs.com" },
+    { name: "Happay", logo: "https://logo.clearbit.com/happay.com" },
+    { name: "AgroStar", logo: "https://logo.clearbit.com/agrostar.in" },
+    { name: "Tech Mahindra", logo: "https://logo.clearbit.com/techmahindra.com" },
+    { name: "Cognizant", logo: "https://logo.clearbit.com/cognizant.com" },
   ];
 
+  // Split clients into sets of 16 (since we removed 4 clients)
+  const clientSets = [
+    clients.slice(0, 16),  // First 16
+    clients.slice(16)      // Next 16
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFlipping(true);
+      setTimeout(() => {
+        setCurrentSet((prev) => (prev + 1) % clientSets.length);
+        setIsFlipping(false);
+      }, 600); // Half of flip duration
+    }, 3000); // 3 seconds per set
+
+    return () => clearInterval(interval);
+  }, [clientSets.length]);
+
+  const currentClients = clientSets[currentSet];
+
   return (
-    <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4">OUR CLIENTS</h2>
-          <div className="w-16 md:w-24 h-1 bg-white mx-auto mb-4 md:mb-8"></div>
-          <p className="text-base md:text-xl text-white max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.05),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.05),transparent_50%)]"></div>
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 md:mb-16">
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-cyan-300 mb-4 tracking-tight leading-tight relative z-10"
+            style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
+          >
+            Our Clients
+          </h2>
+          <div className="w-20 md:w-32 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto mb-6 md:mb-8 rounded-full relative z-10"></div>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed relative z-10">
             Trusted by industry leaders and innovative companies worldwide
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-8">
-          {clients.map((client, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 md:gap-6 lg:gap-8">
+          {currentClients.map((client, index) => (
             <div
-              key={client.name}
-              className="bg-white p-3 md:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center group animate-fade-in"
-              style={{ animationDelay: `${index * 50}ms` }}
+              key={`${currentSet}-${client.name}`}
+              className="group relative perspective-1000 aspect-square"
+              style={{ 
+                animationDelay: `${index * 50}ms`,
+                transitionDelay: isFlipping ? '0ms' : `${index * 30}ms`
+              }}
             >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="w-12 h-12 md:w-20 md:h-20 object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  // Fallback to a simple text-based logo if image fails to load
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('div');
-                    fallback.className = 'w-12 h-12 md:w-20 md:h-20 flex items-center justify-center bg-gray-100 rounded-lg text-gray-600 font-bold text-xs md:text-sm text-center';
-                    fallback.textContent = client.name;
-                    parent.appendChild(fallback);
-                  }
-                }}
-              />
+              <div className={`relative w-full h-full transition-transform duration-1200 transform-style-preserve-3d ${
+                isFlipping ? 'rotate-y-180' : 'rotate-y-0'
+              }`}>
+                {/* Front side (current set) */}
+                <div className="absolute inset-0 backface-hidden">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 p-3 md:p-4 border border-white/20 hover:border-purple-400/50 group-hover:scale-110 transform hover:-translate-y-2 h-full flex flex-col relative z-10">
+                    <div className="relative overflow-hidden rounded-xl flex-1 flex items-center justify-center bg-white">
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className={`w-full h-full object-contain ${
+                          client.name === "Ericsson" 
+                            ? "max-h-16 md:max-h-20 lg:max-h-24 xl:max-h-28" 
+                            : "max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32"
+                        }`}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'w-full h-full max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 flex items-center justify-center text-white font-bold text-xs md:text-sm text-center px-2';
+                            fallback.textContent = client.name;
+                            parent.appendChild(fallback);
+                          }
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Floating name on hover */}
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
+                      <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
+                        {client.name}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 to-cyan-400/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+                </div>
+
+                {/* Back side (next set) */}
+                <div className="absolute inset-0 backface-hidden rotate-y-180">
+                  <div className="bg-purple-500/10 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 p-3 md:p-4 border border-purple-400/30 group-hover:scale-110 transform hover:-translate-y-2 h-full flex flex-col relative z-10">
+                    <div className="relative overflow-hidden rounded-xl flex-1 flex items-center justify-center bg-white">
+                      <img
+                        src={clientSets[(currentSet + 1) % clientSets.length][index]?.logo || client.logo}
+                        alt={clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name}
+                        className={`w-full h-full object-contain ${
+                          (clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name) === "Ericsson" 
+                            ? "max-h-16 md:max-h-20 lg:max-h-24 xl:max-h-28" 
+                            : "max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32"
+                        }`}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'w-full h-full max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 flex items-center justify-center text-white font-bold text-xs md:text-sm text-center px-2';
+                            fallback.textContent = clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name;
+                            parent.appendChild(fallback);
+                          }
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Floating name on hover */}
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
+                      <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
+                        {clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/40 to-cyan-400/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Progress indicators */}
+        <div className="flex justify-center mt-8 space-x-2 relative z-10">
+          {clientSets.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                index === currentSet 
+                  ? 'bg-purple-400 scale-125' 
+                  : 'bg-gray-500'
+              }`}
+            />
+          ))}
+        </div>
       </div>
+
+      <style>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        
+        .rotate-y-0 {
+          transform: rotateY(0deg);
+        }
+        
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+        
+        .duration-1200 {
+          transition-duration: 1200ms;
+        }
+      `}</style>
     </section>
   );
 };

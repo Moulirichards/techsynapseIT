@@ -1,5 +1,7 @@
 import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
 
 export const PortfolioSection = () => {
   const projects = [
@@ -31,7 +33,7 @@ export const PortfolioSection = () => {
 
   return (
     <section 
-      className="py-20 relative"
+      className="py-8 relative"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/portfoliobg.jpg')`,
         backgroundSize: 'cover',
@@ -41,7 +43,7 @@ export const PortfolioSection = () => {
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent">OUR PORTFOLIO</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ fontFamily: 'EB Garamond, serif' }}>Our Portfolio</h2>
           <div className="w-16 md:w-24 h-1 bg-white mx-auto mb-4 md:mb-8"></div>
           <p className="text-base md:text-xl text-blue-100 max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
             Discover our latest projects and see how we've helped businesses achieve their digital transformation goals.
@@ -99,15 +101,139 @@ export const PortfolioSection = () => {
         </div>
 
         <div className="text-center">
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base"
-            style={{ background: 'linear-gradient(to right, #0154b4, #7deff6)' }}
-          >
-            View All Projects
-          </Link>
+          <StyledWrapper>
+            <Link to="/portfolio" style={{ textDecoration: 'none' }}>
+              <button className="button">
+                <span className="button_lg">
+                  <span className="button_sl" />
+                  <span className="button_text">View All Projects</span>
+                </span>
+              </button>
+            </Link>
+          </StyledWrapper>
         </div>
       </div>
     </section>
   );
 };
+
+const StyledWrapper = styled.div`
+  .button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: #0f1923;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+  }
+
+  .button::before,
+  .button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7D8082;
+    transition: all .15s ease;
+  }
+
+  .button::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+
+  .button::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+
+  .button:active,
+  .button:focus {
+    outline: none;
+  }
+
+  .button:active::before,
+  .button:active::after {
+    right: 3px;
+    left: 3px;
+  }
+
+  .button:active::before {
+    top: 3px;
+  }
+
+  .button:active::after {
+    bottom: 3px;
+  }
+
+  .button_lg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0f1923;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+  }
+
+  .button_lg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #0f1923;
+  }
+
+  .button_lg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #0f1923;
+    transition: all .2s ease;
+  }
+
+  .button_sl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background: linear-gradient(to right, #0154b4, #7deff6);
+    transform: skew(-15deg);
+    transition: all .2s ease;
+  }
+
+  .button_text {
+    position: relative;
+  }
+
+  .button:hover {
+    color: #0f1923;
+  }
+
+  .button:hover .button_sl {
+    width: calc(100% + 15px);
+  }
+
+  .button:hover .button_lg::after {
+    background-color: #fff;
+  }
+`;

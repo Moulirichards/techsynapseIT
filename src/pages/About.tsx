@@ -94,10 +94,10 @@ function IconicMomentsSection() {
         </div>
         {/* Card */}
         <div className="flex justify-center">
-          <div className={`relative rounded-2xl shadow-2xl p-10 pl-20 flex items-center gap-8 max-w-3xl w-full min-h-[200px] bg-white/90 backdrop-blur-sm`}>
+          <div className="relative rounded-2xl shadow-2xl p-10 pl-20 flex items-center gap-8 max-w-3xl w-full min-h-[200px] bg-white/90 backdrop-blur-sm">
             {/* Left arrow */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow transition disabled:opacity-30"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow disabled:opacity-30"
               onClick={() => setCurrent((c) => Math.max(0, c - 1))}
               disabled={current === 0}
               aria-label="Previous"
@@ -113,7 +113,7 @@ function IconicMomentsSection() {
             </div>
             {/* Right arrow */}
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow transition disabled:opacity-30"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-100 text-gray-900 rounded-full p-2 shadow disabled:opacity-30"
               onClick={() => setCurrent((c) => Math.min(iconicMoments.length - 1, c + 1))}
               disabled={current === iconicMoments.length - 1}
               aria-label="Next"
@@ -258,23 +258,16 @@ const About = () => {
   const autoPlayRef = React.useRef(autoPlay);
   autoPlayRef.current = autoPlay;
 
+  // Handle hash navigation to scroll to video section
   useEffect(() => {
-    // Intersection Observer for scroll animations (copied from Index.tsx)
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-scroll-in');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
-        }
-      });
-    }, observerOptions);
-    const sections = document.querySelectorAll('.scroll-animate');
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    if (window.location.hash === '#demo-video') {
+      const videoSection = document.getElementById('demo-video');
+      if (videoSection) {
+        setTimeout(() => {
+          videoSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -301,12 +294,11 @@ const About = () => {
       
       {/* Hero Section */}
       <section
-        className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out pt-40 md:pt-60 pb-32 md:pb-56 relative overflow-hidden"
+        className="pt-40 md:pt-60 pb-32 md:pb-56"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('/aboutbg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transitionDelay: '0ms',
         }}
       >
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
@@ -318,7 +310,7 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-10 md:py-16" style={{ transitionDelay: '100ms' }}>
+      <section className="py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 w-full">
             {stats.map((stat, index) => {
@@ -331,7 +323,7 @@ const About = () => {
                 <div
                   key={stat.label}
                   className={[
-                    "flex flex-col justify-center items-center text-center animate-fade-in py-4 md:py-0",
+                    "flex flex-col justify-center items-center text-center py-4 md:py-0",
                     isSecondRowMobile ? "border-t border-gray-300 md:border-t-0" : "",
                     isNotFirstColDesktop ? "md:border-l md:border-gray-300" : ""
                   ].join(" ")}
@@ -352,12 +344,13 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ transitionDelay: '200ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* Suggestion: Optimize /public/culture1.png for best performance (compress, use WebP, reduce resolution) */}
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="rounded-xl shadow-2xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100 flex flex-col items-center w-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:shadow-blue-400/50 cursor-pointer">
+          <div className="rounded-xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100 flex flex-col items-center w-full cursor-pointer hover:scale-105 hover:shadow-2xl transition-transform transition-shadow duration-300">
             <div className="w-full">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md mb-2 md:mb-4">Our Story</h2>
-              <div className="space-y-4 text-blue-100 drop-shadow-md text-justify text-base md:text-lg leading-relaxed">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-4">Our Story</h2>
+              <div className="space-y-4 text-blue-100 text-justify text-base md:text-lg leading-relaxed">
                 <p>
                   At INFOCERA, our journey began with a simple yet powerful mission: to deliver intelligent technology solutions that make a real difference. Driven by a passionate team of engineers, developers, and domain experts, we've grown into a trusted partner for startups, small businesses, government agencies, and large enterprises alike. From custom mobile apps and web development to data visualization, IoT, and full-scale IT consulting, we craft solutions that are innovative, impactful, and people-centered.
                 </p>
@@ -374,59 +367,69 @@ const About = () => {
       </section>
 
       {/* Iconic Moments in Our History Section */}
-      <div className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out" style={{ transitionDelay: '300ms' }}>
+      <div>
         <IconicMomentsSection />
-        </div>
+      </div>
 
       {/* What makes us different? / Why us? / Why Infocera? Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 bg-[linear-gradient(135deg,_#80d9ee_0%,_#1a50b2_100%)]" style={{ transitionDelay: '400ms' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-white mb-4">What Makes Us Different</h2>
-            <p className="text-xl text-blue-50 max-w-2xl mx-auto">We focus on client-first approach, innovation, and long-term partnerships.</p>
+      <section className="scroll-animate py-16 relative" style={{ background: 'linear-gradient(45deg, #9358f7, #6197ee, #10d7e2)', transitionDelay: '400ms' }}>
+        {/* Single decorative SVG curve line */}
+        <svg className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1600 600" fill="none" xmlns="http://www.w3.org/2000/svg" style={{opacity: 0.3}}>
+          <path d="M 0 350 Q 50 350 400 100 Q 900 500 1300 700 Q 1600 180 1600 180" stroke="#1e40af" stroke-width="5" fill="none" />
+        </svg>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          <div className="relative">
+            {/* Card background attached to right edge */}
+            <div className="absolute top-0 left-0 h-full w-[100vw] bg-[#2a2b38] rounded-2xl rounded-r-none z-0" style={{right: '0', minWidth: '100%', maxWidth: 'none'}}></div>
+            <div className="relative bg-transparent rounded-2xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl font-bold text-white mb-4">What Makes Us Different</h2>
+                <p className="text-xl text-blue-50 max-w-2xl mx-auto">We focus on client-first approach, innovation, and long-term partnerships.</p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-0">
+                <div className="bg-blue-200 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-100">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-3">Client-First Approach</h3>
+                  <p className="text-blue-900">We put our clients at the center of everything we do.</p>
+                </div>
+                <div className="bg-blue-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-300">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-3">Innovation at Heart</h3>
+                  <p className="text-blue-900">Innovation drives our solutions and services.</p>
+                </div>
+                <div className="bg-teal-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-teal-300">
+                  <h3 className="text-xl font-semibold text-teal-900 mb-3">Proven Expertise</h3>
+                  <p className="text-teal-900">Our team brings years of experience and technical know-how.</p>
+                </div>
+                <div className="bg-cyan-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-cyan-300">
+                  <h3 className="text-xl font-semibold text-cyan-900 mb-3">Long-Term Partnerships</h3>
+                  <p className="text-cyan-900">We build lasting relationships with our clients.</p>
+                </div>
+              </div>
+              <div className="flex justify-center mt-8 mb-4">
+                <a
+                  href="/brochure.pdf"
+                  download
+                  className="inline-flex items-center px-8 py-4 text-white text-lg font-semibold rounded-xl shadow-lg transition-all duration-300"
+                  style={{
+                    background: isBrochureHovered
+                      ? 'linear-gradient(to right, #7deff6, #0154b4)'
+                      : 'linear-gradient(to right, #0154b4, #7deff6)'
+                  }}
+                  onMouseEnter={() => setIsBrochureHovered(true)}
+                  onMouseLeave={() => setIsBrochureHovered(false)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 mr-3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6" />
+                  </svg>
+                  Download Brochure
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-0">
-            <div className="bg-blue-200 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-100">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Client-First Approach</h3>
-              <p className="text-blue-900">We put our clients at the center of everything we do.</p>
-            </div>
-            <div className="bg-blue-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-blue-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Innovation at Heart</h3>
-              <p className="text-blue-900">Innovation drives our solutions and services.</p>
-            </div>
-            <div className="bg-teal-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-teal-300">
-              <h3 className="text-xl font-semibold text-teal-900 mb-3">Proven Expertise</h3>
-              <p className="text-teal-900">Our team brings years of experience and technical know-how.</p>
-            </div>
-            <div className="bg-cyan-400 rounded-2xl p-8 shadow-sm text-center mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:ring-4 hover:ring-cyan-300">
-              <h3 className="text-xl font-semibold text-cyan-900 mb-3">Long-Term Partnerships</h3>
-              <p className="text-cyan-900">We build lasting relationships with our clients.</p>
-            </div>
-          </div>
-          <div className="flex justify-center mt-8 mb-4">
-        <a
-          href="/brochure.pdf"
-          download
-          className="inline-flex items-center px-8 py-4 text-white text-lg font-semibold rounded-xl shadow-lg transition-all duration-300"
-          style={{
-            background: isBrochureHovered
-              ? 'linear-gradient(to right, #7deff6, #0154b4)'
-              : 'linear-gradient(to right, #0154b4, #7deff6)'
-          }}
-          onMouseEnter={() => setIsBrochureHovered(true)}
-          onMouseLeave={() => setIsBrochureHovered(false)}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 mr-3">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6" />
-          </svg>
-          Download Brochure
-        </a>
-      </div>
         </div>
       </section>
 
       {/* Connecting Businesses Around the World Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-2 bg-[#13303d] relative overflow-hidden min-h-[770px] flex flex-col justify-center w-full" style={{ transitionDelay: '500ms' }}>
+      <section className="scroll-animate py-2 bg-[#13303d] relative overflow-hidden min-h-[770px] flex flex-col justify-center w-full" style={{ transitionDelay: '500ms' }}>
         {/* Top Row: Text and Map */}
         <div className="flex flex-col lg:flex-row items-center justify-between w-full mb-8 gap-0">
           {/* Left: Text */}
@@ -457,7 +460,7 @@ const About = () => {
       </section>
 
       {/* culture Section */}
-      <section className="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="scroll-animate py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Culture: Class, Care, Learn, Achieve, Share, Social Responsibility and Transparency</h2>
@@ -467,8 +470,7 @@ const About = () => {
               aria-label="Previous"
               className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-gray-900 rounded-full p-2 shadow transition z-10"
               onClick={() => handleArrow('left')}
-              style={{left: '-40px'}}
-            >
+              style={{left: '-40px'}}>
               <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
             {cultureCards.slice(cardSet * 3, cardSet * 3 + 3).map((card, idx) => (
@@ -482,8 +484,7 @@ const About = () => {
               aria-label="Next"
               className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-gray-900 rounded-full p-2 shadow transition z-10"
               onClick={() => handleArrow('right')}
-              style={{right: '-40px'}}
-            >
+              style={{right: '-40px'}}>
               <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
@@ -495,6 +496,54 @@ const About = () => {
                 style={{ boxShadow: cardSet === i ? '0 0 8px 2px #fff' : 'none' }}
               />
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Demo Video Section */}
+      <section id="demo-video" className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(45deg, #9358f7, #6197ee, #10d7e2)' }}>
+        {/* Background strip as a left-side band, full height */}
+        <div className="hidden lg:block absolute left-0 top-0 bottom-0 h-full z-0" style={{width: '75%'}}>
+          <div className="w-full h-full bg-[#232433]"></div>
+        </div>
+        <div className="block lg:hidden absolute left-0 right-0 top-0 bottom-0 h-full z-0">
+          <div className="w-full h-full bg-[#232433]"></div>
+        </div>
+        {/* Decorative SVG line */}
+        <svg className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="aboutLineGradient" x1="0" y1="0" x2="1600" y2="500" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#9358f7" />
+              <stop offset="0.5" stop-color="#6197ee" />
+              <stop offset="1" stop-color="#10d7e2" />
+            </linearGradient>
+          </defs>
+          <path d="M 0 350 Q 400 100 900 400 Q 1300 600 1600 100" stroke="url(#aboutLineGradient)" stroke-width="4" fill="none" />
+        </svg>
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            {/* Left Side - Text Content */}
+            <div className="flex flex-col items-start w-full lg:w-1/2 bg-[#2a2b38] rounded-2xl p-8 border border-[#2a2b38] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-left">Inside INFOCERA</h2>
+              <p className="text-xl md:text-2xl lg:text-3xl text-white text-left mb-6">
+                A Glimpse into Our Vision, Values, and Innovation
+              </p>
+              <p className="text-base text-white text-left mb-8 leading-relaxed">
+                Step into our world through this short video that captures what INFOCERA stands for — our journey, mission, and the passionate minds behind our solutions. Discover how we craft intelligent, human-centered technologies that empower businesses and shape the future.
+              </p>
+              <div className="w-20 h-1 rounded-full mb-8" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}></div>
+            </div>
+            
+            {/* Right Side - Video */}
+            <div className="flex justify-center w-full lg:w-1/2 bg-[#232433] rounded-2xl p-8 border border-[#232433] shadow-lg">
+              <video
+                src="/demovideo.mp4"
+                poster="/portfoliobg.jpg"
+                controls
+                className="rounded-2xl border-4 border-white shadow-lg w-full max-w-2xl bg-black"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </section>

@@ -268,9 +268,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-brand-dark text-white relative overflow-hidden w-full">
-      {/* Decorative background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-purple-900/40 to-gray-900/80 pointer-events-none z-0" />
+    <footer className="bg-[#10131a] text-white relative overflow-hidden w-full">
       {/* Desktop Layout */}
       <div className="hidden lg:block max-w-7xl mx-auto px-4 py-20 relative z-10 w-full">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
@@ -289,11 +287,11 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">info@infocera.com</span>
+                <span className="text-gray-200 text-lg font-medium">info@infocera.in</span>
               </div>
               <div className="flex items-center space-x-3 mb-1">
                 <MapPin className="h-12 w-12 text-brand-primary" />
-                <span className="text-gray-200 text-lg font-medium">8th Floor , HB Twin Tower, Netaji Subhash Place, Pitampura, DELHI, 110034</span>
+                <span className="text-gray-200 text-lg font-medium">8th Floor, HB Twin Tower, Netaji Subhash Place, Pitampura, NEW DELHI - 110034</span>
               </div>
               {/* Google Maps Embed */}
               <div className="w-full max-w-xs aspect-square rounded-xl overflow-hidden border-2 border-brand-primary mx-auto mb-1">
@@ -327,7 +325,7 @@ export const Footer = () => {
             {/* First Row */}
             {/* Services */}
             <div className="row-start-1 col-start-1">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Services</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Services</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {Object.entries(serviceCategories).map(([categoryKey, categoryName]) => (
                   <li key={categoryKey} className="relative m-0 p-0">
@@ -366,7 +364,7 @@ export const Footer = () => {
             </div>
             {/* Industries */}
             <div className="row-start-1 col-start-2">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Industries</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Industries</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {industries.map((item) => (
                   <li key={item.name}>
@@ -379,7 +377,7 @@ export const Footer = () => {
             </div>
             {/* Technologies */}
             <div className="row-start-1 col-start-3">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Technologies</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Technologies</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {Object.entries(technologyCategories).map(([categoryKey, categoryName]) => (
                   <li key={categoryKey} className="relative m-0 p-0">
@@ -419,7 +417,7 @@ export const Footer = () => {
             {/* Second Row */}
             {/* Company below Services */}
             <div className="row-start-2 col-start-1">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Company</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Company</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {company.map((item) => (
                   <li key={item.path + '-' + item.name}>
@@ -435,7 +433,7 @@ export const Footer = () => {
             </div>
             {/* Products below Industries */}
             <div className="row-start-2 col-start-2">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Products</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Products</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {products.map((item) => (
                   <li key={item.path + '-' + item.name}>
@@ -451,7 +449,7 @@ export const Footer = () => {
             </div>
             {/* Resources & Support below Technologies */}
             <div className="row-start-2 col-start-3">
-              <h3 className="text-lg font-bold mb-1 pb-1 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #0154b4, #7deff6) 1' }}>Resources & Support</h3>
+              <h3 className="text-lg font-bold mb-1 pb-1" style={{ color: '#2563eb', borderBottom: '3px solid #2563eb' }}>Resources & Support</h3>
               <ul className="text-xs sm:text-sm md:text-base lg:text-lg space-y-1 list-none m-0 p-0">
                 {resources.map((item) => (
                   <li key={item.path + '-' + item.name}>

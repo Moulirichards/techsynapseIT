@@ -118,7 +118,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-xs md:text-base">Email</h4>
-                      <p className="text-white text-xs md:text-base">info@infocera.com</p>
+                      <p className="text-white text-xs md:text-base">info@infocera.in</p>
                     </div>
                   </div>
                   
@@ -128,7 +128,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white text-xs md:text-base">Address</h4>
-                      <p className="text-white text-xs md:text-base">8th Floor, HB Twin Tower<br />Netaji Subhash Place, Pitampura<br />DELHI, 110034</p>
+                      <p className="text-white text-xs md:text-base">8th Floor, HB Twin Tower<br />Netaji Subhash Place, Pitampura<br />NEW DELHI - 110034</p>
                     </div>
                   </div>
                   

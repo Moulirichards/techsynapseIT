@@ -23,7 +23,8 @@ const Services = () => {
         { name: 'Brand Consulting', path: '/services/brand-consulting' },
         { name: 'Lead Management System', path: '/services/lead-management-system' }
       ],
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-500",
+      learnMorePath: '/services/social-media-marketing'
     },
     {
       title: "Web Design & Development",
@@ -40,7 +41,8 @@ const Services = () => {
         { name: 'Real Estate Portal Development', path: '/services/real-estate-portal' },
         { name: 'E-commerce Website Development', path: '/services/ecommerce-development' }
       ],
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-purple-500 to-pink-500",
+      learnMorePath: '/services/web-development'
     },
     {
       title: "Mobile Application",
@@ -52,7 +54,8 @@ const Services = () => {
         { name: 'Hybrid App Development', path: '/services/hybrid-app-development' },
         { name: 'Native App Development', path: '/services/native-app-development' }
       ],
-      gradient: "from-green-500 to-teal-500"
+      gradient: "from-green-500 to-teal-500",
+      learnMorePath: '/services/mobile-apps'
     },
     {
       title: "Software",
@@ -66,7 +69,8 @@ const Services = () => {
         { name: 'Hospital Management Software', path: '/services/hospital-management-software' },
         { name: 'School Management Software', path: '/services/school-management-software' }
       ],
-      gradient: "from-orange-500 to-red-500"
+      gradient: "from-orange-500 to-red-500",
+      learnMorePath: '/services/crm-software'
     },
     {
       title: "Creative Design",
@@ -76,7 +80,8 @@ const Services = () => {
         { name: 'Logo Design', path: '/services/logo-design' },
         { name: 'Brochure Design', path: '/services/brochure-design' }
       ],
-      gradient: "from-pink-500 to-rose-500"
+      gradient: "from-pink-500 to-rose-500",
+      learnMorePath: '/services/ui-ux-design'
     },
     {
       title: "Consultant",
@@ -87,7 +92,8 @@ const Services = () => {
         { name: 'SharePoint Development', path: '/services/sharepoint-development' },
         { name: 'Software Consultant', path: '/services/software-consultant' }
       ],
-      gradient: "from-indigo-500 to-purple-500"
+      gradient: "from-indigo-500 to-purple-500",
+      learnMorePath: '/services/netsuite-consultant'
     },
     {
       title: "Data Science",
@@ -96,7 +102,8 @@ const Services = () => {
         { name: 'AI & Machine Learning', path: '/services/ai-ml' },
         { name: 'Data Analytics', path: '/services/data-analytics' }
       ],
-      gradient: "from-emerald-500 to-teal-500"
+      gradient: "from-emerald-500 to-teal-500",
+      learnMorePath: '/services/ai-ml'
     },
     {
       title: "Testing",
@@ -106,7 +113,8 @@ const Services = () => {
         { name: 'Security Testing', path: '/services/security-testing' },
         { name: 'Performance Testing', path: '/services/performance-testing' }
       ],
-      gradient: "from-purple-500 to-indigo-500"
+      gradient: "from-purple-500 to-indigo-500",
+      learnMorePath: '/services/software-testing'
     }
   ];
 
@@ -143,7 +151,7 @@ const Services = () => {
             {serviceCategories.map((category, index) => (
               <div
                 key={category.title}
-                className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100`}
+                className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100 flex flex-col`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`w-16 h-16 bg-white/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -161,10 +169,10 @@ const Services = () => {
                   ))}
                 </ul>
                 <Link
-                  to="/contact"
-                  className="inline-flex items-center text-white font-semibold hover:text-blue-100 transition-colors group"
+                  to={category.learnMorePath}
+                  className="inline-flex items-center text-white font-semibold hover:text-blue-100 transition-colors group text-sm mt-auto"
                 >
-                  Get Started
+                  Learn More
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

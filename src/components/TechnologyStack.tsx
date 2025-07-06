@@ -1,107 +1,265 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+
+const technologyCategories = [
+  {
+    name: 'UI Design',
+    technologies: [
+      { name: "HTML/HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "AngularJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "jQuery", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
+      { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
+    ]
+  },
+  {
+    name: 'Server Side Scripting',
+    technologies: [
+      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "Spring", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Shell", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+      { name: "Perl", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg" },
+    ]
+  },
+  {
+    name: 'Cloud Computing',
+    technologies: [
+      { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+      { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+      { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+      { name: "Heroku", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" },
+    ]
+  },
+  {
+    name: 'Database & Analytics',
+    technologies: [
+      { name: "Oracle", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      { name: "Elasticsearch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" },
+    ]
+  },
+  {
+    name: 'Web Server Technology',
+    technologies: [
+      { name: "Apache", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+      { name: "Tomcat", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tomcat/tomcat-original.svg" },
+      { name: "Nginx", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+      { name: "IIS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Caddy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Lighttpd", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" },
+    ]
+  },
+  {
+    name: 'Testing & Process',
+    technologies: [
+      { name: "Jest", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+      { name: "Selenium", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Jenkins", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+      { name: "Travis CI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/travis/travis-plain.svg" },
+      { name: "Mocha", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg" },
+    ]
+  },
+];
+
+// Styled Switch component
+const StyledWrapper = styled.div`
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 55px;
+  }
+  .switch-button .switch-outer {
+    height: 100%;
+    background: #252532;
+    width: 115px;
+    border-radius: 165px;
+    box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
+    border: 1px solid #32303e;
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .switch-button .switch-outer input[type="checkbox"] {
+    opacity: 0;
+    appearance: none;
+    position: absolute;
+  }
+  .switch-button .switch-outer .button-toggle {
+    height: 42px;
+    width: 42px;
+    background: linear-gradient(#3b3a4e, #272733);
+    border-radius: 100%;
+    box-shadow: inset 0px 5px 4px 0px #424151, 0px 4px 15px 0px #0f0e17;
+    position: relative;
+    z-index: 2;
+    transition: left 0.3s ease-in;
+    left: 0;
+  }
+  .switch-button .switch-outer input[type="checkbox"]:checked + .button .button-toggle {
+    left: 58%;
+  }
+  .switch-button .switch-outer input[type="checkbox"]:checked + .button .button-indicator {
+    animation: indicator 1s forwards;
+  }
+  .switch-button .switch-outer .button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+  }
+  .switch-button .switch-outer .button-indicator {
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 3px solid #54a8fc;
+    box-sizing: border-box;
+    right: 10px;
+    position: relative;
+  }
+  @keyframes indicator {
+    30% { opacity: 0; }
+    0% { opacity: 1; }
+    100% { opacity: 1; left: -68%; }
+  }
+`;
+
+const Switch = ({ checked, onChange }) => (
+  <StyledWrapper>
+    <label className="switch-button" htmlFor="switch">
+      <div className="switch-outer">
+        <input id="switch" type="checkbox" checked={checked} onChange={onChange} />
+        <div className="button">
+          <span className="button-toggle flex items-center justify-center">
+            {checked ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
+            )}
+          </span>
+          <span className="button-indicator" />
+        </div>
+      </div>
+    </label>
+  </StyledWrapper>
+);
 
 export const TechnologyStack = () => {
-  const technologyCategories = [
-    {
-      title: "UI Design",
-      technologies: [
-        { name: "HTML/HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-        { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-        { name: "AngularJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-        { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-        { name: "jQuery", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
-        { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" }
-      ]
-    },
-    {
-      title: "Server Side Scripting",
-      technologies: [
-        { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-        { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "Spring", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "Shell", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
-        { name: "Perl", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg" }
-      ]
-    },
-    {
-      title: "Cloud Computing",
-      technologies: [
-        { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
-        { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-        { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-        { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
-        { name: "Heroku", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" }
-      ]
-    },
-    {
-      title: "Database & Analytics",
-      technologies: [
-        { name: "Oracle", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
-        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-        { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-        { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-        { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-        { name: "Elasticsearch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" }
-      ]
-    },
-    {
-      title: "Web Server Technology",
-      technologies: [
-        { name: "Apache", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
-        { name: "Tomcat", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tomcat/tomcat-original.svg" },
-        { name: "Nginx", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
-        { name: "IIS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
-        { name: "Caddy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-        { name: "Lighttpd", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" }
-      ]
-    },
-    {
-      title: "Testing & Process",
-      technologies: [
-        { name: "Jest", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
-        { name: "Selenium", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
-        { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "Jenkins", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
-        { name: "Travis CI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/travis/travis-plain.svg" },
-        { name: "Mocha", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg" }
-      ]
-    }
-  ];
+  const [orbitAngle, setOrbitAngle] = useState(0);
+  const [page, setPage] = useState(0); // 0: first 3, 1: next 3
+  const requestRef = useRef();
+
+  useEffect(() => {
+    let lastTime = performance.now();
+    const speed = 360 / 10; // degrees per second (10s for full rotation)
+    const animate = (now) => {
+      const delta = now - lastTime;
+      lastTime = now;
+      setOrbitAngle((prev) => (prev + (speed * delta) / 1000) % 360);
+      requestRef.current = requestAnimationFrame(animate);
+    };
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, []);
+
+  // Increased size for orbits and icons
+  const containerSize = 260;
+  const center = containerSize / 2;
+  const radius = center;
+
+  // Pagination logic
+  const categoriesToShow = technologyCategories.slice(page * 3, page * 3 + 3);
 
   return (
-    <section className="pt-2 sm:pt-6 md:pt-20 pb-20 bg-black">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="mt-0 sm:mt-2 md:mt-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 pb-1 bg-gradient-to-r from-[#7deff6] to-[#0154b4] bg-clip-text text-transparent leading-[1.4]">Technology Stack</h2>
-          <p className="text-base md:text-xl text-white max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
+    <section 
+      className="technology-stack py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/techstackbg.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="text-center mb-6 md:mb-8">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-200 mb-3 tracking-tight leading-tight"
+            style={{ fontFamily: 'Orbitron, Arial, sans-serif' }}
+          >
+            TECHNOLOGY STACK
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-white to-cyan-300 mx-auto mb-4 rounded-full"></div>
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light tracking-wide">
             We leverage cutting-edge technologies to build robust, scalable, and efficient solutions across all domains.
           </p>
         </div>
-
-        <div className="space-y-8 md:space-y-12">
-          {technologyCategories.map((category, categoryIndex) => (
-            <div key={category.title} className="animate-fade-in" style={{ animationDelay: `${categoryIndex * 200}ms` }}>
-              <h3 className="text-lg md:text-2xl font-bold text-white mb-4 md:mb-8 text-center">{category.title}</h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 md:gap-6">
-                {category.technologies.map((tech, index) => (
-                  <div
-                    key={tech.name}
-                    className="flex flex-col items-center group"
-                    style={{ animationDelay: `${(categoryIndex * 200) + (index * 100)}ms` }}
-                  >
-                    <div className="w-10 h-10 md:w-16 md:h-16 p-2 md:p-3 bg-white rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
-                      <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" />
+        {/* Grid layout for perfect alignment */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center items-center min-h-[400px]">
+          {categoriesToShow.map((category, idx) => (
+            <div key={category.name} className="flex flex-col items-center">
+              <div className="relative" style={{ width: containerSize, height: containerSize }}>
+                {/* Orbit circle */}
+                <div className="absolute" style={{ left: 0, top: 0, width: containerSize, height: containerSize, borderRadius: '50%', border: '2px solid #d1d5db' }}></div>
+                {/* Orbiting logos with JS-driven animation and pill label */}
+                {category.technologies.map((tech, i) => {
+                  const baseAngle = (360 / category.technologies.length) * i;
+                  // Anti-clockwise for Server Side Scripting, Database & Analytics, and Testing & Process
+                  const isAntiClockwise =
+                    category.name === 'Server Side Scripting' ||
+                    category.name === 'Database & Analytics' ||
+                    category.name === 'Testing & Process';
+                  const angle = isAntiClockwise
+                    ? (baseAngle - (orbitAngle + (page * 3 + idx) * 60)) % 360
+                    : (baseAngle + orbitAngle + (page * 3 + idx) * 60) % 360;
+                  const rad = (angle * Math.PI) / 180;
+                  const x = center + radius * Math.cos(rad);
+                  const y = center + radius * Math.sin(rad);
+                  return (
+                    <div
+                      key={tech.name}
+                      className="absolute flex flex-col items-center"
+                      style={{
+                        left: x,
+                        top: y,
+                        transform: 'translate(-50%, -50%)'
+                      }}
+                    >
+                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200">
+                        <img src={tech.logo} alt={tech.name} className="w-8 h-8 object-contain" />
+                      </div>
+                      <span className="mt-3 px-4 py-2 rounded-full bg-blue-900/80 text-white text-sm font-semibold shadow-md border border-blue-400 whitespace-nowrap">
+                        {tech.name}
+                      </span>
                     </div>
-                    <span className="mt-2 md:mt-3 text-xs md:text-sm font-medium text-white group-hover:text-blue-400 transition-colors text-center">
-                      {tech.name}
-                    </span>
+                  );
+                })}
+                {/* Center circle with category name */}
+                <div className="absolute" style={{ left: center, top: center, transform: 'translate(-50%, -50%)' }}>
+                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-blue-400 text-center">
+                    <span className="text-base font-bold text-blue-700 leading-tight whitespace-pre-line">{category.name}</span>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        {/* Switch for navigation */}
+        <div className="flex justify-center mt-8">
+          <Switch checked={page === 1} onChange={() => setPage(page === 0 ? 1 : 0)} />
         </div>
       </div>
     </section>
