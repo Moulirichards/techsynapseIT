@@ -76,10 +76,6 @@ export const HeroSection = () => {
     >
       {/* Background Images with Slideshow */}
       {backgroundImages.map((bgImage, index) => {
-        // Only render current and next image for performance
-        const isCurrent = index === currentBgIndex;
-        const isNext = index === (currentBgIndex + 1) % backgroundImages.length;
-        if (!isCurrent && !isNext) return null;
         // Calculate the position for sliding
         let slidePosition;
         if (index === currentBgIndex) {
