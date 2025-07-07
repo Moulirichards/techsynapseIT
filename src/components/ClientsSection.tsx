@@ -86,7 +86,7 @@ export const ClientsSection = () => {
 
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 md:gap-6 lg:gap-8">
           {currentClients.map((client, index) => (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" key={client.name + '-' + index}>
               <div
                 key={`${currentSet}-${client.name}`}
                 className="group relative perspective-1000"

@@ -145,7 +145,7 @@ const StyledWrapper = styled.div`
     right: 0;
     left: 0;
     height: calc(50% - 5px);
-    border: 1px solid #7D8082;
+    border: 2px solid #111;
     transition: all .15s ease;
   }
 
@@ -218,7 +218,7 @@ const StyledWrapper = styled.div`
     bottom: -1px;
     left: -8px;
     width: 0;
-    background: linear-gradient(to right, #0154b4, #7deff6);
+    background: linear-gradient(135deg, #0f172a 0%, #6d28d9 50%, #0f172a 100%);
     transform: skew(-15deg);
     transition: all .2s ease;
   }
@@ -235,7 +235,8 @@ const StyledWrapper = styled.div`
     width: calc(100% + 15px);
   }
 
-  .button:hover .button_lg::after {
-    background-color: #fff;
+  .button:hover > .button_lg {
+    background: linear-gradient(135deg, #0f172a 0%, #6d28d9 50%, #0f172a 100%) !important;
+    border-color: #6d28d9 !important;
   }
 `;

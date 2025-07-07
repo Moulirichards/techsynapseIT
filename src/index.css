@@ -863,3 +863,9 @@ h1 + p, h2 + p, h3 + p {
 .group.relative.bg-white:nth-child(8):hover button {
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
 }
+
+@media (max-width: 768px) {
+  html, body {
+    font-family: system-ui, Arial, sans-serif !important;
+  }
+}

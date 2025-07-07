@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Play, ChevronDown, Zap, Shield, Clock, Users, Rocket, Lightbulb } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
+import { useIsMobile } from '../hooks/use-mobile';
 
 export const HeroSection = () => {
   const navigate = useNavigate();
@@ -32,6 +33,8 @@ export const HeroSection = () => {
     { icon: Clock, title: "24/7 Support", desc: "Round-the-clock assistance" },
     { icon: Users, title: "Expert Team", desc: "Industry professionals" }
   ];
+
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsVisible(true);
@@ -71,37 +74,39 @@ export const HeroSection = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section bg-[linear-gradient(135deg,_#1e3a8a_0%,_#6d28d9_50%,_#0f172a_100%)] md:bg-none"
       onMouseMove={handleMouseMove}
     >
-      {/* Background Images with Slideshow */}
-      {backgroundImages.map((bgImage, index) => {
-        // Calculate the position for sliding
-        let slidePosition;
-        if (index === currentBgIndex) {
-          slidePosition = 'translate-x-0'; // Current image
-        } else if (index < currentBgIndex) {
-          slidePosition = '-translate-x-full'; // Previous images (left)
-        } else {
-          slidePosition = 'translate-x-full'; // Next images (right)
-        }
-        // Special handling for wrap-around: when going from last to first image
-        if (currentBgIndex === backgroundImages.length - 1 && index === 0) {
-          slidePosition = 'translate-x-full'; // First image positioned to the right
-        }
-        return (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${slidePosition}`}
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
-            }}
-          />
-        );
-      })}
+      {/* Background Images with Slideshow (desktop only) */}
+      <div className="hidden md:block">
+        {backgroundImages.map((bgImage, index) => {
+          // Calculate the position for sliding
+          let slidePosition;
+          if (index === currentBgIndex) {
+            slidePosition = 'translate-x-0'; // Current image
+          } else if (index < currentBgIndex) {
+            slidePosition = '-translate-x-full'; // Previous images (left)
+          } else {
+            slidePosition = 'translate-x-full'; // Next images (right)
+          }
+          // Special handling for wrap-around: when going from last to first image
+          if (currentBgIndex === backgroundImages.length - 1 && index === 0) {
+            slidePosition = 'translate-x-full'; // First image positioned to the right
+          }
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${slidePosition}`}
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+          );
+        })}
+      </div>
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/50"></div>

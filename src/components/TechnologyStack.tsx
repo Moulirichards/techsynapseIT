@@ -171,8 +171,8 @@ const techGradients = {
   'Google Cloud': 'bg-gradient-to-br from-blue-400 via-red-400 to-yellow-400',
   'Docker': 'bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600',
   'Azure': 'bg-gradient-to-br from-blue-500 via-blue-700 to-cyan-400',
-  'Kubernetes': 'bg-gradient-to-br from-blue-400 via-blue-500 to-cyan-400',
-  'Heroku': 'bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-500',
+  'Kubernetes': 'bg-gradient-to-br from-teal-300 via-blue-400 to-purple-400',
+  'Heroku': 'bg-gradient-to-br from-purple-300 via-indigo-300 to-blue-300',
   'Oracle': 'bg-gradient-to-br from-red-500 via-orange-400 to-yellow-400',
   'MongoDB': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
   'Redis': 'bg-gradient-to-br from-red-400 via-pink-500 to-orange-400',
@@ -181,7 +181,7 @@ const techGradients = {
   'Elasticsearch': 'bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400',
   'Apache': 'bg-gradient-to-br from-red-400 via-orange-400 to-yellow-400',
   'Tomcat': 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400',
-  'Nginx': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
+  'Nginx': 'bg-gradient-to-br from-green-300 via-emerald-400 to-teal-500',
   'IIS': 'bg-gradient-to-br from-blue-400 via-blue-600 to-gray-400',
   'Caddy': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
   'Lighttpd': 'bg-gradient-to-br from-gray-400 via-gray-500 to-gray-700',
@@ -190,7 +190,7 @@ const techGradients = {
   'Git': 'bg-gradient-to-br from-orange-400 via-red-400 to-yellow-400',
   'Jenkins': 'bg-gradient-to-br from-orange-400 via-yellow-400 to-red-400',
   'Travis CI': 'bg-gradient-to-br from-green-400 via-gray-400 to-red-400',
-  'Mocha': 'bg-gradient-to-br from-yellow-700 via-yellow-500 to-brown-400',
+  'Mocha': 'bg-gradient-to-br from-pink-200 via-orange-300 to-yellow-200',
 };
 
 // Styled Switch component
@@ -294,7 +294,7 @@ export const TechnologyStack = () => {
 
   return (
     <section
-      className="technology-stack py-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      className="technology-stack py-2 md:py-4 relative overflow-hidden bg-[linear-gradient(135deg,_#1e3a8a_0%,_#6d28d9_50%,_#0f172a_100%)] md:bg-gradient-to-br md:from-slate-900 md:via-purple-900 md:to-slate-900"
       style={{ position: 'relative' }}
     >
       {/* Subtle radial gradients and grid overlay for depth */}
@@ -302,15 +302,15 @@ export const TechnologyStack = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.05),transparent_50%)] pointer-events-none -z-10"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.05),transparent_50%)] pointer-events-none -z-10"></div>
       <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none -z-10"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="text-center mb-6 md:mb-8">
+      <div className="max-w-5xl mx-auto px-8 sm:px-16 lg:px-24 relative z-20 pt-8 md:pt-12">
+        <div className="text-center mb-2 md:mb-4">
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-200 mb-3 tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-200 mb-2 tracking-tight leading-tight"
             style={{ fontFamily: 'Orbitron, Arial, sans-serif' }}
           >
             TECHNOLOGY STACK
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-white to-cyan-300 mx-auto mb-4 rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-white to-cyan-300 mx-auto mb-2 rounded-full"></div>
           <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light tracking-wide">
             We leverage cutting-edge technologies to build robust, scalable, and efficient solutions across all domains.
           </p>
@@ -320,23 +320,27 @@ export const TechnologyStack = () => {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-4 w-full relative" style={{scrollbarWidth: 'none'}}
+        className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-8 pb-2 w-full relative px-10 md:px-20"
+        style={{scrollbarWidth: 'none'}}
       >
         {pages.map((categories, pageIdx) => (
           <div
             key={pageIdx}
-            className={`min-w-full flex-shrink-0 snap-center grid ${pageSize === 1 ? 'grid-cols-1' : 'grid-cols-2'} gap-12 justify-items-center items-start`}
+            className="min-w-full flex-shrink-0 snap-center flex flex-row gap-4 justify-center items-start"
           >
             {categories.map((category, idx) => (
-              <div key={pageIdx + '-' + idx + '-' + category.name} className="flex flex-col items-center w-full">
+              <div
+                key={pageIdx + '-' + idx + '-' + category.name}
+                className={`flex flex-col items-center w-[98vw] md:w-[48%] ${idx === 0 ? 'md:ml-8' : ''} ${idx === 1 ? 'md:mr-8' : ''}`}
+              >
                 <div className="w-full">
-                  <div className="rounded-3xl bg-slate-800/90 shadow-2xl p-3 md:p-8 w-full">
-                    <div className="mb-4 md:mb-6 flex items-center justify-center">
-                      <div className="px-3 py-2 md:px-6 md:py-3 rounded-2xl bg-white/20 backdrop-blur-md shadow-lg border border-blue-200 text-center">
-                        <span className="text-base md:text-lg font-bold text-white leading-tight whitespace-pre-line drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{category.name}</span>
+                  <div className="rounded-3xl bg-slate-800/90 shadow-2xl p-2 md:p-5 w-full">
+                    <div className="mb-3 md:mb-4 flex items-center justify-center">
+                      <div className="px-2 py-1 md:px-4 md:py-2 rounded-2xl bg-white/20 backdrop-blur-md shadow-lg border border-blue-200 text-center">
+                        <span className="text-sm md:text-base font-bold text-white leading-tight whitespace-pre-line drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{category.name}</span>
                       </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
+                    <div className="grid grid-cols-2 gap-2 md:gap-4 w-full">
                       {category.technologies.map((tech) => {
                         const pageName = techPageMap[tech.name] ||
                           tech.name
@@ -349,30 +353,31 @@ export const TechnologyStack = () => {
                             .replace(/[^a-z0-9\-]/g, '');
                         return (
                           <div
-                            key={tech.name}
-                            className={`relative flex flex-col justify-end p-2 md:p-5 rounded-2xl shadow-lg overflow-hidden ${techGradients[tech.name] || 'bg-gradient-to-br from-gray-300 to-gray-500'} transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
-                            style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.10)' }}
+                            key={category.name + '-' + tech.name}
+                            className={`relative flex flex-row items-center justify-between p-1 md:p-3 rounded-2xl shadow-lg overflow-hidden ${techGradients[tech.name] || 'bg-gradient-to-br from-gray-300 to-gray-500'} transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
+                            style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.10)', backgroundColor: 'rgba(51, 65, 85, 0.7)', maxWidth: '95%' }}
                           >
-                            {/* Large, dark, visible logo in background */}
-                            <img
-                              src={tech.logo}
-                              alt={tech.name}
-                              className="w-12 h-12 md:w-16 md:h-16 object-contain mx-auto mb-2"
-                              loading={isMobile ? 'eager' : 'lazy'}
-                            />
-                            {/* Content */}
-                            <div className="relative z-10 flex flex-col gap-1 md:gap-2">
-                              <span className="text-white text-sm md:text-lg font-bold leading-tight drop-shadow-lg">{tech.name}</span>
-                              <span className="text-white/90 text-[10px] md:text-xs font-medium mb-1 md:mb-2 drop-shadow" style={{textShadow: '0 2px 8px rgba(0,0,0,0.10)'}}>
+                            {/* Content: left side */}
+                            <div className="flex flex-col gap-1 md:gap-1 flex-1">
+                              <span className="text-white text-xs md:text-base font-bold leading-tight drop-shadow-lg">{tech.name}</span>
+                              <span className="text-white/90 text-[9px] md:text-[11px] font-medium mb-1 md:mb-1 drop-shadow" style={{textShadow: '0 2px 8px rgba(0,0,0,0.10)'}}>
                                 {techDescriptions[tech.name] || 'A modern technology for digital solutions.'}
                               </span>
                               <Link
                                 to={`/technologies/${pageName}`}
-                                className="mt-1 px-2 py-1 md:px-4 md:py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-semibold text-[10px] md:text-xs shadow transition-colors duration-200 w-fit"
+                                className="mt-1 px-1 py-0.5 md:px-2 md:py-1 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-semibold text-[9px] md:text-[11px] shadow transition-colors duration-200 w-fit"
                                 style={{textShadow: 'none'}}>
                                 Learn More
                               </Link>
                             </div>
+                            {/* Icon: right side */}
+                            <img
+                              src={tech.logo}
+                              alt={tech.name}
+                              className="w-16 h-16 md:w-24 md:h-24 object-contain ml-2"
+                              loading={isMobile ? 'eager' : 'lazy'}
+                              style={{ filter: 'brightness(1.15)' }}
+                            />
                           </div>
                         );
                       })}
