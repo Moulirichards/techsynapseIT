@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import './TechnologyStack.css';
 
 const technologyCategories = [
   {
@@ -70,6 +72,46 @@ const technologyCategories = [
   },
 ];
 
+// Map technology names to their correct technology page kebab-case route paths
+const techPageMap = {
+  'HTML/HTML5': 'html-css',
+  'CSS3': 'html-css',
+  'JavaScript': 'angular-js',
+  'AngularJS': 'angular-js',
+  'jQuery': 'jquery',
+  'WordPress': 'wordpress',
+  'PHP': 'php',
+  'Java': 'java',
+  'Spring': 'java-frameworks',
+  'Python': 'python',
+  'Shell': 'shell',
+  'Perl': 'perl',
+  'AWS': 'aws',
+  'Google Cloud': 'google-cloud',
+  'Docker': 'deployment-automation',
+  'Azure': 'aws',
+  'Kubernetes': 'deployment-automation',
+  'Heroku': 'deployment-automation',
+  'Oracle': 'oracle',
+  'MongoDB': 'mongodb',
+  'Redis': 'redis',
+  'MySQL': 'sql-database',
+  'PostgreSQL': 'sql-database',
+  'Elasticsearch': 'sql-database',
+  'Apache': 'apache',
+  'Tomcat': 'tomcat',
+  'Nginx': 'apache',
+  'IIS': 'iis',
+  'Caddy': 'apache',
+  'Lighttpd': 'apache',
+  'Jest': 'unit-testing',
+  'Selenium': 'system-testing',
+  'Git': 'software-testing',
+  'Jenkins': 'software-testing',
+  'Travis CI': 'software-testing',
+  'Mocha': 'unit-testing',
+};
+
 // Styled Switch component
 const StyledWrapper = styled.div`
   /* The switch - the box around the slider */
@@ -128,50 +170,39 @@ const Switch = ({ checked, onChange }) => (
 );
 
 export const TechnologyStack = () => {
-  const [orbitAngle, setOrbitAngle] = useState(0);
-  const [page, setPage] = useState(0); // 0: first 3, 1: next 3
-  const requestRef = useRef();
+  // Split categories into pages of 3
+  const pages = [];
+  for (let i = 0; i < technologyCategories.length; i += 3) {
+    pages.push(technologyCategories.slice(i, i + 3));
+  }
 
+  // Swipe indicator logic
+  const [showIndicator, setShowIndicator] = useState(true);
+  const scrollRef = useRef(null);
   useEffect(() => {
-    let animationId: number;
-    let startTime = performance.now();
-    const speed = 360 / 10; // degrees per second (10s for full rotation)
-    
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const newAngle = (speed * elapsed / 1000) % 360;
-      setOrbitAngle(newAngle);
-      animationId = requestAnimationFrame(animate);
-    };
-    
-    animationId = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
+    const timer = setTimeout(() => setShowIndicator(false), 4000);
+    return () => clearTimeout(timer);
+  }, []);
+  const [currentPage, setCurrentPage] = useState(0);
+  // Update current page based on scroll position
+  const handleScroll = (e) => {
+    const el = e.target;
+    const pageWidth = el.offsetWidth;
+    const page = Math.round(el.scrollLeft / pageWidth);
+    setCurrentPage(page);
+  };
+
+  // Scroll to page when dot is clicked
+  const scrollToPage = useCallback((pageIdx) => {
+    if (scrollRef.current) {
+      const el = scrollRef.current;
+      el.scrollTo({ left: pageIdx * el.offsetWidth, behavior: 'smooth' });
+    }
   }, []);
 
-  // Increased size for orbits and icons
-  const containerSize = 260;
-  const center = containerSize / 2;
-  const radius = center;
-
-  // Pagination logic
-  const categoriesToShow = technologyCategories.slice(page * 3, page * 3 + 3);
-
   return (
-    <section 
-      className="technology-stack py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/techstackbg.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        willChange: 'auto',
-        transform: 'translateZ(0)'
-      }}
+    <section
+      className="technology-stack py-20 relative overflow-hidden bg-gradient-to-br from-blue-500 via-cyan-400 to-purple-500"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center mb-6 md:mb-8">
@@ -186,64 +217,103 @@ export const TechnologyStack = () => {
             We leverage cutting-edge technologies to build robust, scalable, and efficient solutions across all domains.
           </p>
         </div>
-        {/* Grid layout for perfect alignment */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center items-center min-h-[400px]">
-          {categoriesToShow.map((category, idx) => (
-            <div key={category.name} className="flex flex-col items-center">
-              <div className="relative" style={{ width: containerSize, height: containerSize }}>
-                {/* Orbit circle */}
-                <div className="absolute" style={{ left: 0, top: 0, width: containerSize, height: containerSize, borderRadius: '50%', border: '2px solid #d1d5db' }}></div>
-                {/* Orbiting logos with JS-driven animation and pill label */}
-                {category.technologies.map((tech, i) => {
-                  const baseAngle = (360 / category.technologies.length) * i;
-                  // Anti-clockwise for Server Side Scripting, Database & Analytics, and Testing & Process
-                  const isAntiClockwise =
-                    category.name === 'Server Side Scripting' ||
-                    category.name === 'Database & Analytics' ||
-                    category.name === 'Testing & Process';
-                  const angle = isAntiClockwise
-                    ? (baseAngle - (orbitAngle + (page * 3 + idx) * 60)) % 360
-                    : (baseAngle + orbitAngle + (page * 3 + idx) * 60) % 360;
-                  const rad = (angle * Math.PI) / 180;
-                  const x = center + radius * Math.cos(rad);
-                  const y = center + radius * Math.sin(rad);
-                  return (
-                    <div
-                      key={tech.name}
-                      className="absolute flex flex-col items-center"
-                      style={{
-                        left: x,
-                        top: y,
-                        transform: 'translate(-50%, -50%)',
-                        willChange: 'transform',
-                        backfaceVisibility: 'hidden',
-                        perspective: '1000px'
-                      }}
-                    >
-                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200">
-                        <img src={tech.logo} alt={tech.name} className="w-8 h-8 object-contain" />
-                      </div>
-                      <span className="mt-3 px-4 py-2 rounded-full bg-blue-900/80 text-white text-sm font-semibold shadow-md border border-blue-400 whitespace-nowrap">
-                        {tech.name}
-                      </span>
+      </div>
+      {/* Horizontal scrollable pages with scroll snap, full width */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-4 w-full relative" style={{scrollbarWidth: 'none'}}
+      >
+        {pages.map((categories, pageIdx) => (
+          <div
+            key={pageIdx}
+            className="min-w-full flex-shrink-0 snap-center grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center items-start min-h-[400px]"
+          >
+            {categories.map((category, idx) => (
+              <div key={pageIdx + '-' + idx + '-' + category.name} className="flex flex-col items-center w-full">
+                <div className="w-full mb-6">
+                  <div className="w-full flex items-center justify-center">
+                    <div className="px-6 py-3 rounded-2xl bg-white/30 backdrop-blur-md shadow-lg border border-blue-200 text-center">
+                      <span className="text-lg font-bold text-white leading-tight whitespace-pre-line drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{category.name}</span>
                     </div>
-                  );
-                })}
-                {/* Center circle with category name */}
-                <div className="absolute" style={{ left: center, top: center, transform: 'translate(-50%, -50%)' }}>
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-blue-400 text-center">
-                    <span className="text-base font-bold text-blue-700 leading-tight whitespace-pre-line">{category.name}</span>
                   </div>
                 </div>
+                <div className="grid grid-cols-2 gap-6 w-full">
+                  {category.technologies.map((tech) => {
+                    // Use mapping if available, otherwise fallback to current logic
+                    const pageName = techPageMap[tech.name] ||
+                      tech.name
+                        .toLowerCase()
+                        .replace(/\s+/g, '-')
+                        .replace(/\//g, '-')
+                        .replace(/\+/, 'plus')
+                        .replace(/\./g, '')
+                        .replace(/\&/g, 'and')
+                        .replace(/[^a-z0-9\-]/g, '');
+                    return (
+                      <div
+                        key={tech.name}
+                        className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/30 backdrop-blur-md shadow-lg border-2 border-blue-200 glassmorphic-card transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-blue-400 hover:bg-white/40"
+                        style={{
+                          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+                          backdropFilter: 'blur(18px)',
+                        }}
+                      >
+                        <div className="w-16 h-16 flex items-center justify-center mb-2">
+                          <img src={tech.logo} alt={tech.name} className="w-20 h-20 object-contain" />
+                        </div>
+                        <span className="mt-1 text-white text-sm font-semibold text-center drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{tech.name}</span>
+                        <Link
+                          to={`/technologies/${pageName}`}
+                          className="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-xs shadow transition-colors duration-200"
+                          style={{textShadow: 'none'}}
+                        >
+                          Learn More
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
+            ))}
+          </div>
+        ))}
+      </div>
+      {/* Swipe indicator below scroll area */}
+      {pages.length > 1 && (
+        <div className="flex justify-center items-center mt-2 gap-4 select-none">
+          {(currentPage > 0) && (
+            <div className="flex flex-col items-center">
+              <span className="text-white text-xs font-semibold mb-1 drop-shadow animate-pulse">Swipe to go back</span>
+              <svg className="bounce-left" width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 8H2M2 8L8 2M2 8L8 14" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
+          )}
+          {(currentPage < pages.length - 1) && (
+            <div className="flex flex-col items-center">
+              <span className="text-white text-xs font-semibold mb-1 drop-shadow animate-pulse">Swipe to see more</span>
+              <svg className="bounce-right" width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 8H30M30 8L24 2M30 8L24 14" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          )}
+        </div>
+      )}
+      {/* Navigation dots */}
+      {pages.length > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-4">
+          {pages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToPage(idx)}
+              className={`w-3 h-3 rounded-full border-2 border-white transition-all duration-200 ${currentPage === idx ? 'bg-blue-400 scale-125 shadow-lg' : 'bg-white/40 hover:bg-blue-200'}`}
+              aria-label={`Go to page ${idx + 1}`}
+              style={{ outline: 'none' }}
+            />
           ))}
         </div>
-        {/* Switch for navigation */}
-        <div className="flex justify-center mt-12">
-          <Switch checked={page === 1} onChange={() => setPage(page === 0 ? 1 : 0)} />
-        </div>
-      </div>
+      )}
     </section>
   );
 };
