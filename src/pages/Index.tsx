@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/components/HeroSection';
@@ -27,23 +27,25 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-      <Navbar />
-      <main className="relative">
-        <div className="relative z-10">
-          <div><HeroSection /></div>
-          <div><ServicesOverview /></div>
-          <div><TechnologyStack /></div>
-          <div><IndustriesSection /></div>
-          <div><ClientsSection /></div>
-          <div><TestimonialsCarousel /></div>
-          <div><PortfolioSection /></div>
-          <div><MilestoneSection /></div>
-          <div><BlogSection /></div>
-          <div><ContactCTA /></div>
-        </div>
-      </main>
-      <Footer />
-      <ScrollToTopButton />
+      <Suspense fallback={<div style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Loading...</div>}>
+        <Navbar />
+        <main className="relative">
+          <div className="relative z-10">
+            <div><HeroSection /></div>
+            <div><ServicesOverview /></div>
+            <div><TechnologyStack /></div>
+            <div><IndustriesSection /></div>
+            <div><ClientsSection /></div>
+            <div><TestimonialsCarousel /></div>
+            <div><PortfolioSection /></div>
+            <div><MilestoneSection /></div>
+            <div><BlogSection /></div>
+            <div><ContactCTA /></div>
+          </div>
+        </main>
+        <Footer />
+        <ScrollToTopButton />
+      </Suspense>
     </div>
   );
 };

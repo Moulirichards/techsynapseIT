@@ -1,7 +1,6 @@
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import React from 'react';
+import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -251,16 +250,42 @@ const StyledForm = () => {
 
 export const ContactCTA = () => {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Preload the background image as soon as the component mounts
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = '/transformbg.webp';
+    img.onload = () => setBgLoaded(true);
+  }, []);
+
   return (
-    <section 
-      className="py-20 relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/transformbg.jpg')`,
+    <section
+      ref={sectionRef}
+      className="relative py-20 md:py-32 px-4 md:px-0 flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden"
+      style={bgLoaded ? {
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/transformbg.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
+      } : {
+        background: 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))',
       }}
     >
+      {/* LQIP blurred background */}
+      {!bgLoaded && (
+        <div style={{
+          backgroundImage: `url('/transformbg-blur.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(16px)',
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+        }} />
+      )}
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
           <div className="text-white">

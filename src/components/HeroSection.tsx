@@ -20,10 +20,10 @@ export const HeroSection = () => {
   ];
 
   const backgroundImages = [
-    '/herobg.jpg',
-    '/herobg1.jpg',
-    '/herobg2.jpg',
-    '/herobg3.jpg'
+    '/herobg.webp',
+    '/herobg1.webp',
+    '/herobg2.webp',
+    '/herobg3.webp'
   ];
 
   const features = [

@@ -35,7 +35,7 @@ export const PortfolioSection = () => {
     <section 
       className="py-8 relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/portfoliobg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/portfoliobg.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

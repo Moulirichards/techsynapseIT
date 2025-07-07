@@ -110,7 +110,7 @@ function IconicMomentsSection() {
     <section 
       className="w-full py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/iconicbg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/iconicbg.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -371,7 +371,7 @@ const About = () => {
       <section
         className="pt-40 md:pt-60 pb-32 md:pb-56"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('/aboutbg.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('/aboutbg.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -429,7 +429,7 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="pt-16 md:pt-36 pb-12 md:pb-24 relative z-10" style={{ backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culture1.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         {/* Suggestion: Optimize /public/culture1.png for best performance (compress, use WebP, reduce resolution) */}
         <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="rounded-xl py-8 md:py-16 px-4 md:px-16 -mt-8 md:-mt-20 mb-8 md:mb-12 border border-gray-100/50 backdrop-blur-sm bg-white/5 flex flex-col items-center w-full cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 hover:shadow-purple-500/30 hover:shadow-cyan-500/30 hover:shadow-pink-500/20 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
@@ -578,7 +578,7 @@ const About = () => {
       </section>
 
       {/* culture Section */}
-      <section className="scroll-animate py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="scroll-animate py-16 relative overflow-hidden" style={{ transitionDelay: '600ms', backgroundImage: `linear-gradient(rgba(20,30,48,0.85),rgba(20,30,48,0.85)), url('/culturebg.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">Our Culture</h2>
