@@ -94,7 +94,7 @@ export const BlogSection = () => {
       category: "TECHNOLOGY",
       date: "17-06-2025",
       excerpt: "For business leaders and fleet managers, vehicle relocation is a recurring challenge that requires business intelligence and strategic planning...",
-      image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7.webp?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=400&q=80",
       tags: ["Logistics", "Vehicle", "Strategy"],
       slug: "logistics-leaders-vehicle-relocation"
     },
@@ -103,7 +103,7 @@ export const BlogSection = () => {
       category: "SOFTWARE TRAINING",
       date: "12-06-2025",
       excerpt: "Key Things To Know About Automation Software Testing Course. There has been a huge demand for automation testing professionals in recent years...",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6.webp?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
       tags: ["Testing", "Automation", "Training"],
       slug: "automation-software-testing-course"
     },
@@ -112,7 +112,7 @@ export const BlogSection = () => {
       category: "ARTIFICIAL INTELLIGENCE",
       date: "08-06-2025",
       excerpt: "Exploring how artificial intelligence is revolutionizing enterprise software development and creating new opportunities for businesses...",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e.webp?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=80",
       tags: ["AI", "Enterprise", "Innovation"],
       slug: "ai-future-enterprise-solutions"
     },
@@ -121,7 +121,7 @@ export const BlogSection = () => {
       category: "CLOUD COMPUTING",
       date: "05-06-2025",
       excerpt: "Essential security measures and best practices for protecting your data and applications in cloud environments...",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa.webp?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80",
       tags: ["Cloud", "Security", "Best Practices"],
       slug: "cloud-security-best-practices"
     }
