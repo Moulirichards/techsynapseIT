@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const StyledWrapper = styled.div`
   button {
@@ -87,6 +88,7 @@ const StyledButton = () => {
 
 export const BlogSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const blogs = [
     {
@@ -188,7 +190,7 @@ export const BlogSection = () => {
                       src={blog.image}
                       alt={blog.title}
                       className="w-full h-20 md:h-48 object-cover group-hover:scale-105 md:group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
+                      loading={isMobile ? 'eager' : 'lazy'}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-purple-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>

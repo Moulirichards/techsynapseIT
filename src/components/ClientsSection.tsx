@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 export const ClientsSection = () => {
   const [currentSet, setCurrentSet] = useState(0);
@@ -44,6 +45,8 @@ export const ClientsSection = () => {
     clients.slice(0, 16),  // First 16
     clients.slice(16)      // Next 16
   ];
+
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -103,7 +106,7 @@ export const ClientsSection = () => {
                           src={client.name === 'Deloitte' ? '/Deloitte.png' : client.logo}
                           alt={client.name}
                           className={`w-16 h-16 min-w-[70%] min-h-[70%] object-contain`}
-                          loading="lazy"
+                          loading={isMobile ? 'eager' : 'lazy'}
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.style.display = 'none';
@@ -132,7 +135,7 @@ export const ClientsSection = () => {
                         src={client.name === 'Deloitte' ? '/Deloitte.png' : client.logo}
                         alt={client.name}
                         className={`w-full h-full min-w-[70%] min-h-[70%] object-contain max-h-20 lg:max-h-24 xl:max-h-28`}
-                        loading="lazy"
+                        loading={isMobile ? 'eager' : 'lazy'}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';

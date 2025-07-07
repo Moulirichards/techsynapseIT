@@ -6,6 +6,7 @@ import {
 import { Logo } from './Logo';
 import { useState, useEffect } from 'react';
 import React from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 // Copy serviceCategories and services from Navbar
 const serviceCategories = {
@@ -162,6 +163,7 @@ export const Footer = () => {
   const [modalType, setModalType] = useState<'service' | 'tech' | null>(null);
   const [isTouch, setIsTouch] = useState(false);
   const currentYear = new Date().getFullYear();
+  const isMobile = useIsMobile();
 
   const industries = [
     { name: 'Automotive' },

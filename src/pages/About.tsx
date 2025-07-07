@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Users, Target, Award, Globe, Rocket, Cloud, TrendingUp } from 'lucide-react';
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const StyledWrapper = styled.div`
   .button {
@@ -333,6 +334,8 @@ const About = () => {
   const autoPlayRef = React.useRef(autoPlay);
   autoPlayRef.current = autoPlay;
 
+  const isMobile = useIsMobile();
+
   // Handle hash navigation to scroll to video section
   useEffect(() => {
     if (window.location.hash === '#demo-video') {
@@ -557,7 +560,7 @@ const About = () => {
               </div>
           {/* Right: Map */}
           <div className="flex-[2] flex justify-center items-center w-full relative">
-            <img src="/map1.png" alt="World Map" className="w-full h-auto object-contain lg:-ml-24" />
+            <img src="/map1.png" alt="World Map" className="w-full h-auto object-contain lg:-ml-24" loading={isMobile ? 'eager' : 'lazy'} />
             </div>
             </div>
         {/* Bottom Row: Stats */}

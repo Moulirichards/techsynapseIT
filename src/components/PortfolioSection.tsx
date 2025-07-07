@@ -2,6 +2,7 @@ import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
+import { useIsMobile } from '../hooks/use-mobile';
 
 export const PortfolioSection = () => {
   const projects = [
@@ -30,6 +31,8 @@ export const PortfolioSection = () => {
       date: "2022"
     }
   ];
+
+  const isMobile = useIsMobile();
 
   return (
     <section 
@@ -61,7 +64,7 @@ export const PortfolioSection = () => {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   alt={project.title}
                   className="w-full h-20 md:h-48 object-cover group-hover:scale-105 md:group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
+                  loading={isMobile ? 'eager' : 'lazy'}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

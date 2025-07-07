@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import './TechnologyStack.css';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const technologyCategories = [
   {
@@ -289,6 +290,8 @@ export const TechnologyStack = () => {
     }
   }, []);
 
+  const isMobile = useIsMobile();
+
   return (
     <section
       className="technology-stack py-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
@@ -353,10 +356,9 @@ export const TechnologyStack = () => {
                             {/* Large, dark, visible logo in background */}
                             <img
                               src={tech.logo}
-                              alt=""
-                              aria-hidden="true"
-                              className="absolute right-1 bottom-1 w-20 h-20 md:w-32 md:h-32 opacity-40 pointer-events-none select-none filter grayscale brightness-50"
-                              style={{ zIndex: 1 }}
+                              alt={tech.name}
+                              className="w-12 h-12 md:w-16 md:h-16 object-contain mx-auto mb-2"
+                              loading={isMobile ? 'eager' : 'lazy'}
                             />
                             {/* Content */}
                             <div className="relative z-10 flex flex-col gap-1 md:gap-2">
