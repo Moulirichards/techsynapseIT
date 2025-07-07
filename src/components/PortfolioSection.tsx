@@ -41,7 +41,7 @@ export const PortfolioSection = () => {
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ fontFamily: 'EB Garamond, serif' }}>Our Portfolio</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-[#0154b4] to-[#7deff6] bg-clip-text text-transparent" style={{ fontFamily: window.innerWidth > 768 ? 'EB Garamond, serif' : 'system-ui, Arial, sans-serif' }}>Our Portfolio</h2>
           <div className="w-16 md:w-24 h-1 bg-white mx-auto mb-4 md:mb-8"></div>
           <p className="text-base md:text-xl text-blue-100 max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
             Discover our latest projects and see how we've helped businesses achieve their digital transformation goals.

@@ -282,7 +282,7 @@ export const ContactCTA = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
           <div className="text-white">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-6" style={{ fontFamily: 'Exo, Arial, sans-serif', color: '#fff' }}>Ready to Transform Your Business?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-6" style={{ fontFamily: window.innerWidth > 768 ? 'Exo, Arial, sans-serif' : 'system-ui, Arial, sans-serif', color: '#fff' }}>Ready to Transform Your Business?</h2>
             <p className="text-base md:text-xl text-blue-100 mb-4 md:mb-8">
               Let's discuss how our innovative IT solutions can drive your business forward. 
               Get in touch with our experts today.

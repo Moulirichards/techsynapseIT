@@ -74,7 +74,7 @@ export const ClientsSection = () => {
         <div className="text-center mb-8 md:mb-16">
           <h2
             className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-cyan-300 mb-2 md:mb-4 tracking-tight leading-tight relative z-10"
-            style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
+            style={{ fontFamily: window.innerWidth > 768 ? 'Poppins, Arial, sans-serif' : 'system-ui, Arial, sans-serif' }}
           >
             Our Clients
           </h2>
