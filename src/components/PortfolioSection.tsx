@@ -33,13 +33,8 @@ export const PortfolioSection = () => {
 
   return (
     <section 
-      className="py-8 relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/portfoliobg.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="py-8 relative bg-gradient-to-br from-slate-800 via-blue-600 to-violet-400"
+      style={{}}
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="text-center mb-10 md:mb-16">

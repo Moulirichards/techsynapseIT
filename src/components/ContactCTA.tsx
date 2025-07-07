@@ -263,15 +263,8 @@ export const ContactCTA = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-32 px-4 md:px-0 flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden"
-      style={bgLoaded ? {
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/transformbg.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      } : {
-        background: 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))',
-      }}
+      className="relative py-20 md:py-32 px-4 md:px-0 flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900"
+      style={{}}
     >
       {/* LQIP blurred background */}
       {!bgLoaded && (
