@@ -87,13 +87,6 @@ export const TestimonialsCarousel = () => {
     }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
