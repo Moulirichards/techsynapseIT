@@ -143,7 +143,7 @@ export const BlogSection = () => {
   return (
     <section className="py-20 text-black relative overflow-hidden" style={{ backgroundColor: '#111' }}>
       {/* Large Outlined Triangle in the background */}
-      <div className="absolute left-0 top-0 w-full h-full pointer-events-none z-0">
+      <div className="absolute left-0 top-0 w-full h-full pointer-events-none z-0 hidden md:block">
         <svg width="100%" height="100%" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', left: 0, top: 0 }}>
           <defs>
             <linearGradient id="triangleGradient" x1="0" y1="0" x2="1" y2="0">
@@ -167,7 +167,7 @@ export const BlogSection = () => {
                   <path d="M2 12l10 5 10-5"/>
                 </svg>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-6" style={{ fontFamily: 'Orbitron, Arial, sans-serif' }}>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-6 text-white md:text-black" style={{ fontFamily: 'Orbitron, Arial, sans-serif' }}>
                 Our Insights
               </h2>
               <div className="w-16 md:w-24 h-1 mx-0 rounded-full" style={{ background: 'linear-gradient(to right, #7deff6, #0154b4)' }}></div>

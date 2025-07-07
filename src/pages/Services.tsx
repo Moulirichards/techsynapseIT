@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -80,6 +80,16 @@ import {
 import { Link } from 'react-router-dom';
 
 const Services = () => {
+  useEffect(() => {
+    if (window.location.hash === '#services') {
+      const el = document.getElementById('services');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 100); // slight delay to ensure DOM is ready
+      }
+    }
+  }, []);
   const serviceCategories = [
     {
       title: "Online Marketing",
@@ -279,7 +289,7 @@ const Services = () => {
       </section>
 
       {/* Enhanced Services Grid */}
-      <section className="py-16 relative">
+      <section id="services" className="py-16 relative">
         {/* Services grid background enhancements */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-400/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '7s'}}></div>

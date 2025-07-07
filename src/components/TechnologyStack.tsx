@@ -112,6 +112,86 @@ const techPageMap = {
   'Mocha': 'unit-testing',
 };
 
+// Add short generic descriptions for each technology
+const techDescriptions = {
+  'HTML/HTML5': 'Markup language for structuring web content.',
+  'CSS3': 'Stylesheet language for designing web pages.',
+  'JavaScript': 'Programming language for interactive web apps.',
+  'AngularJS': 'Framework for building dynamic web apps.',
+  'jQuery': 'JavaScript library for DOM manipulation.',
+  'WordPress': 'Popular CMS for websites and blogs.',
+  'PHP': 'Server-side scripting language for web development.',
+  'Java': 'Versatile programming language for many platforms.',
+  'Spring': 'Java framework for building applications.',
+  'Python': 'Powerful, easy-to-learn programming language.',
+  'Shell': 'Command-line scripting for automation.',
+  'Perl': 'Text processing and scripting language.',
+  'AWS': 'Cloud computing services by Amazon.',
+  'Google Cloud': 'Cloud platform by Google.',
+  'Docker': 'Containerization platform for apps.',
+  'Azure': 'Microsoft cloud computing platform.',
+  'Kubernetes': 'Container orchestration platform.',
+  'Heroku': 'Cloud platform for deploying apps.',
+  'Oracle': 'Enterprise database management system.',
+  'MongoDB': 'NoSQL document database.',
+  'Redis': 'In-memory data structure store.',
+  'MySQL': 'Popular open-source relational database.',
+  'PostgreSQL': 'Advanced open-source relational database.',
+  'Elasticsearch': 'Search and analytics engine.',
+  'Apache': 'Widely-used web server software.',
+  'Tomcat': 'Java servlet container and web server.',
+  'Nginx': 'High-performance web server.',
+  'IIS': 'Microsoft web server.',
+  'Caddy': 'Automatic HTTPS web server.',
+  'Lighttpd': 'Lightweight web server.',
+  'Jest': 'JavaScript testing framework.',
+  'Selenium': 'Browser automation for testing.',
+  'Git': 'Version control system for code.',
+  'Jenkins': 'Automation server for CI/CD.',
+  'Travis CI': 'Continuous integration service.',
+  'Mocha': 'JavaScript test framework.',
+};
+
+// Unique gradient for each technology
+const techGradients = {
+  'HTML/HTML5': 'bg-gradient-to-br from-orange-400 via-pink-500 to-red-500',
+  'CSS3': 'bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-500',
+  'JavaScript': 'bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-400',
+  'AngularJS': 'bg-gradient-to-br from-red-400 via-pink-500 to-yellow-500',
+  'jQuery': 'bg-gradient-to-br from-blue-300 via-blue-500 to-cyan-400',
+  'WordPress': 'bg-gradient-to-br from-blue-600 via-blue-400 to-gray-400',
+  'PHP': 'bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-500',
+  'Java': 'bg-gradient-to-br from-yellow-700 via-yellow-500 to-orange-400',
+  'Spring': 'bg-gradient-to-br from-green-400 via-green-500 to-teal-500',
+  'Python': 'bg-gradient-to-br from-blue-400 via-yellow-300 to-green-300',
+  'Shell': 'bg-gradient-to-br from-gray-700 via-gray-500 to-gray-400',
+  'Perl': 'bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400',
+  'AWS': 'bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500',
+  'Google Cloud': 'bg-gradient-to-br from-blue-400 via-red-400 to-yellow-400',
+  'Docker': 'bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600',
+  'Azure': 'bg-gradient-to-br from-blue-500 via-blue-700 to-cyan-400',
+  'Kubernetes': 'bg-gradient-to-br from-blue-400 via-blue-500 to-cyan-400',
+  'Heroku': 'bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-500',
+  'Oracle': 'bg-gradient-to-br from-red-500 via-orange-400 to-yellow-400',
+  'MongoDB': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
+  'Redis': 'bg-gradient-to-br from-red-400 via-pink-500 to-orange-400',
+  'MySQL': 'bg-gradient-to-br from-blue-400 via-blue-500 to-cyan-400',
+  'PostgreSQL': 'bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-500',
+  'Elasticsearch': 'bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400',
+  'Apache': 'bg-gradient-to-br from-red-400 via-orange-400 to-yellow-400',
+  'Tomcat': 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400',
+  'Nginx': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
+  'IIS': 'bg-gradient-to-br from-blue-400 via-blue-600 to-gray-400',
+  'Caddy': 'bg-gradient-to-br from-green-400 via-green-600 to-teal-500',
+  'Lighttpd': 'bg-gradient-to-br from-gray-400 via-gray-500 to-gray-700',
+  'Jest': 'bg-gradient-to-br from-pink-400 via-red-400 to-yellow-400',
+  'Selenium': 'bg-gradient-to-br from-green-400 via-green-600 to-gray-400',
+  'Git': 'bg-gradient-to-br from-orange-400 via-red-400 to-yellow-400',
+  'Jenkins': 'bg-gradient-to-br from-orange-400 via-yellow-400 to-red-400',
+  'Travis CI': 'bg-gradient-to-br from-green-400 via-gray-400 to-red-400',
+  'Mocha': 'bg-gradient-to-br from-yellow-700 via-yellow-500 to-brown-400',
+};
+
 // Styled Switch component
 const StyledWrapper = styled.div`
   /* The switch - the box around the slider */
@@ -170,10 +250,19 @@ const Switch = ({ checked, onChange }) => (
 );
 
 export const TechnologyStack = () => {
-  // Split categories into pages of 3
+  // Responsive page size: 1 for mobile, 2 for desktop
+  const getPageSize = () => (window.innerWidth < 768 ? 1 : 2);
+  const [pageSize, setPageSize] = useState(getPageSize());
+  useEffect(() => {
+    const handleResize = () => setPageSize(getPageSize());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Split categories into pages of pageSize
   const pages = [];
-  for (let i = 0; i < technologyCategories.length; i += 3) {
-    pages.push(technologyCategories.slice(i, i + 3));
+  for (let i = 0; i < technologyCategories.length; i += pageSize) {
+    pages.push(technologyCategories.slice(i, i + pageSize));
   }
 
   // Swipe indicator logic
@@ -202,8 +291,14 @@ export const TechnologyStack = () => {
 
   return (
     <section
-      className="technology-stack py-20 relative overflow-hidden bg-gradient-to-br from-blue-500 via-cyan-400 to-purple-500"
+      className="technology-stack py-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      style={{ position: 'relative' }}
     >
+      {/* Subtle radial gradients and grid overlay for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)] pointer-events-none -z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.05),transparent_50%)] pointer-events-none -z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.05),transparent_50%)] pointer-events-none -z-10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none -z-10"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center mb-6 md:mb-8">
           <h2
@@ -227,52 +322,60 @@ export const TechnologyStack = () => {
         {pages.map((categories, pageIdx) => (
           <div
             key={pageIdx}
-            className="min-w-full flex-shrink-0 snap-center grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center items-start min-h-[400px]"
+            className={`min-w-full flex-shrink-0 snap-center grid ${pageSize === 1 ? 'grid-cols-1' : 'grid-cols-2'} gap-12 justify-items-center items-start`}
           >
             {categories.map((category, idx) => (
               <div key={pageIdx + '-' + idx + '-' + category.name} className="flex flex-col items-center w-full">
-                <div className="w-full mb-6">
-                  <div className="w-full flex items-center justify-center">
-                    <div className="px-6 py-3 rounded-2xl bg-white/30 backdrop-blur-md shadow-lg border border-blue-200 text-center">
-                      <span className="text-lg font-bold text-white leading-tight whitespace-pre-line drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{category.name}</span>
+                <div className="w-full">
+                  <div className="rounded-3xl bg-slate-800/90 shadow-2xl p-3 md:p-8 w-full">
+                    <div className="mb-4 md:mb-6 flex items-center justify-center">
+                      <div className="px-3 py-2 md:px-6 md:py-3 rounded-2xl bg-white/20 backdrop-blur-md shadow-lg border border-blue-200 text-center">
+                        <span className="text-base md:text-lg font-bold text-white leading-tight whitespace-pre-line drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{category.name}</span>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
+                      {category.technologies.map((tech) => {
+                        const pageName = techPageMap[tech.name] ||
+                          tech.name
+                            .toLowerCase()
+                            .replace(/\s+/g, '-')
+                            .replace(/\//g, '-')
+                            .replace(/\+/, 'plus')
+                            .replace(/\./g, '')
+                            .replace(/\&/g, 'and')
+                            .replace(/[^a-z0-9\-]/g, '');
+                        return (
+                          <div
+                            key={tech.name}
+                            className={`relative flex flex-col justify-end p-2 md:p-5 rounded-2xl shadow-lg overflow-hidden ${techGradients[tech.name] || 'bg-gradient-to-br from-gray-300 to-gray-500'} transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
+                            style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.10)' }}
+                          >
+                            {/* Large, dark, visible logo in background */}
+                            <img
+                              src={tech.logo}
+                              alt=""
+                              aria-hidden="true"
+                              className="absolute right-1 bottom-1 w-20 h-20 md:w-32 md:h-32 opacity-40 pointer-events-none select-none filter grayscale brightness-50"
+                              style={{ zIndex: 1 }}
+                            />
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col gap-1 md:gap-2">
+                              <span className="text-white text-sm md:text-lg font-bold leading-tight drop-shadow-lg">{tech.name}</span>
+                              <span className="text-white/90 text-[10px] md:text-xs font-medium mb-1 md:mb-2 drop-shadow" style={{textShadow: '0 2px 8px rgba(0,0,0,0.10)'}}>
+                                {techDescriptions[tech.name] || 'A modern technology for digital solutions.'}
+                              </span>
+                              <Link
+                                to={`/technologies/${pageName}`}
+                                className="mt-1 px-2 py-1 md:px-4 md:py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-semibold text-[10px] md:text-xs shadow transition-colors duration-200 w-fit"
+                                style={{textShadow: 'none'}}>
+                                Learn More
+                              </Link>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
-                </div>
-                <div className="grid grid-cols-2 gap-6 w-full">
-                  {category.technologies.map((tech) => {
-                    // Use mapping if available, otherwise fallback to current logic
-                    const pageName = techPageMap[tech.name] ||
-                      tech.name
-                        .toLowerCase()
-                        .replace(/\s+/g, '-')
-                        .replace(/\//g, '-')
-                        .replace(/\+/, 'plus')
-                        .replace(/\./g, '')
-                        .replace(/\&/g, 'and')
-                        .replace(/[^a-z0-9\-]/g, '');
-                    return (
-                      <div
-                        key={tech.name}
-                        className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/30 backdrop-blur-md shadow-lg border-2 border-blue-200 glassmorphic-card transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-blue-400 hover:bg-white/40"
-                        style={{
-                          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-                          backdropFilter: 'blur(18px)',
-                        }}
-                      >
-                        <div className="w-16 h-16 flex items-center justify-center mb-2">
-                          <img src={tech.logo} alt={tech.name} className="w-20 h-20 object-contain" />
-                        </div>
-                        <span className="mt-1 text-white text-sm font-semibold text-center drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>{tech.name}</span>
-                        <Link
-                          to={`/technologies/${pageName}`}
-                          className="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-xs shadow transition-colors duration-200"
-                          style={{textShadow: 'none'}}
-                        >
-                          Learn More
-                        </Link>
-                      </div>
-                    );
-                  })}
                 </div>
               </div>
             ))}

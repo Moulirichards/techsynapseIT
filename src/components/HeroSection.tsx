@@ -195,12 +195,7 @@ export const HeroSection = () => {
         <div className="flex justify-center md:absolute md:-bottom-16 md:left-1/2 md:transform md:-translate-x-1/2 md:animate-bounce mt-8 md:mt-0">
           <ChevronDown 
             className="h-6 w-6 md:h-8 md:w-8 text-gray-400 hover:text-blue-600 transition-colors cursor-pointer animate-bounce" 
-            onClick={() => {
-              const nextSection = document.getElementById('services');
-              if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={() => navigate('/services#services')}
           />
         </div>
       </div>

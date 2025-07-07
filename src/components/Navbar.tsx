@@ -279,7 +279,7 @@ export const Navbar = () => {
               {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
             </button>
             <Link to="/" className="flex items-center space-x-2 py-2 max-h-full md:pl-0 md:ml-0">
-              <span className="block md:hidden"><Logo size="md" className="h-6 w-6" /></span>
+              <span className="block md:hidden"><Logo size="md" className="h-12 w-12" /></span>
               <span className="hidden md:block"><Logo size="lg" className="h-10 w-10" /></span>
             </Link>
           </div>

@@ -60,7 +60,7 @@ export const ClientsSection = () => {
   const currentClients = clientSets[currentSet];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <section className="py-4 md:py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.05),transparent_50%)]"></div>
@@ -68,58 +68,82 @@ export const ClientsSection = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-cyan-300 mb-4 tracking-tight leading-tight relative z-10"
+            className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-cyan-300 mb-2 md:mb-4 tracking-tight leading-tight relative z-10"
             style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
           >
             Our Clients
           </h2>
-          <div className="w-20 md:w-32 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto mb-6 md:mb-8 rounded-full relative z-10"></div>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed relative z-10">
+          <div className="w-12 md:w-32 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto mb-3 md:mb-8 rounded-full relative z-10"></div>
+          <p className="text-xs md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed relative z-10">
             Trusted by industry leaders and innovative companies worldwide
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 md:gap-6 lg:gap-8">
           {currentClients.map((client, index) => (
-            <div
-              key={`${currentSet}-${client.name}`}
-              className="group relative perspective-1000 aspect-square"
-              style={{ 
-                animationDelay: `${index * 50}ms`,
-                transitionDelay: isFlipping ? '0ms' : `${index * 30}ms`
-              }}
-            >
-              <div className={`relative w-full h-full transition-transform duration-1200 transform-style-preserve-3d ${
-                isFlipping ? 'rotate-y-180' : 'rotate-y-0'
-              }`}>
-                {/* Front side (current set) */}
-                <div className="absolute inset-0 backface-hidden">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 p-3 md:p-4 border border-white/20 hover:border-purple-400/50 group-hover:scale-110 transform hover:-translate-y-2 h-full flex flex-col relative z-10">
+            <div className="flex justify-center items-center">
+              <div
+                key={`${currentSet}-${client.name}`}
+                className="group relative perspective-1000"
+                style={{ 
+                  animationDelay: `${index * 50}ms`,
+                  transitionDelay: isFlipping ? '0ms' : `${index * 30}ms`
+                }}
+              >
+                <div className={`relative transition-transform duration-1200 transform-style-preserve-3d ${
+                  isFlipping ? 'rotate-y-180' : 'rotate-y-0'
+                }`}>
+                  {/* Mobile: small, square card */}
+                  <div className="block md:hidden w-20 h-20 aspect-square">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-700 p-1 border border-white/20 flex flex-col relative z-10 w-full h-full">
+                      <div className="relative overflow-hidden rounded-lg flex-1 flex items-center justify-center bg-white">
+                        <img
+                          src={client.name === 'Deloitte' ? '/Deloitte.png' : client.logo}
+                          alt={client.name}
+                          className={`w-16 h-16 min-w-[70%] min-h-[70%] object-contain`}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent) {
+                              const fallback = document.createElement('div');
+                              fallback.className = 'w-full h-full flex items-center justify-center text-white font-bold text-xs text-center px-2';
+                              fallback.textContent = client.name;
+                              parent.appendChild(fallback);
+                            }
+                          }}
+                        />
+                      </div>
+                      {/* Floating name on hover */}
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
+                        <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
+                          {client.name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Desktop: flexible card */}
+                  <div className="hidden md:flex flex-col relative z-10 bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 p-3 border border-white/20 hover:border-purple-400/50 group-hover:scale-110 transform hover:-translate-y-2">
                     <div className="relative overflow-hidden rounded-xl flex-1 flex items-center justify-center bg-white">
                       <img
-                        src={client.logo}
+                        src={client.name === 'Deloitte' ? '/Deloitte.png' : client.logo}
                         alt={client.name}
-                        className={`w-full h-full object-contain ${
-                          client.name === "Ericsson" 
-                            ? "max-h-16 md:max-h-20 lg:max-h-24 xl:max-h-28" 
-                            : "max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32"
-                        }`}
+                        className={`w-full h-full min-w-[70%] min-h-[70%] object-contain max-h-20 lg:max-h-24 xl:max-h-28`}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
                           const parent = target.parentElement;
                           if (parent) {
                             const fallback = document.createElement('div');
-                            fallback.className = 'w-full h-full max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 flex items-center justify-center text-white font-bold text-xs md:text-sm text-center px-2';
+                            fallback.className = 'w-full h-full flex items-center justify-center text-white font-bold text-sm text-center px-2';
                             fallback.textContent = client.name;
                             parent.appendChild(fallback);
                           }
                         }}
                       />
                     </div>
-                    
                     {/* Floating name on hover */}
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
                       <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
@@ -127,47 +151,6 @@ export const ClientsSection = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 to-cyan-400/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
-                </div>
-
-                {/* Back side (next set) */}
-                <div className="absolute inset-0 backface-hidden rotate-y-180">
-                  <div className="bg-purple-500/10 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 p-3 md:p-4 border border-purple-400/30 group-hover:scale-110 transform hover:-translate-y-2 h-full flex flex-col relative z-10">
-                    <div className="relative overflow-hidden rounded-xl flex-1 flex items-center justify-center bg-white">
-                      <img
-                        src={clientSets[(currentSet + 1) % clientSets.length][index]?.logo || client.logo}
-                        alt={clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name}
-                        className={`w-full h-full object-contain ${
-                          (clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name) === "Ericsson" 
-                            ? "max-h-16 md:max-h-20 lg:max-h-24 xl:max-h-28" 
-                            : "max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32"
-                        }`}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const parent = target.parentElement;
-                          if (parent) {
-                            const fallback = document.createElement('div');
-                            fallback.className = 'w-full h-full max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 flex items-center justify-center text-white font-bold text-xs md:text-sm text-center px-2';
-                            fallback.textContent = clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name;
-                            parent.appendChild(fallback);
-                          }
-                        }}
-                      />
-                    </div>
-                    
-                    {/* Floating name on hover */}
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
-                      <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
-                        {clientSets[(currentSet + 1) % clientSets.length][index]?.name || client.name}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/40 to-cyan-400/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
                 </div>
               </div>
             </div>
