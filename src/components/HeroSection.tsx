@@ -76,9 +76,12 @@ export const HeroSection = () => {
     >
       {/* Background Images with Slideshow */}
       {backgroundImages.map((bgImage, index) => {
+        // Only render current and next image for performance
+        const isCurrent = index === currentBgIndex;
+        const isNext = index === (currentBgIndex + 1) % backgroundImages.length;
+        if (!isCurrent && !isNext) return null;
         // Calculate the position for sliding
         let slidePosition;
-        
         if (index === currentBgIndex) {
           slidePosition = 'translate-x-0'; // Current image
         } else if (index < currentBgIndex) {
@@ -86,12 +89,10 @@ export const HeroSection = () => {
         } else {
           slidePosition = 'translate-x-full'; // Next images (right)
         }
-        
         // Special handling for wrap-around: when going from last to first image
         if (currentBgIndex === backgroundImages.length - 1 && index === 0) {
           slidePosition = 'translate-x-full'; // First image positioned to the right
         }
-        
         return (
           <div
             key={index}

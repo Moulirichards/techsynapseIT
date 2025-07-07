@@ -60,6 +60,10 @@ export const PortfolioSection = () => {
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
+                  srcSet={
+                    `${project.image}&w=400 400w,${project.image}&w=800 800w,${project.image}&w=1200 1200w`
+                  }
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   alt={project.title}
                   className="w-full h-20 md:h-48 object-cover group-hover:scale-105 md:group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
