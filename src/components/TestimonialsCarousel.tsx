@@ -3,33 +3,7 @@ import { Star } from 'lucide-react';
 
 export const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [bgLoaded, setBgLoaded] = useState(false);
   const sectionRef = useRef(null);
-
-  // Preload the background image as soon as the component mounts
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = '/testmonialbg.webp';
-    img.onload = () => setBgLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setBgLoaded(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { root: null, rootMargin: '800px', threshold: 0.1 }
-    );
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
 
   const testimonials = [
     {
@@ -122,39 +96,12 @@ export const TestimonialsCarousel = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
-  if (!bgLoaded) {
-    // Show a spinner or placeholder while loading
-    return (
-      <section className="py-20 flex items-center justify-center min-h-[400px]" style={{background: 'linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))'}}>
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
-      </section>
-    );
-  }
-
   return (
     <section
       ref={sectionRef}
-      className="py-20 relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/testmonialbg.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="py-20 relative bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900"
+      style={{}}
     >
-      {/* LQIP blurred background */}
-      {!bgLoaded && (
-        <div style={{
-          backgroundImage: `url('/testmonialbg-blur.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          filter: 'blur(16px)',
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-        }} />
-      )}
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4" style={{ fontFamily: 'EB Garamond, serif' }}>What Our Clients Say</h2>
