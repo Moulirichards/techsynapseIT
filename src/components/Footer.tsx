@@ -491,7 +491,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 justify-center">
                 <Mail className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-200 text-xs font-medium">info@infocera.com</span>
+                <span className="text-gray-200 text-xs font-medium">info@infocera.in</span>
               </div>
               <div className="flex items-center space-x-2 mb-2 justify-center">
                 <div className="w-full flex flex-col items-center bg-black/40 rounded-xl p-3 mb-2">
