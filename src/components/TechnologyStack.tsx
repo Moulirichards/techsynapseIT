@@ -276,11 +276,11 @@ export const TechnologyStack = () => {
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         if (scrollRef.current) {
           scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
         }
-      }, 100);
+      });
     }
   }, []);
   const [currentPage, setCurrentPage] = useState(0);
