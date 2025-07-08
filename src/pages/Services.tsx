@@ -199,6 +199,8 @@ const Services = () => {
     }
   ];
 
+  const [showAll, setShowAll] = React.useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-y-auto md:overflow-visible">
       <style>{customStyles}</style>
@@ -300,33 +302,45 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8">
             {serviceCategories.map((category, index) => (
-              <div
-                key={category.title}
-                className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100 flex flex-col`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`w-16 h-16 bg-white/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{category.title}</h3>
-                <ul className="space-y-2 mb-6">
-                  {category.services.map((service) => (
-                    <li key={service.name} className="flex items-center text-white/90 hover:text-white transition-colors">
-                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                      <Link to={service.path} className="hover:underline">
-                        {service.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to={category.learnMorePath}
-                  className="inline-flex items-center text-white font-semibold hover:text-blue-100 transition-colors group text-sm mt-auto"
+              <React.Fragment key={category.title}>
+                <div
+                  className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100 flex flex-col ${!showAll && index >= 4 ? 'hidden lg:flex' : ''}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
+                  <div className={`w-16 h-16 bg-white/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <category.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{category.title}</h3>
+                  <ul className="space-y-2 mb-6">
+                    {category.services.map((service) => (
+                      <li key={service.name} className="flex items-center text-white/90 hover:text-white transition-colors">
+                        <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                        <Link to={service.path} className="hover:underline">
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={category.learnMorePath}
+                    className="inline-flex items-center text-white font-semibold hover:text-blue-100 transition-colors group text-sm mt-auto"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+                {/* Insert the button after the 4th card on mobile */}
+                {!showAll && index === 3 && (
+                  <div className="block lg:hidden mt-8 text-center w-full col-span-full">
+                    <button
+                      className="inline-block px-6 py-3 bg-white text-blue-700 font-bold rounded-xl shadow hover:bg-blue-100 transition-all duration-300"
+                      onClick={() => setShowAll(true)}
+                    >
+                      View All Services
+                    </button>
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
