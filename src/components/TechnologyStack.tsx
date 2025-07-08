@@ -274,14 +274,16 @@ export const TechnologyStack = () => {
     return () => clearTimeout(timer);
   }, []);
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
-      requestAnimationFrame(() => {
-        if (scrollRef.current) {
-          scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
-        }
-      });
+    function resetScroll() {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
+      }
     }
+    resetScroll();
+    requestAnimationFrame(resetScroll);
+    setTimeout(resetScroll, 500);
+    window.addEventListener('load', resetScroll);
+    return () => window.removeEventListener('load', resetScroll);
   }, []);
   const [currentPage, setCurrentPage] = useState(0);
   // Update current page based on scroll position
