@@ -326,12 +326,20 @@ export const TechnologyStack = () => {
         {pages.map((categories, pageIdx) => (
           <div
             key={pageIdx}
-            className="min-w-full flex-shrink-0 snap-center flex flex-row gap-4 justify-center items-start"
+            className={
+              pageIdx === 0
+                ? "min-w-full flex-shrink-0 snap-center flex flex-row gap-4 justify-center items-start md:pl-10 md:pr-10"
+                : "min-w-full flex-shrink-0 snap-center flex flex-row gap-4 justify-center items-start"
+            }
           >
             {categories.map((category, idx) => (
               <div
                 key={pageIdx + '-' + idx + '-' + category.name}
-                className={`flex flex-col items-center w-[98vw] md:w-[48%] ${idx === 0 ? 'md:ml-8' : ''} ${idx === 1 ? 'md:mr-8' : ''}`}
+                className={
+                  pageIdx === 0
+                    ? "flex flex-col items-center w-[98vw] md:w-[44%]"
+                    : "flex flex-col items-center w-[98vw] md:w-[48%]"
+                }
               >
                 <div className="w-full">
                   <div className="rounded-3xl bg-slate-800/90 shadow-2xl p-2 md:p-5 w-full">
