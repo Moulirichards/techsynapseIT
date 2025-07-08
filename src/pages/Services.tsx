@@ -199,7 +199,7 @@ const Services = () => {
     }
   ];
 
-  const [showAll, setShowAll] = React.useState(false);
+  const [showAllMobile, setShowAllMobile] = React.useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-y-auto md:overflow-visible">
@@ -304,7 +304,7 @@ const Services = () => {
             {serviceCategories.map((category, index) => (
               <React.Fragment key={category.title}>
                 <div
-                  className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100 flex flex-col ${!showAll && index >= 4 ? 'hidden lg:flex' : ''}`}
+                  className={`group bg-gradient-to-r ${category.gradient} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in border border-gray-100 flex flex-col ${index >= 4 && !showAllMobile ? 'hidden' : ''} lg:flex`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`w-16 h-16 bg-white/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -330,11 +330,11 @@ const Services = () => {
                   </Link>
                 </div>
                 {/* Insert the button after the 4th card on mobile */}
-                {!showAll && index === 3 && (
+                {!showAllMobile && index === 3 && (
                   <div className="block lg:hidden mt-8 text-center w-full col-span-full">
                     <button
                       className="inline-block px-6 py-3 bg-white text-blue-700 font-bold rounded-xl shadow hover:bg-blue-100 transition-all duration-300"
-                      onClick={() => setShowAll(true)}
+                      onClick={() => setShowAllMobile(true)}
                     >
                       View All Services
                     </button>
