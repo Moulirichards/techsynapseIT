@@ -273,6 +273,11 @@ export const TechnologyStack = () => {
     const timer = setTimeout(() => setShowIndicator(false), 4000);
     return () => clearTimeout(timer);
   }, []);
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
+    }
+  }, []);
   const [currentPage, setCurrentPage] = useState(0);
   // Update current page based on scroll position
   const handleScroll = (e) => {
