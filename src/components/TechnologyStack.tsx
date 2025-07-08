@@ -337,8 +337,8 @@ export const TechnologyStack = () => {
                 key={pageIdx + '-' + idx + '-' + category.name}
                 className={
                   pageIdx === 0
-                    ? "flex flex-col items-center w-[98vw] md:w-[44%]"
-                    : "flex flex-col items-center w-[98vw] md:w-[48%]"
+                    ? "flex flex-col items-center w-[98vw] md:w-5/12"
+                    : "flex flex-col items-center w-[98vw] md:w-1/2"
                 }
               >
                 <div className="w-full">
