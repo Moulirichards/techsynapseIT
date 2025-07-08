@@ -291,7 +291,7 @@ const Services = () => {
       </section>
 
       {/* Enhanced Services Grid */}
-      <section id="services" className="py-16 relative">
+      <section id="services" className="py-16 relative min-h-screen">
         {/* Services grid background enhancements */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-400/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '7s'}}></div>
